@@ -3,5 +3,14 @@
 		"Dos",
 		"Dosáhnul",
 		"hnul"
-	]
+	],
+	"cSpell.enableFiletypes": [
+		"!c",
+		"!cpp",
+		"!csharp",
+		"!yml",
+		"latex",
+		"text"
+	],
+	"cSpell.language": "en,cs"
 }
