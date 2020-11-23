@@ -16,16 +16,11 @@ Potenciální konkurenci tohoto systému jsem tedy rozdělil na dvě části.
 
 
 \subsection{PLC}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+PLC neboli programovatelný logický automat je průmyslový počítač k řízení automatizovaných procesů.
+Automaty zpracovávají data v reálném čase a s co nejkratší odezvou.
+PLC jsou velmi modulární a dají se skládat různě dohromady, podle potřeby uživatele.
+Je možné je také připojit do sítě a vzdálené řídit. !!!!!!Zařízení jsou dodávány s uzavřeným programovacím softwarem 
+
 
 
 \subsection{Industruino}
@@ -57,12 +52,77 @@ Desky Arduino se programují v jazyce Wiring\footnote{Jazyk vytvořený k progra
 
 \subsection{Srovnání}
 
+První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí většinu automatizovaných procesů, jejich nasazení je složité a celé systémy jsou velmi drahé.
 
+\begin{enumerate}
+    \item Jednoduché uchycení
+    \item Průmyslové napětí 5-25 V
+    \item Open source
+    \item Barevný display
+    \item Bezdrátová konektivita ve výchozím provedení
+		\item Moderní konektor USB C
+  \end{enumerate}
+
+
+	\begin{table}[]
+		\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+			\hline
+													& 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			PLC                  & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark \\ \hline
+			Industruino          & \cmark & \cmark & \cmark & \xmark & \cmark & \xmark \\ \hline
+			Hardwario            & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
+			Arduino              & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+			\textbf{Moje řešení} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+		\end{tabular}
+	\end{table}
+	
+
+\newpage
 
 %SECTION
 \section{Software}
 
-Open source, Jednoduché uchycení, průmyslové napájení,Barevný display, bezdrátová konektivita, průmyslový standart
+
+
+\subsection{NodeRED}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+\subsection{Blynk}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+\subsection{Home asistent}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+
+
+\subsection{Porovnání}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+
+
+
+
 
 
 \subsection{Univerzálnost}

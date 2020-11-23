@@ -13,9 +13,12 @@
 \definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
 \usepackage{listings} % balíček pro formátování zdrojových kódů 
 \usepackage{multirow}
+\usepackage{pifont}
 \usepackage[author=,status=draft]{fixme} % vkládání poznámek  
 % dva módy (status): draft (poznámky se zobrazují v PDF) / final (poznámky se nezobrazují v PDF)
 
+\newcommand{\cmark}{\textcolor{green}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
 
 \lstset { %
     language=C++,
