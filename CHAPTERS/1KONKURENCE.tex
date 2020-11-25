@@ -1,6 +1,6 @@
 \chapter{Konkurence}
 Tento systém je velice specifický a nedá se srovnávat jako celek. 
-Potenciální konkurenci tohoto systému jsem tedy rozdělil na dvě části.
+Potenciální konkurenci tohoto systému jsem tedy rozdělil na dva celky.
 
 \begin{itemize} % odrážkový seznam
     \item Hardware
@@ -27,15 +27,16 @@ Zařízení splňují průmyslové standardy a jsou navržený pro montáž na  
 
 \subsection{Hardwario}
 Hardwario\cite{HARDWARIO} je česká firma, která nabízí průmyslové IoT stavebnice.
-Cílem této firmy je nabídnou IoT průmyslové IoT řešení, které si sami sestavíte podle představ.
+Cílem této firmy je nabídnou průmyslové IoT řešení, které si sami sestavíte podle svých představ.
 Firma se zaměřuje na nízkoenergetické moduly s vydrží několika let.
-Nevýhodou tohoto produktu je vysoká pořizovací cena.
+Nevýhodou tohoto produktu je jeho vysoká pořizovací cena. 
+\fxnote[author=JA]{\textcolor{mygreen}{Cena???}}
 
 
 \subsection{Arduino}
-Arduino \cite{ARDUGREENHOUSE} je otevřený (open source) projekt který se díky své ceně a jednoduchosti na používání rozšířil po celém světě.
-Arduino má v nabídce přes deset různých modelů. Desky jsou velice univerzální a jsou velmi často využívány na kutilské projekty.
-K Arduinu také existuje velké množství shieldů, které základním modulům dodávají novou funkcionalitu. 
+Arduino \cite{ARDUGREENHOUSE} je otevřený (open source) projekt který se díky své nízké ceně a jednoduchosti na používání rozšířil po celém světě.
+Arduino má v nabídce přes deset různých modelů. Desky jsou univerzální a jsou velmi často využívány na kutilské projekty.
+K Arduinu také existuje velké množství shieldů, které základním modulům dodávají další funkcionalitu. 
 Jde například o WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
 Desky Arduino se programují v jazyce Wiring\footnote{Jazyk vytvořený k programování mikročipů}, nebo v jazyce C++. 
 
@@ -46,6 +47,8 @@ Desky Arduino se programují v jazyce Wiring\footnote{Jazyk vytvořený k progra
 
 První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí většinu automatizovaných procesů, jejich nasazení je složité a celé systémy jsou velmi drahé.
 
+
+Požadavky na platformu
 \begin{enumerate}
     \item Jednoduché uchycení
     \item Průmyslové napětí 5-25 V
@@ -65,7 +68,7 @@ První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí
 			Industruino          & \cmark & \cmark & \cmark & \xmark & \cmark & \xmark \\ \hline
 			Hardwario            & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
 			Arduino              & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
-			\textbf{Moje řešení} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+			\B{Moje řešení} & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
 		\end{tabular}
 	\end{table}
 	
@@ -97,11 +100,12 @@ Home asistent je software pro řízení chytrých domácností.
 Systém dokáže pracovat s více než 1700 službami.
 Připojená zařízení se konfigurují pomocí textového souboru.
 Aplikace také dokáže integrovat mnoho rozšíření, například ESPHome.
-To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené.
+To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené v komunitě domácích .
 Aplikace také nabízí přehledné widgety k rychlému zobrazení nejdůležitějších dat. 
 
 
 \subsection{Porovnání}
-Node RED a Home asistent jsou projekty s otevřeným zdrojovým kódem, utvářené komunitou, díky tomu jsou tyto systémy velmi modulární a rychle se přizpůsobují novým zařízením.
+Node RED a Home asistent jsou projekty s otevřeným zdrojovým kódem, utvářené komunitou, díky tomu jsou tyto systémy velmi modulární a rychle se rozvíjejí. % přizpůsobují novým zařízením.
 Naopak Blynk je uzavřená platforma zaměřená na firmy a vývojáře.
 Můj systém spojuje užitečné vlastnosti ze všech těchto systémů a nabízí je jako celek v podobě systému Pletačka IoT.
+% Všechny ty tyto platformy pracují s velkým množstvím různých programovatelných IoT senzorů.
