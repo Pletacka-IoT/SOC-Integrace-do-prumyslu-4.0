@@ -11,16 +11,13 @@ Potenciální konkurenci tohoto systému jsem tedy rozdělil na dvě části.
 
 %SECTION
 \section{Hardware}
-
-
-
+\fxnote[author=JA]{\textcolor{mygreen}{Přidat obrázky}}
 
 \subsection{PLC}
 PLC neboli programovatelný logický automat je průmyslový počítač k řízení automatizovaných procesů.
 Automaty zpracovávají data v reálném čase a s co nejkratší odezvou.
 PLC jsou velmi modulární a dají se skládat různě dohromady, podle potřeby uživatele.
-Je možné je také připojit do sítě a vzdálené řídit. !!!!!!Zařízení jsou dodávány s uzavřeným programovacím softwarem 
-
+Je možné je také připojit do sítě a vzdálené řídit.
 
 
 \subsection{Industruino}
@@ -29,15 +26,10 @@ Zařízení splňují průmyslové standardy a jsou navržený pro montáž na  
 
 
 \subsection{Hardwario}
-
 Hardwario\cite{HARDWARIO} je česká firma, která nabízí průmyslové IoT stavebnice.
 Cílem této firmy je nabídnou IoT průmyslové IoT řešení, které si sami sestavíte podle představ.
 Firma se zaměřuje na nízkoenergetické moduly s vydrží několika let.
-Produkt je nabízen bez softwaru, ten je nutné naprogramovat v externích aplikacích.
 Nevýhodou tohoto produktu je vysoká pořizovací cena.
-
-
-
 
 
 \subsection{Arduino}
@@ -47,7 +39,7 @@ K Arduinu také existuje velké množství shieldů, které základním modulům
 Jde například o WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
 Desky Arduino se programují v jazyce Wiring\footnote{Jazyk vytvořený k programování mikročipů}, nebo v jazyce C++. 
 
-\fxnote[author=JA]{\textcolor{mygreen}{Obrázek Arduina}}
+
 
 
 \subsection{Srovnání}
@@ -93,9 +85,6 @@ Pro složitější projekty může být složité nastavit propojení bloků
 Ve složitějších projektech mohou být bloky dosti nepřehledné a složité na úpravu.
 
 
-!!Open source
-
-
 \subsection{Blynk}
 Blynk je platforma pro vzdálené ovládání IoT projektů.
 Základem platformy je jednoduchá mobilní aplikace pro nastavování a vyčítání dat.
@@ -104,33 +93,15 @@ Na osobní projekty do pěti zařízení je aplikace zdarma, jinak je nutné pla
 
 
 \subsection{Home asistent}
-
-
+Home asistent je software pro řízení chytrých domácností. 
+Systém dokáže pracovat s více než 1700 službami.
+Připojená zařízení se konfigurují pomocí textového souboru.
+Aplikace také dokáže integrovat mnoho rozšíření, například ESPHome.
+To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené.
+Aplikace také nabízí přehledné widgety k rychlému zobrazení nejdůležitějších dat. 
 
 
 \subsection{Porovnání}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-
-
-
-
-
-
-
-
-\subsection{Univerzálnost}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
-\newpage
+Node RED a Home asistent jsou projekty s otevřeným zdrojovým kódem, utvářené komunitou, díky tomu jsou tyto systémy velmi modulární a rychle se přizpůsobují novým zařízením.
+Naopak Blynk je uzavřená platforma zaměřená na firmy a vývojáře.
+Můj systém spojuje užitečné vlastnosti ze všech těchto systémů a nabízí je jako celek v podobě systému Pletačka IoT.
