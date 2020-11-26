@@ -1,46 +1,78 @@
 \chapter{Senzory}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+
+Před začátkem navrhování senzorů bylo nutné si sepsat požadavky na senzory.
 
 
 
-\section{Univerzální sensorika}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+
+\section{1. verze - univerzální sensorika}
+
+Při návrhu první verze senzoru jsem se držel těchto bodů
+\begin{itemize}
+    \item vstup ze 4 periferií
+    \item senzor s barevným displayem
+    \item vstupní napětí od 8 do 25V
+    \item teplotní čidlo
+    \item tři barevné diody
+    \item čtyři uživatelská tlačítka
+\end{itemize}
 
 
-\subsection{Něco tu bude}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+\subsection{Řídící deska}
+Návrh desky jsem tvořil v aplikaci EAGLE od společnosti Autosk. 
+Deska má rozměry 75 na 60 mm a v každém rohu má upevňovací díry. 
+Kabely se do desky připojují pomocí ***5mm**** svorkovnice.
+Na vstupu napájení je měnič napětí na 5V. 
 
+Řídící procesor celé desky je modul ESP32 T-Display, který má 4MB paměti na program.
+Tento čip také zajišťuje WiFi konektivitu s okolím a odesílání naměřených dat na server.
+
+Pro bezpečný vstup z periferií se využívá optočlen, který předává signály do mikroprocesoru.
+\fxnote[author=JA]{\textcolor{mygreen}{Optočlen}}
+K uživatelskému řízení senzoru jsou zde 4 programovatelná tlačítka a tři indikační diody.
+
+Senzor je tedy schopen zaznamenávat data ze 4 vstupů a teplotu z teplotního modulu.
+
+\fxnote[author=JA]{\textcolor{mygreen}{krabička popis, uchycení}}
+\fxnote[author=JA]{\textcolor{mygreen}{Obrázek deksa => krabička}}
 
 \newpage
 
-\section{Speciální senzorika}
+\section{2. verze - speciální senzorika}
+
+Po měsíci testování jsem vytvořil nový seznam, zaměřený pouze na monitoring výroby ponožek na specifických strojích.
+Zařízení je díky tomu mnohem menší, levnější a softwarově rychlejší.
+
+\begin{itemize}
+    \item vstup pouze ze 2 periferií
+    \item senzor s barevným displayem
+    \item vstupní napětí již od 5V
+    \item zredukování rozměrů
+    \item jednoduše dostupný USB C kabel
+    \item zachování možnosti externích senzorů
+    \item dostačující dvě tlačítka
+    \item možnost přímého napájení senzoru bez měniče
+\end{itemize}
+
+\subsection{Řídící deska}
+Návrh druhé desky jsem se rozhodl udělat v open source aplikaci KiCad, která začíná být velmi populární. 
+Tato aplikace podporuje mnoho rozšíření, která velmi zpříjemní návrh a zjednoduší přípravu podkladů.
+
+V novém návrhu jsem se především zaměřoval na rozměr, aby byl co nejmenší.
+Zařízení jsem chtěl nabídnout kompaktní ale zároveň s co nejlepší funkcionalitou.
+
+Deska tedy ve výsledku obklopuje stejný modul ESP32 jako byl v předchozí generaci.
+
+Deska tedy přišla o dvě uživatelská tlačítka a o jednu indikační LEDku. 
+Možnost připojení externího senzoru na desce stále zůstala.
+
+V senzoru se změnilo zapojení měniče napětí, tentokrát dokáže pracovat již od 5V, které následně mění na 3,3V.
+Na bočních stranách desky vznikla také nová křidélka pro zasunutí do nového krytu.
+
+\fxnote[author=JA]{\textcolor{mygreen}{krabička popis, uchycení}}
+\fxnote[author=JA]{\textcolor{mygreen}{Obrázek deksa => krabička}}
+
+\section{Připojení k pletačce}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
 Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
@@ -51,20 +83,6 @@ Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
 Cras quis felis non lorem consectetur interdum eu eu sem. 
 Proin sit amet feugiat metus. 
 Ut vitae orci a enim vestibulum porta. 
-
-
-\subsection{Něco tu bude}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
-
 
 
 \newpage
