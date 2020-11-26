@@ -33,7 +33,21 @@ K uživatelskému řízení senzoru jsou zde 4 programovatelná tlačítka a tř
 
 Senzor je tedy schopen zaznamenávat data ze 4 vstupů a teplotu z teplotního modulu.
 
-\fxnote[author=JA]{\textcolor{mygreen}{krabička popis, uchycení}}
+\section{Uchycení}
+Obal řídící desky je vytisknutý na 3D tiskárně, na přední straně je průhledné plexi sklo do kterého jsou vyvrtané díry na tlačítka.
+Na boční straně krabičky jsou udělané dvě drážky na protažení stahovací zip pásky. Kabely jsou poté svedeny po konstrukci stroje až k periferiím.
+Display je tak jednoduše nastavitelný, a pohodlně přizpůsobitelný.
+
+
+\section{Program}
+K programování využívám aplikaci Visual Studio Code s rozšířením PlatformIO, které je navržena k programování mikrokontrolérů. 
+Zdrojový kód mám napsaný v jazyce C 
+Program se skládá z několika smyček, které se pravidel spouštějí a vykonávají.
+První a zároveň nejdůležitější smyčka je senzorová, v této smyčce se periodicky kontroluje stav vstupů a při změně se odešle událost na server.
+Další smyčka zajišťuje pravidelné vykreslování dat na display a ostatní smyčky se starají o správný chod senzoru a o jeho aktualizaci.
+Software také obsahuje ladící mód ve kterém si administrátor může zobrazit stav senzoru v mobilní aplikaci. 
+
+
 \fxnote[author=JA]{\textcolor{mygreen}{Obrázek deksa => krabička}}
 
 \newpage
@@ -72,17 +86,14 @@ Na bočních stranách desky vznikla také nová křidélka pro zasunutí do nov
 \fxnote[author=JA]{\textcolor{mygreen}{krabička popis, uchycení}}
 \fxnote[author=JA]{\textcolor{mygreen}{Obrázek deksa => krabička}}
 
-\section{Připojení k pletačce}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+\section{Uchycení}
+Druhá verze využívá stejného principu uchycení krabičku ke stroji. 
+Mění se zde však spojení krabičky se senzorovou deskou. 
+Zde jsem desku navrhl tak, aby se dala jednoduše zasunout do kolejnic které jsou předtištěné v krabičce a následně zafixovat šroubkem ze zadní strany.
+Tento návrh už má také vyřešené uchycení kabelů ke konstrukci krabičky pomocí \textcolor{mygreen}{DOPLNIT}.
+Konstrukce je také kompletně prachotěsná.
+
+
 
 
 \newpage
