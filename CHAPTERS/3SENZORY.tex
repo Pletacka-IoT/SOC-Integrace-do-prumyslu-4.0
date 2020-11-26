@@ -19,29 +19,30 @@ Při návrhu první verze senzoru jsem se držel těchto bodů
 
 
 \subsection{Řídící deska}
-Návrh desky jsem tvořil v aplikaci EAGLE od společnosti Autosk. 
+Návrh desky jsem tvořil v aplikaci EAGLE od společnosti Autodesk. 
 Deska má rozměry 75 na 60 mm a v každém rohu má upevňovací díry. 
-Kabely se do desky připojují pomocí ***5mm**** svorkovnice.
-Na vstupu napájení je měnič napětí na 5V. 
+Kabely se do desky připojují pomocí 5mm svorkovnice.
+Na vstupu napájení je měnič napětí který pracuje v rozsahu od 8 do 25 voltů a na výstupu dává 5V. 
 
-Řídící procesor celé desky je modul ESP32 T-Display, který má 4MB paměti na program.
+Řídící procesor celé desky je modul ESP32 T-Display\cite{ESP32} s barevným IPS displayem.
 Tento čip také zajišťuje WiFi konektivitu s okolím a odesílání naměřených dat na server.
-
-Pro bezpečný vstup z periferií se využívá optočlen, který předává signály do mikroprocesoru.
+Pro bezpečný vstup z periferií se využívají optočleny, které předávají signál do mikroprocesoru.
 \fxnote[author=JA]{\textcolor{mygreen}{Optočlen}}
 K uživatelskému řízení senzoru jsou zde 4 programovatelná tlačítka a tři indikační diody.
-
-Senzor je tedy schopen zaznamenávat data ze 4 vstupů a teplotu z teplotního modulu.
+Aktuální naměřená data se zobrazují na displayi a informují obsluhu o čase stání stroje.
+\fxnote[author=JA]{\textcolor{mygreen}{Čase stání stroje - napsat jinak}}
+Senzor je tedy schopen zaznamenávat data ze 4 vstupů a teplotu z teplotního senzoru.
 
 \section{Uchycení}
-Obal řídící desky je vytisknutý na 3D tiskárně, na přední straně je průhledné plexi sklo do kterého jsou vyvrtané díry na tlačítka.
+Obal řídící desky je vytisknutý na 3D tiskárně, na přední straně má vyřezané průhledné plexi sklo do kterého jsou vyvrtané díry na tlačítka.
+\fxnote[author=JA]{\textcolor{mygreen}{Překopat :-)}}
 Na boční straně krabičky jsou udělané dvě drážky na protažení stahovací zip pásky. Kabely jsou poté svedeny po konstrukci stroje až k periferiím.
 Display je tak jednoduše nastavitelný, a pohodlně přizpůsobitelný.
 
 
 \section{Program}
 K programování využívám aplikaci Visual Studio Code s rozšířením PlatformIO, které je navržena k programování mikrokontrolérů. 
-Zdrojový kód mám napsaný v jazyce C 
+Zdrojový kód mám napsaný v jazyce C++.
 Program se skládá z několika smyček, které se pravidel spouštějí a vykonávají.
 První a zároveň nejdůležitější smyčka je senzorová, v této smyčce se periodicky kontroluje stav vstupů a při změně se odešle událost na server.
 Další smyčka zajišťuje pravidelné vykreslování dat na display a ostatní smyčky se starají o správný chod senzoru a o jeho aktualizaci.
@@ -94,6 +95,8 @@ Tento návrh už má také vyřešené uchycení kabelů ke konstrukci krabičky
 Konstrukce je také kompletně prachotěsná.
 
 
-
-
+\section{Program}
+Program druhé verze vychází předchozí verze, ale přináší s sebou nové funkce a vylepšuje stávající z první generace.
+Novou funkcionalitou je například automatická aktualizace systému přes WiFi, kterou nadále zdokonaluji.
+Další vylepšení jsem přidal k displayi, který dokáže zobrazit více údajů a automaticky mezi nimi přepínat.
 \newpage
