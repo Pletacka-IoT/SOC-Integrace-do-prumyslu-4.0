@@ -1,17 +1,20 @@
 \chapter{Senzory}
 
-Před začátkem navrhování senzorů bylo nutné si sepsat požadavky na senzory.
-
-
+Senzory k projektu Pletačka IoT jsou postavené na mikročipu ESP32 T-Display\cite{ESP32}.
+Celý systém je navržený tak, že na každém pletacím stroji je jeden senzor.
+Každý z těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
+Senzor je na pájen z 5 nebo 24 voltů a má spotřebu do 1 ampéry.
 
 
 \section{1. verze - univerzální sensorika}
 
-Při návrhu první verze senzoru jsem se držel těchto bodů
+První verzi jsem pojal jako testovací, ve které bylo potřeba navrhnout univerzální desku a otestovat celý systém.\newline
+
+Při návrhu první verze senzoru jsem se držel těmito body:
 \begin{itemize}
+    \item ESP32 s barevným displayem
     \item vstup ze 4 periferií
-    \item senzor s barevným displayem
-    \item vstupní napětí od 8 do 25V
+    \item vstupní napětí od 10 do 25V
     \item teplotní čidlo
     \item tři barevné diody
     \item čtyři uživatelská tlačítka
@@ -22,9 +25,9 @@ Při návrhu první verze senzoru jsem se držel těchto bodů
 Návrh desky jsem tvořil v aplikaci EAGLE od společnosti Autodesk. 
 Deska má rozměry 75 na 60 mm a v každém rohu má upevňovací díry. 
 Kabely se do desky připojují pomocí 5mm svorkovnice.
-Na vstupu napájení je měnič napětí který pracuje v rozsahu od 8 do 25 voltů a na výstupu dává 5V. 
+Na vstupu napájení je měnič napětí který pracuje v rozsahu od 10 do 25 voltů a na výstupu dává 5V. 
 
-Řídící procesor celé desky je modul ESP32 T-Display\cite{ESP32} s barevným IPS displayem.
+Řídící procesor celé desky je modul ESP32 T-Display.
 Tento čip také zajišťuje WiFi konektivitu s okolím a odesílání naměřených dat na server.
 Pro bezpečný vstup z periferií se využívají optočleny, které předávají signál do mikroprocesoru.
 \fxnote[author=JA]{\textcolor{mygreen}{Optočlen}}
