@@ -3,6 +3,7 @@
 		"Blynk",
 		"Dos",
 		"Dosáhnul",
+		"Nette",
 		"hnul",
 		"leny",
 		"mikrokontrol",
@@ -10,7 +11,9 @@
 		"opto",
 		"optočleny",
 		"plexi",
-		"r"
+		"r",
+		"verzovan",
+		"verzované"
 	],
 	"cSpell.enableFiletypes": [
 		"!c",

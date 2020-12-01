@@ -3,17 +3,11 @@ Webový server je~nejdůležitější a~nejobsáhlejší část celého systému
 Webový server mám nasazený na mikropočítači Raspberry Pi 4 Model B který má 8GB operační paměti.
 Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a velké komunitě lidí, kteří tento mikropočítač využívají.
 Na zařízení běží operační systém Raspberry Pi OS s grafickým rozhraním.
+
 Webové stránky běží na HTTP serveru Apache2 a PHP 7.3.
-Jako databázový systém využívám MariaDB.\newline
-
-Webový server jsem rozdělil na tři části
-
-\begin{itemize}
-    \item Fronted
-    \item Backend
-    \item Databáze
-\end{itemize}
-
+Jako databázový systém využívám MariaDB.
+Celý webový server mám verzovaný také na Githubu.\newline
+Github: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletačka-website} 
 
 %SECTION
 \section{Fronted}
@@ -22,7 +16,7 @@ Webový server jsem rozdělil na tři části
 % V aktuální době plné mobilních telefonů je důležité aby se aplikace správně zobrazovala i na takto malých zařízeních.
  
 Frontend je vizuální část webové stránky zobrazená uživatelem.
-
+Pomocí frontendu se na obrazovku vykreslují veškerý text a jednotlivé prvky stránky.
 
 \subsection{Bootstrap}
 Bootstrap je knihovna sloužící k jednoduchému a rychlému vytvoření responzivních webových stránek.
@@ -33,61 +27,36 @@ Webový server využívá Bootstrap ve verzi čtyři.
 
 
 \subsection{JavaScript}
+Na webovém serveru využívám JavaScript primárně k aktualizaci části stránek.
+Tato technologie se nazývá AJAX a umožňuje překreslovat vybrané části stránek.
+Načítání stánek je tím pádem rychlejší a šetří přenesená data.
+K tomuto efektivnímu překreslování používám knihovnu Naja\cite{NAJA}, kterou napsal český vývojář Jiří Pudil.
+Knihovna také nabízí jednoduchou integraci do PHP frameworku, o kterém budu psát dále.   
 
-
-
-!!!! Proč jsem zvolil tyto technologie, knihovny !!!!
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
 
 
 %SECTION
 \section{Backend}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
-
+Je to nejobsáhlejší část celé této práce. 
+Backend je serverová část webové stránky, neběží tedy u vás na počítači jako frontend, ale na webovém serveru.   
+Celý backend systému Pletačka IoT jsem napsal v programovacím jazyce PHP a běží na frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k tvorbě webů.
+Backend se stará o přijímání dotazů ze senzorů a následný zápis do databáze, pohání celý webový server a pomocí nástroje Cron generuje v nastavených časech databázové výběry.
+Nejdříve zde popíšu použité technologie a následně rozeberu princip aplikace.
 
 \subsection{PHP}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+Webovou aplikaci programuji v PHP ve verzi 7.3. Jako programovací studio jsem zvolil studentskou verzi aplikace PHPStorm, která je velmi mocným nástrojem při tvorbě webu.
+Testovací verze aplikace mám rozjetou na svém počítači kde také celý tento systém vyvíjím. K zasazení aplikace na Raspberry Pi webový server využívám také studio PHPStorm které se pomocí protokolu SSH. 
+Funkce také nabízí jednoduché porovnávání změn s produkční verzí a chytrou aktualizaci zdrojových souborů.
+
+Pro snadnější ladění chyb používám Xdebug, díky kterému si můžu krokovat jednotlivé řádky kódu a rychleji tak nalézt chybu.
+
+Jako systém pro správu balíčků používám nástroj Composer, který se ovládá z terminálu pomocí jednoduchých příkazů.
+Umožňuje jednoduchou definici závislostí a aktualizaci všech modulů pomocí jednoho příkazu.
 
 
 \subsection{Nette}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+Nette je webový framework vyvíjený komunitou. Vznikl v České republice a jeho zakladatelem je David Grudl.
+
 
 \subsection{API}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -100,6 +69,48 @@ Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
 Cras quis felis non lorem consectetur interdum eu eu sem. 
 Proin sit amet feugiat metus. 
 Ut vitae orci a enim vestibulum porta.
+
+
+%SECTION
+\section{Webové rozhraní Pletačka IoT}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+Proin ut hendrerit elit, ultricies accumsan urna. 
+Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
+Cras quis felis non lorem consectetur interdum eu eu sem. 
+Proin sit amet feugiat metus. 
+Ut vitae orci a enim vestibulum porta.
+
+\subsection{Úvodní stránka}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+
+
+\subsection{Přehled ze senzoru}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+
+
+\subsection{Správa senzorů}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+
+
+\subsection{Nastavení směn}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+
 
 
 %SECTION
