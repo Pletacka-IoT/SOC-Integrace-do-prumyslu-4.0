@@ -98,45 +98,31 @@ Barva obdelníčku udává aktuální stav stroje a text v pozadí tuto informac
 Po kliknutí na senzor na úvodní stránce, se zobrazí data o právě vybraném stroji.
 Veškerá data jsou rozdělena do dvou sloupců podle pracovních směn.
 To umožňuje zaměstnavateli jednoduché porovnávání směn.
-
-
-
+V úvodu každého sloupce je obecný přehled naměřených dat za různá období.
+Pod obsahem je přehled v grafech a porovnání nejdůležitější údajů.
 
 \subsection{Správa senzorů}
+Pro vstup do této sekce je nutné uživatelské přihlášení do systému.
+Stránka pak nabízí přehled senzorů s jednotlivými možnostmi úpravy.
+
+První z odkazů vede na aktuální přehled ze senzoru.
+Druhý řeší editaci senzoru a poslední maže vybraný senzor.
 
 
 \subsection{Nastavení směn}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-
-
+Jednoduchá stránka na které se nastavuje pořadí směn.
+Střídání směn probíhá pravidelně po týdnech, proto je nastavení velmi jednoduché.
 
 %SECTION
 \section{Databáze}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+Databáze je rozdělená do několika bloků.
 
 
-\subsection{Návrh}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+\subsection{Popis fungování systému}
+Každý senzor pri změně stavu odešle svůj nový stav na server, kde se následně uloží do tabulky daného senzoru.
+
+Program na automatizaci procesů volá každou hodinu nástroj na generování databázových výberů které urychlují následné zobrazování dat.
+
+
 
 \newpage
