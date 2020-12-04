@@ -6,6 +6,8 @@ Na zařízení běží operační systém Raspberry Pi OS s grafickým rozhraní
 
 Webové stránky běží na HTTP serveru Apache2 a PHP 7.3.
 Jako databázový systém využívám MariaDB.
+Server běží lokálně uvnitř firmy na zabezpečené sítí, tím pádem není nutné velké zabezpečení systému.
+Z toho také vyplývá, že stránka je dostupná pouze ve vnitřní síti firmy.  
 Celý webový server mám verzovaný také na Githubu.\newline
 Github: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletačka-website} 
 
@@ -55,54 +57,52 @@ Umožňuje jednoduchou definici závislostí a aktualizaci všech modulů pomoc�
 
 
 \subsection{Nette}
-Nette je webový framework vyvíjený komunitou. Vznikl v České republice a jeho zakladatelem je David Grudl.
+Nette je webový framework vyvíjený komunitou. Vznikl v České republice a jeho zakladatelem je David Grudl. 
+Nabízí vlastní šablonovací jazyk, na jednoduchou a efektivní tvorbu webových stránek. 
+Nette disponuje obsáhlou a velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí kteří s tímto frameworkem pracují a velmi dobře mu rozumí. 
 
 
 \subsection{API}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta.
+Webová stránka Pletačka IoT obsahuje základní sadu API.
+Primárně ji využívají senzory k odesílání naměřených dat a ke zpětnému posílání odpovědí do senzoru.
+Druhé využití API je k vytváření databázových výberů, které jsou volány Cronem\footnote{Cron - software na automatizaci procesů} v nastavený čas. 
 
 
 %SECTION
 \section{Webové rozhraní Pletačka IoT}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta.
+Každá stránka stránka je rozdělena na tři části. Záhlaví, to obsahuje logo stránek a odkazy na nejpoužívanější stránky.
+Druhou částí jsou samotné webové stránky které budou popsány v dalších odstavcích.
+Poslední částí je minimalistické zápatí s copyright znakem.\newline
+Stránky Pletačky jsem navrhoval tak, aby splňovaly tyto paramtery:
+
+\fxnote[author=JA]{\textcolor{mygreen}{Doplňit obrázky stránek pod kapitolu nebo jeden list s fotkama}}
+
+\begin{itemize}
+    \item jednoduché rozhraní pro uživatele
+    \item přehledné zobrazení day
+    \item zobrazovat pouze užitečná dat
+    \item rychlá editace senzorů
+    \item využití zavedeného číselného identifikátoru 
+\end{itemize}
 
 \subsection{Úvodní stránka}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+V horní části úvodní stránky se vypisují tři nejpodstatnější údaje.
+Jde o celkový počet upletených párů za aktuální směnu.
+Dále pak úspěšnost vypočítávanou z času zastavení stroje a z cekové času zapnutí stroje.
+Posledním údajem je průměrná doba stání jednoho stroje.   
 
+Pod těmito čísly se zobrazuje tabulka s barevnými obdelníčky, kde každý představuje jeden stroj.
+Barva obdelníčku udává aktuální stav stroje a text v pozadí tuto informaci doplňuje. 
 
 \subsection{Přehled ze senzoru}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Po kliknutí na senzor na úvodní stránce, se zobrazí data o právě vybraném stroji.
+Veškerá data jsou rozdělena do dvou sloupců podle pracovních směn.
+To umožňuje zaměstnavateli jednoduché porovnávání směn.
+
+
 
 
 \subsection{Správa senzorů}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
 
 
 \subsection{Nastavení směn}

@@ -4,6 +4,7 @@
 		"Dos",
 		"Dosáhnul",
 		"Nette",
+		"ablonovac",
 		"hnul",
 		"leny",
 		"mikrokontrol",
@@ -13,7 +14,8 @@
 		"plexi",
 		"r",
 		"verzovan",
-		"verzované"
+		"verzované",
+		"šablonovací"
 	],
 	"cSpell.enableFiletypes": [
 		"!c",
