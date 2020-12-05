@@ -115,13 +115,24 @@ Střídání směn probíhá pravidelně po týdnech, proto je nastavení velmi 
 
 %SECTION
 \section{Databáze}
-Databáze je rozdělená do několika bloků.
+Databáze je rozdělená do dvou skupin tabulek.
+
+První skupina tabulek je nastavovací, jedná se o hlavní nastavení webu, nastavení směn a o tabulku s uživateli a jejich oprávněním.
+
+Druhá skupina je senzorová.
+Každý senzor zde má pět tabulek na ukládání svých dat.
+První senzorová tabulka ukládá čistá nezpracovaná data posílaná přímo ze senzoru.
+Zbylé čtyři tabulky jsou databázové výběry různých časových úseků, jde o výber hodinový, denní, měsíční a roční.  
+Tyto tabulky se vytvářejí automaticky pomocí výběrového API volaného Cronem.
+
+Struktura tabulek je vyobrazena ve schématu níže.
+\fxnote[author=JA]{\textcolor{mygreen}{Scéma struktury tabulek}}
 
 
-\subsection{Popis fungování systému}
-Každý senzor pri změně stavu odešle svůj nový stav na server, kde se následně uloží do tabulky daného senzoru.
+% \subsection{Popis fungování systému}
+% Každý senzor pri změně stavu odešle svůj nový stav na server, kde se následně uloží do tabulky daného senzoru.
 
-Program na automatizaci procesů volá každou hodinu nástroj na generování databázových výberů které urychlují následné zobrazování dat.
+% Program na automatizaci procesů volá každou hodinu nástroj na generování databázových výberů které urychlují následné zobrazování dat.
 
 
 
