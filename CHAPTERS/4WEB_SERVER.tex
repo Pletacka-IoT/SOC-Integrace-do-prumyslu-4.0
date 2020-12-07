@@ -42,7 +42,7 @@ Knihovna také nabízí jednoduchou integraci do PHP frameworku, o kterém budu 
 Je to nejobsáhlejší část celé této práce. 
 Backend je serverová část webové stránky, neběží tedy u vás na počítači jako frontend, ale na webovém serveru.   
 Celý backend systému Pletačka IoT jsem napsal v programovacím jazyce PHP a běží na frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k tvorbě webů.
-Backend se stará o přijímání dotazů ze senzorů a následný zápis do databáze, pohání celý webový server a pomocí nástroje Cron generuje v nastavených časech databázové výběry.
+Backend se stará o přijímání dotazů ze senzorů a následný zápis do databáze, pohání celý webový server a vytváří databázové výběry.
 Nejdříve zde popíšu použité technologie a následně rozeberu princip aplikace.
 
 \subsection{PHP}
@@ -65,7 +65,7 @@ Nette disponuje obsáhlou a velmi dobře zpracovanou dokumentací, ale také vel
 \subsection{API}
 Webová stránka Pletačka IoT obsahuje základní sadu API.
 Primárně ji využívají senzory k odesílání naměřených dat a ke zpětnému posílání odpovědí do senzoru.
-Druhé využití API je k vytváření databázových výberů, které jsou volány Cronem\footnote{Cron - software na automatizaci procesů} v nastavený čas. 
+Druhé využití API je k vytváření databázových výberů, to je voláno nástrojem na automatizaci procesů v nastavený čas. 
 
 
 %SECTION
@@ -123,7 +123,7 @@ Druhá skupina je senzorová.
 Každý senzor zde má pět tabulek na ukládání svých dat.
 První senzorová tabulka ukládá čistá nezpracovaná data posílaná přímo ze senzoru.
 Zbylé čtyři tabulky jsou databázové výběry různých časových úseků, jde o výber hodinový, denní, měsíční a roční.  
-Tyto tabulky se vytvářejí automaticky pomocí výběrového API volaného Cronem.
+Tyto tabulky se vytvářejí automaticky pomocí výběrového API.
 
 Struktura tabulek je vyobrazena ve schématu níže.
 \fxnote[author=JA]{\textcolor{mygreen}{Scéma struktury tabulek}}

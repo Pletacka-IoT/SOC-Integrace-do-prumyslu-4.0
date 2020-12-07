@@ -7,7 +7,7 @@ Server je naprogramovaný v Pythonu a běží na Raspberry Pi společně s webov
 \section{Kontrola senzorů}
 Hlavním úkolem tohoto serveru je detekce zapnutých senzorů.
 Na serveru běží takzvaný Watchdog, jde o hlídacího psa, který každé čtyři vteřiny čaké na zprávu ze senzoru.
-Touto zprávou se senzor autorizuje (JINAK), že je zapnutý, pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a v databázi se označí jako neaktivní.
+Touto zprávou se senzor nahlásí, že je zapnutý, pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a v databázi se označí jako neaktivní.
 Tato jednoduchá metoda umožňuje kontrolovat velké množství senzorů jednoduchým programem.
 
 %SECTION
