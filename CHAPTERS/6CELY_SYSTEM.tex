@@ -1,41 +1,35 @@
 \chapter{Princip fungování Pletačka IoT}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
-Proin ut hendrerit elit, ultricies accumsan urna. 
-Vivamus condimentum lorem viverra lectus finibus, nec volutpat turpis auctor.
-Cras quis felis non lorem consectetur interdum eu eu sem. 
-Proin sit amet feugiat metus. 
-Ut vitae orci a enim vestibulum porta. 
+V předchozích kapitolách byly popsány jednotlivé část systému Pletačka IoT.
+V této kapitole bude celý systém popsán jako celek a 
 
 
 \subsection{Sběr dat}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
+První a tou nejdůležitější částí je získávání dat pomocí senzorů.
+Jakmile senzor zaznamená jakoukoliv změnu, okamžitě tuto zprávu odesílá na server.
+Odesílání probíhá skrze senzorové API, kde se nejdříve ověří senzor a následně se stav zapíše do databáze k příslušnému senzoru.
+Po zapsání do databáze se vrátí do senzoru zpráva o provedení zápisu. 
 
 
 \subsection{Vyhodnocování dat}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
+Dalším krokem je zpracovávání surových dat z databáze.
+K tomuto účelu běží na serveru výběrové API, které je automaticky spouštěné v nastavený čas.
+Jde o generování širších výběrů dat, hodinové, denní, měsíční a roční výběr.
+Tyto výběry se následně ukládají do databáze k danému senzoru.
+Generování těchto dat probíhá převážně v noci, kdy je server nejméně vytížen.
 
 
 \subsection{Zobrazování dat}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
+Posledním krokem je zobrazení dat uživateli.
+Je to jediná část se kterou se běžný uživatel dostane do kontaktu.
+Proto je nutné aby zobrazení bylo co nejrychlejší a pro uživatele co nejpříjemnější.
+K rychlému zobrazování se využívají předgenerované výběry, ke kterým se rychle dopočítá nově nasbíraná část dat.
 
+\fxnote[author=JA]{\textcolor{mygreen}{schéma sběr - vyhodnocení - zobrazení}}
 
-
+\subsection{Konektivita}
+Webové stránky se dají jednoduše zobrazit na počítači či notebooku.
+Stránky jsou také responzivní a správně se zobrazují i na mobilních zařízeních.
+Přístup k webu je pouze z vnitřní sítě firmy, to zajišťuje dostatečnou bezpečnost pro celý systém.
 
 
 \newpage

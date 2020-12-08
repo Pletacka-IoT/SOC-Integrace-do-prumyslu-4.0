@@ -11,18 +11,18 @@ Potenciální konkurenci tohoto systému jsem tedy rozdělil na dva celky.
 
 %SECTION
 \section{Hardware}
+
 \fxnote[author=JA]{\textcolor{mygreen}{Přidat obrázky}}
 
 \subsection{PLC}
 PLC neboli programovatelný logický automat je průmyslový počítač k řízení automatizovaných procesů.
 Automaty zpracovávají data v reálném čase a s co nejkratší odezvou.
 PLC jsou velmi modulární a dají se skládat různě dohromady, podle potřeby uživatele.
-Je možné je také připojit do sítě a vzdálené řídit.
 
 
 \subsection{Industruino}
 Firma Industruino\cite{INDUSTRINO} se zabývá vývojem zařízení pro průmyslovou automatizaci založenou na platformě Arduino.
-Zařízení splňují průmyslové standardy a jsou navržený pro montáž na  DIN lištu. Firma nabízí také moduly s WiFi nebo se SIM konektivitou.
+Zařízení splňují průmyslové standardy a jsou navržená pro montáž na  DIN lištu. Firma nabízí také moduly s WiFi nebo se SIM konektivitou.
 
 
 \subsection{Hardwario}
@@ -37,7 +37,7 @@ Nevýhodou tohoto produktu je jeho vysoká pořizovací cena.
 Arduino \cite{ARDUGREENHOUSE} je otevřený (open source) projekt který se díky své nízké ceně a jednoduchosti na používání rozšířil po celém světě.
 Arduino má v nabídce přes deset různých modelů. Desky jsou univerzální a jsou velmi často využívány na kutilské projekty.
 K Arduinu také existuje velké množství shieldů, které základním modulům dodávají další funkcionalitu. 
-Jde například o WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
+% Jde například o WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
 Desky Arduino se programují v jazyce Wiring, vytvořeném přímo pro programování mikrokontrolérů, nebo v jazyce C++. 
 
 
@@ -45,9 +45,7 @@ Desky Arduino se programují v jazyce Wiring, vytvořeném přímo pro programov
 
 \subsection{Srovnání}
 
-První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí většinu automatizovaných procesů, jejich nasazení je složité a celé systémy jsou velmi drahé.
-
-
+První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí většinu automatizovaných procesů, jejich nasazení je složité a celé systémy jsou velmi drahé.\newline
 Požadavky na platformu
 \begin{enumerate}
     \item Připraveno na montáž na zařízení
@@ -63,8 +61,8 @@ Požadavky na platformu
 		\centering
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 			\hline
-													& 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
-			PLC                  & \cmark & \cmark & \xmark & \cmark & \cmark & \xmark \\ \hline
+			\B{Hardware}										& 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			PLC                  & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
 			Industruino          & \cmark & \cmark & \cmark & \xmark & \cmark & \xmark \\ \hline
 			Hardwario            & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
 			Arduino              & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
@@ -84,7 +82,7 @@ NodeRED je jednoduché grafické prostředí k programování IoT zařízení.
 Hlavní výhodou této aplikace je, že celá běží jako webová stránka. 
 Tím umožňuje uživateli rychlou práci bez nutnosti instalovat speciální aplikace.
 NodeRED programování stojí na principu propojování jednotlivých uzlů.
-Pro složitější projekty může být složité nastavit propojení bloků
+% Pro složitější projekty může být složité nastavit propojení bloků.
 Ve složitějších projektech mohou být bloky dosti nepřehledné a složité na úpravu.
 
 
@@ -100,7 +98,7 @@ Home asistent je software pro řízení chytrých domácností.
 Systém dokáže pracovat s více než 1700 službami.
 Připojená zařízení se konfigurují pomocí textového souboru.
 Aplikace také dokáže integrovat mnoho rozšíření, například ESPHome.
-To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené v komunitě domácích .
+To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené v kutilské komunitě.
 Aplikace také nabízí přehledné widgety k rychlému zobrazení nejdůležitějších dat. 
 
 
