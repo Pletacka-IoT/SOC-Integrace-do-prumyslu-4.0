@@ -1,15 +1,16 @@
 \chapter{Webový server}
 Webový server je~nejdůležitější a~nejobsáhlejší část celého systému. 
-Webový server mám nasazený na mikropočítači Raspberry Pi 4 Model B který má 8GB operační paměti.
+Webový server mám nasazený na mikropočítači Raspberry Pi 4 Modelu B který má 8GB operační paměti.
 Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a velké komunitě lidí, kteří tento mikropočítač využívají.
-Na zařízení běží operační systém Raspberry Pi OS s grafickým rozhraním.
 
+Na zařízení běží operační systém Raspberry Pi OS s grafickým rozhraním.
 Webové stránky běží na HTTP serveru Apache2 a PHP 7.3.
 Jako databázový systém využívám MariaDB.
 Server běží lokálně uvnitř firmy na zabezpečené sítí, tím pádem není nutné velké zabezpečení systému.
+\fxnote[author=JA]{\textcolor{mygreen}{Zabezpečení jinak přepsat}}
 Z toho také vyplývá, že stránka je dostupná pouze ve vnitřní síti firmy.  
 Celý webový server mám verzovaný také na Githubu.\newline
-Github: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletacka-website} 
+Github: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletacka-website}\cite{PL_WEB}
 
 %SECTION
 \section{Fronted}
@@ -18,21 +19,20 @@ Github: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletacka-website
 % V aktuální době plné mobilních telefonů je důležité aby se aplikace správně zobrazovala i na takto malých zařízeních.
  
 Frontend je vizuální část webové stránky zobrazená uživatelem.
-Pomocí frontendu se na obrazovku vykreslují veškerý text a jednotlivé prvky stránky.
+Pomocí frontendu se na obrazovku vykresluje veškerý text a jednotlivé prvky stránky.
 
 \subsection{Bootstrap}
 Bootstrap je knihovna sloužící k jednoduchému a rychlému vytvoření responzivních webových stránek.
 Díky této knihovně jsou stránky správně zobrazovány i na mobilních zařízeních.
-Knihovna nabízí propracované grafické a pozicovací příkazy.
 Tento nástroj se vyvíjí od roku 2011 a je pod otevřenou licencí.
-Webový server využívá Bootstrap ve verzi čtyři.
+Webový server využívá Bootstrap verze čtyři.
 
 
 \subsection{JavaScript}
-Na webovém serveru využívám JavaScript primárně k aktualizaci části stránek.
+Na webovém serveru používám JavaScript primárně k aktualizaci částí stránek.
 Tato technologie se nazývá AJAX a umožňuje překreslovat vybrané části stránek.
 Načítání stánek je tím pádem rychlejší a šetří přenesená data.
-K tomuto efektivnímu překreslování používám knihovnu Naja\cite{NAJA}, kterou napsal český vývojář Jiří Pudil.
+K tomuto efektivnímu překreslování slouží knihovna Naja\cite{NAJA}, kterou napsal český vývojář Jiří Pudil.
 Knihovna také nabízí jednoduchou integraci do PHP frameworku, o kterém budu psát dále.   
 
 
@@ -43,17 +43,16 @@ Je to nejobsáhlejší část celé této práce.
 Backend je serverová část webové stránky, neběží tedy u vás na počítači jako frontend, ale na webovém serveru.   
 Celý backend systému Pletačka IoT jsem napsal v programovacím jazyce PHP a běží na frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k tvorbě webů.
 Backend se stará o přijímání dotazů ze senzorů a následný zápis do databáze, pohání celý webový server a vytváří databázové výběry.
-Nejdříve zde popíšu použité technologie a následně rozeberu princip aplikace.
+Nejdříve zde popíšu použité technologie a následně rozeberu jednotlivé stránky aplikace.
 
 \subsection{PHP}
 Webovou aplikaci programuji v PHP ve verzi 7.3. Jako programovací studio jsem zvolil studentskou verzi aplikace PHPStorm, která je velmi mocným nástrojem při tvorbě webu.
-Testovací verze aplikace mám rozjetou na svém počítači kde také celý tento systém vyvíjím. K zasazení aplikace na Raspberry Pi webový server využívám také studio PHPStorm které se pomocí protokolu SSH. 
-Funkce také nabízí jednoduché porovnávání změn s produkční verzí a chytrou aktualizaci zdrojových souborů.
+Testovací verze aplikace mám spuštěnou na svém počítači kde také celý tento systém vyvíjím. 
 
 Pro snadnější ladění chyb používám Xdebug, díky kterému si můžu krokovat jednotlivé řádky kódu a rychleji tak nalézt chybu.
 
 Jako systém pro správu balíčků používám nástroj Composer, který se ovládá z terminálu pomocí jednoduchých příkazů.
-Umožňuje jednoduchou definici závislostí a aktualizaci všech modulů pomocí jednoho příkazu.
+Umožňuje rychlou definici závislostí a aktualizaci všech modulů pomocí jednoho příkazu.
 
 
 \subsection{Nette}
@@ -62,8 +61,9 @@ Nabízí vlastní šablonovací jazyk, na jednoduchou a efektivní tvorbu webov�
 Nette disponuje obsáhlou a velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí kteří s tímto frameworkem pracují a velmi dobře mu rozumí. 
 
 
-\subsection{API}
-Webová stránka Pletačka IoT obsahuje základní sadu API.
+\subsection{Web API}
+Web API je soubor příkazů ke komunikaci s webovou stránkou.
+Webová stránka Pletačka IoT obsahuje pouze základní sadu web API.
 Primárně ji využívají senzory k odesílání naměřených dat a ke zpětnému posílání odpovědí do senzoru.
 Druhé využití API je k vytváření databázových výberů, to je voláno nástrojem na automatizaci procesů v nastavený čas. 
 
