@@ -40,8 +40,8 @@ Knihovna také nabízí jednoduchou integraci do PHP frameworku, o kterém budu 
 %SECTION
 \section{Backend}
 Je to nejobsáhlejší část celé této práce. 
-Backend je serverová část webové stránky, neběží tedy u vás na počítači jako frontend, ale na webovém serveru.   
-Celý backend systému Pletačka IoT jsem napsal v programovacím jazyce PHP a běží na frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k tvorbě webů.
+Backend je serverová část webových stránek, neběží tedy u vás na počítači jako frontend, ale na webovém serveru.   
+Celý backend systému Pletačka IoT jsem napsal v programovacím jazyce PHP a běží na frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k tvorbě webu.
 Backend se stará o přijímání dotazů ze senzorů a následný zápis do databáze, pohání celý webový server a vytváří databázové výběry.
 Nejdříve zde popíšu použité technologie a následně rozeberu jednotlivé stránky aplikace.
 
@@ -57,20 +57,20 @@ Umožňuje rychlou definici závislostí a aktualizaci všech modulů pomocí je
 
 \subsection{Nette}
 Nette je webový framework vyvíjený komunitou. Vznikl v České republice a jeho zakladatelem je David Grudl. 
-Nabízí vlastní šablonovací jazyk, na jednoduchou a efektivní tvorbu webových stránek. 
+Nabízí vlastní šablonovací jazyk, na jednoduché a efektivní vykreslování webových stránek. 
 Nette disponuje obsáhlou a velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí kteří s tímto frameworkem pracují a velmi dobře mu rozumí. 
 
 
 \subsection{Web API}
 Web API je soubor příkazů ke komunikaci s webovou stránkou.
-Webová stránka Pletačka IoT obsahuje pouze základní sadu web API.
+Webová stránka Pletačka IoT obsahuje základní sadu web API.
 Primárně ji využívají senzory k odesílání naměřených dat a ke zpětnému posílání odpovědí do senzoru.
 Druhé využití API je k vytváření databázových výberů, to je voláno nástrojem na automatizaci procesů v nastavený čas. 
 
 
 %SECTION
 \section{Webové rozhraní Pletačka IoT}
-Každá stránka stránka je rozdělena na tři části. Záhlaví, to obsahuje logo stránek a odkazy na nejpoužívanější stránky.
+Každá stránka stránka je rozdělena na tři části. Záhlaví, to obsahuje logo a odkazy na nejpoužívanější stránky.
 Druhou částí jsou samotné webové stránky které budou popsány v dalších odstavcích.
 Poslední částí je minimalistické zápatí s copyright znakem.\newline
 Stránky Pletačky jsem navrhoval tak, aby splňovaly tyto paramtery:
@@ -97,9 +97,9 @@ Barva obdelníčku udává aktuální stav stroje a text v pozadí tuto informac
 \subsection{Přehled ze senzoru}
 Po kliknutí na senzor na úvodní stránce, se zobrazí data o právě vybraném stroji.
 Veškerá data jsou rozdělena do dvou sloupců podle pracovních směn.
-To umožňuje zaměstnavateli jednoduché porovnávání směn.
+To umožňuje zaměstnavateli jednoduché porovnávání pracovních směn.
 V úvodu každého sloupce je obecný přehled naměřených dat za různá období.
-Pod obsahem je přehled v grafech a porovnání nejdůležitější údajů.
+Pod nimi je přehled v grafech a porovnání nejdůležitější údajů.
 
 \subsection{Správa senzorů}
 Pro vstup do této sekce je nutné uživatelské přihlášení do systému.
