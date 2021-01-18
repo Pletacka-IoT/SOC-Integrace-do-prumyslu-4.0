@@ -101,7 +101,7 @@ Barva obdélníků udává aktuální stav stroje a text v pozadí tuto informac
     \centering
     \includegraphics[width=\textwidth]{img/Home.png}
     \caption{Úvodní stránka}
-    \label{fig:databaze}
+    \label{fig:webUvod}
 \end{figure}
 
 %\subsection{Přehled ze senzoru} 
@@ -113,10 +113,11 @@ Pod nimi je přehled v grafech a porovnání nejdůležitější údajů.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{img/Senzor.png}
-    \includegraphics[width=\textwidth]{img/Graf.png}
+    % \includegraphics[width=\textwidth]{img/Senzor.png}
+    % \includegraphics[width=\textwidth]{img/Graf.png}
+    \includegraphics[width=\textwidth]{img/prehled.png}
     \caption{Přehled ze senzoru}
-    \label{fig:databaze}
+    \label{fig:webSenzory}
 \end{figure}
 
 
@@ -125,29 +126,28 @@ Pod nimi je přehled v grafech a porovnání nejdůležitější údajů.
 
 \subsection{Správa senzorů}
 Pro vstup do této sekce je nutné uživatelské přihlášení do systému.
-Stránka pak nabízí přehled senzorů s jednotlivými možnostmi úpravy (viz obrázek \ref{fig:sprava_senzoru}).
+Stránka pak nabízí přehled senzorů s jednotlivými možnostmi úpravy (viz obrázek \ref{fig:webSpravaSenzoru}).
 
 % První z odkazů vede na aktuální přehled ze senzoru.
 % Druhý řeší editaci senzoru a poslední maže vybraný senzor.
-
-\fxnote[author=JPA]{\textcolor{mygreen}{"První z odkazů vede na aktuální přehled ze senzoru. Druhý řeší editaci senzoru a poslední maže vybraný senzor." = není to dostatečně jasné}}
+% \fxnote[author=JPA]{\textcolor{mygreen}{"První z odkazů vede na aktuální přehled ze senzoru. Druhý řeší editaci senzoru a poslední maže vybraný senzor." = není to dostatečně jasné}}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{img/Edit.png}
     \caption{Správa senzorů}
-    \label{fig:sprava_senzoru}
+    \label{fig:webSpravaSenzoru}
 \end{figure}
 
 \subsection{Nastavení směn}
 Jednoduchá stránka na které se nastavuje pořadí směn.
-Střídání směn probíhá pravidelně po týdnech, proto je nastavení velmi jednoduché.
+Střídání směn probíhá pravidelně po týdnech, proto je nastavení velmi jednoduché (viz obrázek \ref{fig:webSmeny})
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{img/Smeny.png}
+    \includegraphics[width=\textwidth]{img/smeny.png}
     \caption{Nastavení směn}
-    \label{fig:nastaveni_smen}
+    \label{fig:webSmeny}
 \end{figure}
 
 %SECTION
@@ -160,10 +160,8 @@ Druhá skupina je senzorová.
 Každý senzor zde má pět tabulek na ukládání svých dat.
 První senzorová tabulka ukládá čistá nezpracovaná data posílaná přímo ze senzoru.
 Zbylé čtyři tabulky jsou databázové výběry různých časových úseků, jde o výběr hodinový, denní, měsíční a roční.  
-Tyto tabulky se vytvářejí automaticky pomocí výběrového API.
-
-Struktura tabulek je vyobrazena ve schématu níže.
-% \fxnote[author=JA]{\textcolor{mygreen}{Scéma struktury tabulek}}
+Tyto tabulky se vytvářejí automaticky pomocí výběrového API. 
+Struktura tabulek je vyobrazena ve schématu \ref{fig:databaze}.
 
 
 \begin{figure}[htbp]
@@ -176,11 +174,11 @@ Struktura tabulek je vyobrazena ve schématu níže.
 
 \fxnote[author=JPA]{\textcolor{mygreen}{Možná bychom se mohli pobavit o úpravě "Struktura databáze" obrázku.}}
 
-% \subsection{Popis fungování systému}
-% Každý senzor pri změně stavu odešle svůj nový stav na server, kde se následně uloží do tabulky daného senzoru.
 
-% Program na automatizaci procesů volá každou hodinu nástroj na generování databázových výberů které urychlují následné zobrazování dat.
 
+\section{Funkcionalita}
+
+Systém je schopen
 
 
 \newpage
