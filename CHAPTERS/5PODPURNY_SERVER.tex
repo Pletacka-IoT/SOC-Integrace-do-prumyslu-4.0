@@ -7,13 +7,13 @@ Zdrojový kód na Githubu: \href{https://github.com/Pletacka-IoT/Pletacka-python
 %SECTION
 \section{Kontrola senzorů}
 Hlavním úkolem tohoto serveru je detekce zapnutých senzorů.
-Na serveru běží takzvaný Watchdog, jde o hlídacího psa, který každé čtyři vteřiny čaké na zprávu ze senzoru.
-Touto zprávou se senzor nahlásí, že je zapnutý, pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a v databázi se označí jako neaktivní.
-Tato jednoduchá metoda umožňuje kontrolovat velké množství senzorů jednoduchým programem.
+Na serveru běží takzvaný Watchdog, jde o periodickou smyčku, který každé čtyři vteřiny čeká na zprávu ze senzoru.
+Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a v databázi se označí jako neaktivní.
+
 
 %SECTION
 \section{Automatické aktualizace}
-Bezdrátová aktualizace senzorů je nová funkcionalita kterou nadále vyvíjím a rozšiřuji.
+Bezdrátová aktualizace senzorů je nová funkcionalita, kterou nadále vyvíjím a rozšiřuji.
 Senzory aktuálně podporují rychlou aktualizaci přes WiFi ze vzdáleného počítače.
 V počítači stačí vybrat číslo senzoru a nová verze programu se pomocí WiFi připojení nahraje do senzoru.
 
