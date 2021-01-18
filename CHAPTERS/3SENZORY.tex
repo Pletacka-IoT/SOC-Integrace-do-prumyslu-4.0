@@ -1,9 +1,9 @@
 \chapter{Senzory}
 
 Senzory k projektu Pletačka IoT jsou postavené na mikročipu ESP32 a moduly TTGO~T-Display.
-Celý tento systém je navržen tak, že na každém pletacím stroji je jeden inteligentní senzor \fxnote[author=JPA]{jeden inteligentní senzor => jedna moje elektronika?}.
+Celý tento systém je navržen tak, že na každém pletacím stroji je jedna moje elektronika.
 Každý z těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-Senzor je na pájen z 5 nebo 24 voltů a má spotřebu do 1 ampéry \fxnote[author=JPA]{stálo by za to změřit reálnou spotřebu místo teoretického maxima stabilizátoru}.
+Senzor je na pájen z 5 nebo 24 voltů a má spotřebu 120 mA.
 Návrh senzorů i jejich software mám verzovaný nástrojem Git ve veřejném repozitáři na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\cite{PL_BOARD}
 
@@ -45,8 +45,7 @@ Kabely jsou poté svedeny po konstrukci stroje až k periferiím.
 \section{Program}
 K programování využívám aplikaci Visual Studio Code s rozšířením PlatformIO, které je navržena k programování mikrokontrolérů. 
 Zdrojový kód mám napsaný v jazyce C++.
-Program se skládá z několika vláken, které se pravidel \fxnote[author=JPA]{\textcolor{mygreen}{"pravidel" => pravidelně/podle pravidel}}
-spouštějí a vykonávají.
+Program se skládá z několika vláken, které se pravidelně spouštějí a vykonávají.
 První a zároveň nejdůležitější vlákno je senzorové, zde se periodicky kontroluje stav periferií a při změně se odešle událost na server.
 Další vlákno zajišťuje pravidelné vykreslování dat na displej a zbylá vlákna se starají o správný chod senzoru.
 Software také obsahuje ladící mód ve kterém si administrátor může zobrazit stav senzoru v mobilní aplikaci a jednodušeji tak hledat potenciální chybu. 
@@ -87,17 +86,13 @@ Zařízení je díky tomu mnohem menší, levnější a softwarově rychlejší.
 Návrh druhé desky jsem se rozhodl udělat v open source aplikaci KiCad.
 Tato aplikace podporuje mnoho rozšíření, která velmi zpříjemní návrh a zjednoduší přípravu podkladů.
 
-V novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76mm.
-
-
-\fxnote[author=JPA]{\textcolor{mygreen}{"32$\times$76mm" + což je o X procent menší plocha než u první verze?}}
-
+V novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76mm, což je o 46 procent menší plocha než u první verze.
 
 Deska si~zachovala stejný procesor ESP32 s~displejem, ale přišla~o dvě~tlačítka a~jednu indikační diodu.
 V~senzoru~se také změnilo zapojení měniče napětí, ten nově dokáže pracovat již od~5V, které následně mění na~3,3V.
-Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do nového krytu.
+Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do vylepšeného krytu.
 
-\fxnote[author=JA]{\textcolor{mygreen}{krabička popis, uchycení}}
+
 \fxnote[author=JA]{\textcolor{mygreen}{Obrázek deksa => krabička}}
 
 \section{Uchycení}
@@ -105,7 +100,7 @@ Druhá verze využívá stejného principu uchycení, jako ta~předchozí.
 Mění se~zde však spojení krabičky se~senzorovou deskou. 
 V nové verzi jsem desku navrhl tak, aby se~dala jednoduše zasunout~do kolejnic které jsou předtištěné v~krabičce a~následně zafixovat šroubkem ze~zadní strany.
 To~umožňuje jednoduchou montáž~a rychlé připojení.
-Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí plastové svěrky.
+Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí 3D tištěných svěrek.
 
 
 \section{Program}
