@@ -1,5 +1,5 @@
 \chapter{Konkurence}
-Tento systém je velice specifický a nedá se srovnávat jako celek. 
+Tento systém je velice specifický a~nedá se srovnávat jako celek. 
 Potenciální konkurenci tohoto systému jsem tedy rozdělil na dva celky.
 
 \begin{itemize} % odrážkový seznam
@@ -15,44 +15,44 @@ Potenciální konkurenci tohoto systému jsem tedy rozdělil na dva celky.
 \fxnote[author=JA]{\textcolor{mygreen}{Přidat obrázky}}
 
 \subsection{PLC}
-PLC neboli programovatelný logický automat je průmyslový počítač k řízení automatizovaných procesů.
-Automaty zpracovávají data v reálném čase a s co nejkratší odezvou.
-PLC jsou velmi modulární a dají se skládat různě dohromady, podle potřeby uživatele.
+PLC neboli programovatelný logický automat je průmyslový počítač k~řízení automatizovaných procesů.
+Automaty zpracovávají data v~reálném čase a~s~co nejkratší odezvou.
+PLC jsou velmi modulární a~dají se skládat různě dohromady, podle potřeby uživatele.
 
 
 \fxnote[author=JPA]{Industruino bych nahradil bych Controllinem: https://www.controllino.com/product/controllino-maxi/}
 
 \subsection{Controllino}
 Firma Controllino\cite{CONTROLLINO} se zabývá vývojem zařízení pro průmyslovou automatizaci založenou na platformě Arduino.
-Zařízení nabízí několik vstupních a výstupních pinů, pomocí kterých si uživatel může připojit své senzory a následně automatizovat některé procesy. 
+Zařízení nabízí několik vstupních a~výstupních pinů, pomocí kterých si uživatel může připojit své senzory a~následně automatizovat některé procesy. 
 
 
 % \subsection{Industruino}
 % Firma Industruino\cite{INDUSTRINO} se zabývá vývojem zařízení pro průmyslovou automatizaci založenou na platformě Arduino.
-% Zařízení splňují průmyslové standardy a jsou navržená pro montáž na  DIN lištu. Firma nabízí také moduly s WiFi nebo se SIM konektivitou.
+% Zařízení splňují průmyslové standardy a~jsou navržená pro montáž na  DIN lištu. Firma nabízí také moduly s~WiFi nebo se SIM konektivitou.
 
 
 \subsection{Hardwario}
 Hardwario\cite{HARDWARIO} je česká firma, která nabízí průmyslové IoT stavebnice.
 Cílem této firmy je nabídnou průmyslové IoT řešení, které si sami sestavíte podle svých představ.
-Firma se zaměřuje na nízkoenergetické moduly s vydrží několika let.
+Firma se zaměřuje na nízkoenergetické moduly s~vydrží několika let.
 % Nevýhodou tohoto produktu je jeho vysoká pořizovací cena. 
 
 
 
 \subsection{Arduino}
-Arduino \cite{ARDUINO} je otevřený (open source) projekt který se díky své nízké ceně a jednoduchosti na používání rozšířil po celém světě.
-Arduino má v nabídce přes deset různých modelů. Desky jsou univerzální a jsou velmi často využívány na kutilské projekty.
-K Arduinu také existuje velké množství shieldů, které základním modulům dodávají další funkcionalitu. 
-% Jde například o WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
-Desky Arduino se programují v jazyce Wiring, vytvořeném přímo pro programování mikrokontrolérů, nebo v jazyce C++. 
+Arduino \cite{ARDUINO} je otevřený (open source) projekt který se díky své nízké ceně a~jednoduchosti na používání rozšířil po celém světě.
+Arduino má v~nabídce přes deset různých modelů. Desky jsou univerzální a~jsou velmi často využívány na kutilské projekty.
+K~Arduinu také existuje velké množství shieldů, které základním modulům dodávají další funkcionalitu. 
+% Jde například o~WiFi moduduly, motorové moduly, nebo různé teplotní senzory.
+Desky Arduino se programují v~jazyce Wiring, vytvořeném přímo pro programování mikrokontrolérů, nebo v~jazyce C++. 
 
 
 
 
 \subsection{Srovnání}
 
-První tří zmíněné platformy jsou hojně využívány v průmyslu a řídí většinu automatizovaných procesů, jejich nasazení je složité a celé systémy jsou velmi drahé.\newline
+První tří zmíněné platformy jsou hojně využívány v~průmyslu a~řídí většinu automatizovaných procesů, jejich nasazení je složité a~celé systémy jsou velmi drahé.\newline
 Požadavky na platformu
 \begin{enumerate}
     \item Připraveno na montáž na zařízení
@@ -87,32 +87,32 @@ Požadavky na platformu
 
 
 \subsection{Node-RED}
-Node-RED je jednoduché grafické prostředí k programování IoT zařízení. 
+Node-RED je jednoduché grafické prostředí k~programování IoT zařízení. 
 Hlavní výhodou této aplikace je, že celá běží jako webová stránka. 
 Tím umožňuje uživateli rychlou práci bez nutnosti instalovat speciální aplikace.
 Node-RED programování stojí na principu propojování jednotlivých uzlů.
 % Pro složitější projekty může být složité nastavit propojení bloků.
-Ve složitějších projektech mohou být ovšem bloky dosti nepřehledné a složité na úpravu.
+Ve složitějších projektech mohou být ovšem bloky dosti nepřehledné a~složité na úpravu.
 
 
 \subsection{Blynk}
 Blynk je platforma pro vzdálené ovládání IoT projektů.
-Základem platformy je jednoduchá mobilní aplikace pro nastavování a vyčítání dat.
+Základem platformy je jednoduchá mobilní aplikace pro nastavování a~vyčítání dat.
 Aplikace nabízí velké množství widgetů které se připínají na zobrazovací panel.
 Na osobní projekty do pěti zařízení je aplikace zdarma, jinak je nutné platit měsíční poplatky.
 
 
 \subsection{Home Assistant}
 Home Assistant je software pro řízení chytrých domácností. 
-Systém dokáže pracovat s více než 1700 službami.
+Systém dokáže pracovat s~více než 1700 službami.
 Připojená zařízení se konfigurují pomocí textového souboru.
 Aplikace také dokáže integrovat mnoho rozšíření, například ESPHome.
-To slouží k ovládání mikrokontrolérů ESP které jsou hojně rozšířené v kutilské komunitě.
-Aplikace také nabízí přehledné widgety k rychlému zobrazení nejdůležitějších dat. 
+To slouží k~ovládání mikrokontrolérů ESP které jsou hojně rozšířené v~kutilské komunitě.
+Aplikace také nabízí přehledné widgety k~rychlému zobrazení nejdůležitějších dat. 
 
 
 \subsection{Porovnání}
-Node-RED a Home Assistant jsou projekty s otevřeným zdrojovým kódem, utvářené komunitou, díky tomu jsou tyto systémy velmi modulární a rychle se rozvíjejí. % přizpůsobují novým zařízením.
-Naopak Blynk je uzavřená platforma zaměřená na firmy a vývojáře.
-Můj systém spojuje užitečné vlastnosti ze všech těchto systémů a nabízí je jako celek v podobě systému Pletačka IoT.
-% Všechny ty tyto platformy pracují s velkým množstvím různých programovatelných IoT senzorů.
+Node-RED a~Home Assistant jsou projekty s~otevřeným zdrojovým kódem, utvářené komunitou, díky tomu jsou tyto systémy velmi modulární a~rychle se rozvíjejí. % přizpůsobují novým zařízením.
+Naopak Blynk je uzavřená platforma zaměřená na firmy a~vývojáře.
+Můj systém spojuje užitečné vlastnosti ze všech těchto systémů a~nabízí je jako celek v~podobě systému Pletačka IoT.
+% Všechny ty tyto platformy pracují s~velkým množstvím různých programovatelných IoT senzorů.

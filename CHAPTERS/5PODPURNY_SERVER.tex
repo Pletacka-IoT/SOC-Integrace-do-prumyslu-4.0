@@ -1,23 +1,23 @@
 \chapter{Podpůrný server}
 Podpůrný server vznikl jako rozšíření pro senzory.
-Server je naprogramovaný v Pythonu a běží na Raspberry Pi společně s webovým serverem.\newline
+Server je naprogramovaný v~Pythonu a~běží na Raspberry Pi společně s~webovým serverem.\newline
 Zdrojový kód na Githubu: \href{https://github.com/Pletacka-IoT/Pletacka-python-server}{Pletacka-python-server}\cite{PL_PY}
 
 
 %SECTION
 \section{Kontrola senzorů}
 Hlavním úkolem tohoto serveru je detekce zapnutých senzorů.
-Na serveru běží takzvaný Watchdog, jde o periodickou smyčku, který každé čtyři vteřiny čeká na zprávu ze senzoru.
-Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a v databázi se označí jako neaktivní.
+Na serveru běží takzvaný Watchdog, jde o~periodickou smyčku, který každé čtyři~vteřiny čeká na zprávu ze senzoru.
+Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva nedojde deset vteřin, je senzor prohlášen za vypnutý a~v~databázi se označí jako neaktivní.
 
 
 %SECTION
 \section{Automatické aktualizace}
-Bezdrátová aktualizace senzorů je nová funkcionalita, kterou nadále vyvíjím a rozšiřuji.
+Bezdrátová aktualizace senzorů je nová funkcionalita, kterou nadále vyvíjím a~rozšiřuji.
 Senzory aktuálně podporují rychlou aktualizaci přes WiFi ze vzdáleného počítače.
-V počítači stačí vybrat číslo senzoru a nová verze programu se pomocí WiFi připojení nahraje do senzoru.
+V~počítači~stačí vybrat číslo senzoru a~nová verze programu se pomocí WiFi připojení nahraje do senzoru.
 
-V nové verzi přibude také hromadná aktualizace senzorů a systém na udržování aktuálních verzí systému ve všech senzorech.
+V~nové verzi přibude také hromadná aktualizace senzorů a~systém na udržování aktuálních verzí systému ve všech senzorech.
 
 
 
