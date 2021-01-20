@@ -6,9 +6,7 @@ Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energ
 Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
 Webové stránky běží na HTTP serveru Apache2 a~PHP 7.3.
 Jako databázový systém využívám MariaDB.
-Server běží lokálně uvnitř firmy na zabezpečené sítí, tím pádem není nutné velké zabezpečení systému.
-\fxnote[author=JA]{\textcolor{mygreen}{Zabezpečení přepsat jinak}}
-Z~toho také vyplývá, že stránka je dostupná pouze ve vnitřní síti firmy.  
+Server běží lokálně uvnitř firmy v zabezpečené síti, díky čemuž je systém rychlý a nezávislý na internetovém připojení.
 Celý webový server mám verzovaný také na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletacka-website}\cite{PL_WEB}
 
@@ -68,6 +66,44 @@ Web API je soubor příkazů ke komunikaci s~webovou stránkou.
 Webová stránka Pletačka IoT obsahuje základní sadu web API.
 Primárně ji využívají senzory k~odesílání naměřených dat a~ke zpětnému posílání odpovědí do senzoru.
 Druhé využití API je k~vytváření databázových výběrů, to je voláno nástrojem na automatizaci procesů v~nastavený čas. 
+
+%SECTION
+\section{Funkcionalita}
+
+\subsection{Podrobná statistika}
+Díky tomuto systému má uživatel kompletní přehled o každém zastavení stroje a upletené ponožce.
+Systém se každé den automaticky zálohuje a ukládá data ne záložní disk.
+
+\subsection{Aktuální přehledy}
+Systém zobrazuje vždy aktuální přehledy naměřených dat pomocí předgenerovaných výběrů.
+
+
+\subsection{Responzivní grafy}
+Číselné přehledy jsou dpolněné o jednoduché grafy, které graficky zobrazují naměřená data.
+Hlavním cílem grafů je co nejlépe uživateli zobrazit porovnání směn  
+porovnání s dalšími pracovními směnami.
+
+\subsection{Porovnávání směn}
+
+
+\subsection{Kontrola běhu stroje}
+
+
+\subsection{Chytrý výpočetní algoritmus}
+Veškerá naměřená data jsou analyzována mým výpočetním algoritmem.
+Algoritmus přijímá uložená data z databáze, ze kterých postupným procházením vypočítává pracovní statistiky, které následně ukládá do užších výběrů.
+
+
+\subsection{Jednoduchý generátor zkušebních dat}
+Pro otestování systému jsem připravil jednoduchý generátor dat, který dokáže nasimulovat reálné senzory.
+
+
+
+
+
+
+
+
 
 
 %SECTION
@@ -173,12 +209,6 @@ Struktura tabulek je vyobrazena ve schématu \ref{fig:databaze}.
 
 
 \fxnote[author=JPA]{\textcolor{mygreen}{Možná bychom se mohli pobavit o~úpravě "Struktura databáze" obrázku.}}
-
-
-
-\section{Funkcionalita}
-
-Systém je schopen
 
 
 \newpage
