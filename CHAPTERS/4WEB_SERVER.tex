@@ -58,14 +58,15 @@ Nabízí vlastní šablonovací jazyk, na jednoduché a~efektivní vykreslován�
 Nette disponuje obsáhlou a~velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí kteří s~tímto frameworkem pracují a~velmi dobře mu rozumí. 
 
 
-\subsection{Web API}
+\subsection{REST API}
 
 \fxnote[author=JPA]{\textcolor{mygreen}{Chtěl bych se ještě pobavit o~definici/popisu Web API}}
 
-Web API je soubor příkazů ke komunikaci s~webovou stránkou.
-Webová stránka Pletačka IoT obsahuje základní sadu web API.
+% REST API je sada příkazů ke komunikaci s~webovou stránkou.
+REST API je sada URL identifikátorů sloužících ke komunikaci s~webovou stránkou.
+Webová stránka Pletačka IoT obsahuje základní sadu API.
 Primárně ji využívají senzory k~odesílání naměřených dat a~ke zpětnému posílání odpovědí do senzoru.
-Druhé využití API je k~vytváření databázových výběrů, to je voláno nástrojem na automatizaci procesů v~nastavený čas. 
+Druhé využití API je k~vytváření databázových výběrů, to je voláno nástrojem na automatizaci procesů v~nastavený čas.
 
 %SECTION
 \section{Funkcionalita}
@@ -79,7 +80,7 @@ Systém zobrazuje vždy aktuální přehledy naměřených dat pomocí předgene
 
 
 \subsection{Responzivní grafy}
-Číselné přehledy jsou dpolněné o jednoduché grafy, které graficky zobrazují naměřená data.
+Číselné přehledy jsou doplněné o jednoduché grafy, které graficky zobrazují naměřená data.
 Hlavním cílem grafů je co nejlépe uživateli zobrazit porovnání směn  
 porovnání s dalšími pracovními směnami.
 

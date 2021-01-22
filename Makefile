@@ -19,4 +19,8 @@ dvi: .plot-stamp
 	#gnuplot plot
 	touch $(@)
 
+docx:
+	pandoc text.tex --bibliography=text.bib -o text.docx
+	echo "Gnerated"
+
 .PHONY: pdf ps dvi
