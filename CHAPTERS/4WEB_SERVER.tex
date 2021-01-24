@@ -60,8 +60,6 @@ Nette disponuje obsáhlou a~velmi dobře zpracovanou dokumentací, ale také vel
 
 \subsection{REST API}
 
-\fxnote[author=JPA]{\textcolor{mygreen}{Chtěl bych se ještě pobavit o~definici/popisu Web API}}
-
 % REST API je sada příkazů ke komunikaci s~webovou stránkou.
 REST API je sada URL identifikátorů sloužících ke komunikaci s~webovou stránkou.
 Webová stránka Pletačka IoT obsahuje základní sadu API.
@@ -70,24 +68,19 @@ Druhé využití API je k~vytváření databázových výběrů, to je voláno n
 
 %SECTION
 \section{Funkcionalita}
+Přehled veškerých funkcí mého systému.
 
-\subsection{Podrobná statistika}
+
+\subsection{Podrobné statistiky}
 Díky tomuto systému má uživatel kompletní přehled o každém zastavení stroje a upletené ponožce.
-Systém se každé den automaticky zálohuje a ukládá data ne záložní disk.
+
 
 \subsection{Aktuální přehledy}
-Systém zobrazuje vždy aktuální přehledy naměřených dat pomocí předgenerovaných výběrů.
+Na úvodní stránce se vždy zobrazují aktuální přehledy o průběhu výroby.
 
 
-\subsection{Responzivní grafy}
-Číselné přehledy jsou doplněné o jednoduché grafy, které graficky zobrazují naměřená data.
-Hlavním cílem grafů je co nejlépe uživateli zobrazit porovnání směn  
-porovnání s dalšími pracovními směnami.
-
-\subsection{Porovnávání směn}
-
-
-\subsection{Kontrola běhu stroje}
+\subsection{Responzivní design}
+Stránka využívá moderní CSS styly, díky kterým se stránka správně zobrazuje na jakémkoliv zařízení. 
 
 
 \subsection{Chytrý výpočetní algoritmus}
@@ -95,15 +88,30 @@ Veškerá naměřená data jsou analyzována mým výpočetním algoritmem.
 Algoritmus přijímá uložená data z databáze, ze kterých postupným procházením vypočítává pracovní statistiky, které následně ukládá do užších výběrů.
 
 
+\subsection{Jednoduché grafy}
+Většina nasbíraných dat se dá přehledně zobrazit v grafech. 
+Díky nim je porovnávání a procházení výběrů velmi jednoduché. 
+
+
+\subsection{Kontrola běhu stroje}
+Prvotním a nejdůležitějším požadavkem systému bylo sledování běhu stroje.
+K tomu slouží úvodní stránka aplikace, kde uživatel přehledně vidí ikony všech strojů a může si následně zobrazit další podrobnosti. 
+
+\subsection{Jednoduchý výběr dat}
+Každý senzor nabízí jednoduchý výběr dat.
+Uživatel si zvolí požadovaný rozsah dat a moje aplikace mu tento výběr přehledně zobrazí v tabulce.
+
+
+\subsection{Porovnávání směn}
+Systém jsem na navrhoval tak, aby pracoval s dvousměnným provozem a správně přiřazoval data k jednotlivým směnám.
+
+
+\subsection{Bezpečné zálohy}
+Systém se každé den automaticky zálohuje a ukládá data na záložní disk, ze kterého se dají případně rychle obnovit.
+
+
 \subsection{Jednoduchý generátor zkušebních dat}
 Pro otestování systému jsem připravil jednoduchý generátor dat, který dokáže nasimulovat reálné senzory.
-
-
-
-
-
-
-
 
 
 
@@ -113,8 +121,6 @@ Každá stránka stránka je rozdělena na tři~části. Záhlaví, to obsahuje 
 Druhou částí jsou samotné webové stránky které budou popsány v~dalších odstavcích.
 Poslední částí je minimalistické zápatí s~copyright znakem.\newline
 Stránky Pletačky jsem navrhoval tak, aby splňovaly tyto parametry:
-
-\fxnote[author=JA]{\textcolor{mygreen}{Doplnit obrázky stránek pod kapitolu nebo jeden list s~fotkami}}
 
 \begin{itemize}
     \item jednoduché rozhraní pro uživatele
