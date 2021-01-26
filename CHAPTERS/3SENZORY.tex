@@ -7,6 +7,35 @@ Senzor je na pájen z~5 nebo 24 voltů a~má spotřebu 120 mA.
 Návrh senzorů i~jejich software mám verzovaný nástrojem Git ve veřejném repozitáři~na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\cite{PL_BOARD}
 
+\section{Procesor}
+Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a disponuje konektivitou WiFi.
+Procesor ESP32 obsahuje také 4MB flash paměti sloužící k ukládání programu.
+
+Po prozkoumání trhu jsem našel, modul TTGO~T-Display, který kombinuje barevný displej s dříve zmíněným čipem ESP32.
+K této variantě jsem se rozhodl ...
+
+% Tu ve svém projektu používám ke komunikaci se serverem.
+
+
+\section{Vstupy a výstupy}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+\section{Vlastní deska}
+\fxnote[author=KA]{Vlastní PCB????}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
+Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
+Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
+Donec imperdiet orci vel porttitor placerat. 
+
+
+
+
 \section{1. verze - univerzální sensorika}
 
 První verzi jsem pojal jako testovací. Bylo tedy třeba navrhnout univerzální desku a~otestovat celý systém.\newline
@@ -21,6 +50,10 @@ Při~navrhování první verze senzoru jsem si stanovil tyto body:
     \item čtyři~uživatelská tlačítka
 \end{itemize}
 
+% \subsection{Elektronika}
+% % Modul TTGO~T-Display jsem zvolil kvůli jeho jednoduché práci s displejem. 
+% Modul TTGO~T-Display jsem zvolil z toho důvodu, že má přímo v sobě integrovaný mikročip ESP32.
+% Ten je dostatečně výkonný a disponuje konektivitu Bluetooth a WiFi. 
 
 \subsection{Řídící deska}
 Návrh desky jsem tvořil v~aplikaci EAGLE od společnosti Autodesk. 
@@ -35,14 +68,14 @@ K~uživatelskému ovládání senzoru jsou zde čtyři~programovatelná tlačít
 Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zastavení stroje a~počtu upletených párů.
 Senzor je také schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
-\section{Uchycení}
+\subsection{Uchycení}
 Obal řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
 Na přední straně je průhled z~plexiskla na barevný displej a~okolo něj jsou rozmístěná uživatelská tlačítka.
 Na boční straně krabičky jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek stroje.
 Kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
 
 
-\section{Program}
+\subsection{Program}
 K~programování využívám aplikaci Visual Studio Code s~rozšířením PlatformIO, které je navržena k~programování mikrokontrolérů. 
 Zdrojový kód mám napsaný v~jazyce C++.
 Program se skládá z~několika vláken, které se pravidelně spouštějí a~vykonávají.
@@ -92,7 +125,7 @@ Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do v
 
 
 
-\section{Uchycení}
+\subsection{Uchycení}
 Druhá verze využívá stejného principu uchycení, jako ta~předchozí. 
 Mění se~zde však spojení krabičky se~senzorovou deskou. 
 V~nové verzi jsem desku navrhl tak, aby se~dala jednoduše zasunout~do kolejnic které jsou předtištěné v~krabičce a~následně zafixovat šroubkem ze~zadní strany.
@@ -100,7 +133,7 @@ To~umožňuje jednoduchou montáž~a~rychlé připojení.
 Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí 3D tištěných svěrek.
 
 
-\section{Program}
+\subsection{Program}
 Program druhé verze vychází z~minulé, ale přináší s~sebou nové funkce a~vylepšuje stávající.
 Novou funkcionalitou je například automatická aktualizace programu přes WiFi, kterou nadále zdokonaluji.
 Další vylepšení jsem přidal k~displeji, který dokáže zobrazit více údajů a~automaticky mezi nimi přepínat.
