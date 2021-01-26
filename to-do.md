@@ -1,2 +1,0 @@
-- [x] Předělat link na Github
-- [x] Přida obrázky
