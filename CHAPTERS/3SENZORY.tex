@@ -9,30 +9,28 @@ GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\ci
 
 \section{Procesor}
 Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a disponuje konektivitou WiFi.
-Procesor ESP32 obsahuje také 4MB flash paměti sloužící k ukládání programu.
+Procesor ESP32 obsahuje 4MB flash paměti sloužící k ukládání programu.
 
-Po prozkoumání trhu jsem našel, modul TTGO~T-Display, který kombinuje barevný displej s dříve zmíněným čipem ESP32.
-K této variantě jsem se rozhodl ...
-
-% Tu ve svém projektu používám ke komunikaci se serverem.
+Po prozkoumání trhu jsem našel, modul TTGO~T-Display, který kombinuje barevný displej s čipem ESP32.
+Tato kombinace mi vyšla jako nejlepší, spojuje totiž bezproblémovou komunikaci s tímto displejem a zároveň jednoduchou výměnu při nefunkčnosti čipu.
 
 
 \section{Vstupy a výstupy}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
+Napájecí okruh pletacího stroje pracuje s napětím 24 voltů, proto jsem potřeboval, aby i moje elektronika, dokázala takovéto napětí zpracovávat.
+
+Jeden vstup je připojen ke světlu které signalizuje zastavení stroje a druhý k senzory, který zaznamenává dopletenou ponožku.
+Tyto vstupní signály jsou připojeny na optočleny, které vodivě oddělí vstupní napájení a na výstupu máme pouze třívoltový signál, který je zpracovatelný čipem.
 
 
-\section{Vlastní deska}
-\fxnote[author=KA]{Vlastní PCB????}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam nunc magna, sollicitudin id leo eu, viverra congue risus.
-Aliquam consequat ipsum ut erat placerat consequat nec at diam. 
-Aenean est odio, molestie sit amet nunc in, pretium luctus elit. 
-Donec imperdiet orci vel porttitor placerat. 
 
+\section{Vlastní PCB}
+
+K vytvoření vlastní desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
+Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě ale zabírají spoustu místa. 
+ 
+Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, díky čemuž bylo zapotřebí vyrobit 3O stejných elektronických desek.
+
+Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba je velmi precizní a dokáží desku i osadit vybranými součástkami.
 
 
 
@@ -115,7 +113,12 @@ Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
 
 \subsection{Řídící deska}
 Návrh druhé desky jsem se rozhodl udělat v~open source aplikaci KiCad.
-Tato aplikace podporuje mnoho rozšíření, která velmi zpříjemní návrh a~zjednoduší přípravu podkladů.
+Z uživatelského hlediska se sní pracuje o něco rychleji díky jednoduchým klávesovým zkratkám. 
+Dalším důvodem pro zvolení této aplikace bylo rozšíření KiKit, která razantně zjednodušuje export výrobních podkladů.
+Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat `make' a celý proces se vykoná automatizovaně a bez chyb.
+
+Rozšíření KiKit jsem také začal používat k automatizovanému generování dokumentace k plošným spojům.
+Rozvržení webové stránky si uživatel nastaví v konfiguračním souboru a následně při každé změně se stránka přegeneruje a aktualizuje.
 
 V~novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76mm, což je o~46 procent menší plocha než u~první verze.
 
