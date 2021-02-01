@@ -1,9 +1,9 @@
 \chapter{Senzory}
 
-Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~moduly TTGO~T-Display.
+Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulech TTGO~T-Display.
 Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
 Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-Senzor je na pájen z~5 nebo 24 voltů a~má spotřebu 120 mA.
+Senzor je napájen z~5 nebo 24 voltů a~má spotřebu 120 mA.
 Návrh senzorů i~jejich software mám verzovaný nástrojem Git ve veřejném repozitáři~na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\cite{PL_BOARD}
 
@@ -11,7 +11,7 @@ GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\ci
 Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a disponuje konektivitou WiFi.
 Procesor obsahuje 4MB flash paměti sloužící k ukládání programu.
 
-Po prozkoumání trhu jsem našel, modul TTGO~T-Display, který kombinuje barevný displej s čipem ESP32.
+Po prozkoumání trhu jsem našel modul TTGO~T-Display, který kombinuje barevný displej s čipem ESP32.
 Tato kombinace mi vyšla jako nejlepší, spojuje totiž bezproblémovou komunikaci s tímto displejem a zároveň jednoduchou výměnu při nefunkčnosti čipu.
 
 
@@ -55,9 +55,9 @@ Při~navrhování senzoru jsem si stanovil tyto body:
 
 \subsection{Řídící deska}
 Návrh desky jsem tvořil v~aplikaci EAGLE od společnosti Autodesk. 
-Deska má rozměry 75 na 60 mm a~v~každém rohu má upevňovací díry. 
-Kabely se do desky připojují pomocí 5mm svorkovnice.
-Na vstupu napájení je měnič napětí který pracuje v~rozsahu od 10 do 25 voltů a~na výstupu dává 5V. 
+Deska má rozměry 75 na 60 mm a~v~každém rohu má upevňovací otvory.
+Kabely se do desky připojují pomocí 5 mm svorkovnice.
+Na vstupu napájení je měnič napětí, který pracuje v~rozsahu od 10 do 25 voltů a~na výstupu dává 5V. 
 
 Řídící procesor celé desky je modul ESP32 TTGO T-Display.
 Tento čip také zajišťuje WiFi konektivitu s~okolím a~odesílá naměřená data na server.
@@ -67,19 +67,20 @@ Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zas
 Senzor je také schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
 \subsection{Uchycení}
-Obal řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
+Krut řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
 Na přední straně je průhled z~plexiskla na barevný displej a~okolo něj jsou rozmístěná uživatelská tlačítka.
-Na boční straně krabičky jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek stroje.
-Kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
+Na boční straně krytu jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek stroje.
+Signálové kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
 
 
 \subsection{Program}
-K~programování využívám aplikaci Visual Studio Code s~rozšířením PlatformIO, které je navržena k~programování mikrokontrolérů. 
+K~programování využívám aplikaci Visual Studio Code s~rozšířením PlatformIO, která je navržena k~programování mikrokontrolérů. 
 Zdrojový kód mám napsaný v~jazyce C++.
 Program se skládá z~několika vláken, které se pravidelně spouštějí a~vykonávají.
-První a~zároveň nejdůležitější vlákno je senzorové, zde se periodicky kontroluje stav periferií a~při~změně se odešle událost na server.
+První a~zároveň nejdůležitější vlákno je senzorové.
+Zde se periodicky kontroluje stav periferií a~při~změně se odešle událost na server.
 Další vlákno zajišťuje pravidelné vykreslování dat na displej a~zbylá vlákna se starají o~správný chod senzoru.
-Software také obsahuje ladící mód ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu. 
+Software také obsahuje ladící mód, ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu. 
 
 
 \begin{figure}[htbp]
@@ -115,15 +116,16 @@ Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
 Návrh druhé desky jsem se rozhodl udělat v~open source aplikaci KiCad.
 Z uživatelského hlediska se sní pracuje o něco rychleji díky jednoduchým klávesovým zkratkám. 
 Dalším důvodem pro zvolení této aplikace bylo rozšíření KiKit, která razantně zjednodušuje export výrobních podkladů.
-Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat `make' a celý proces se vykoná automatizovaně a bez chyb.
+Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat `make' a celý proces se vykoná automatizovaně bez nutnosti editace dat.
 
 Rozšíření KiKit jsem také začal používat k automatizovanému generování dokumentace k plošným spojům.
 Rozvržení webové stránky si uživatel nastaví v konfiguračním souboru a následně při každé změně se stránka přegeneruje a aktualizuje.
 
-V~novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76mm, což je o~46 procent menší plocha než u~první verze.
+V~novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76 mm, což je o~46 procent menší plocha než u~první verze.
 
 Deska si~zachovala stejný procesor ESP32 s~displejem, ale přišla~o~dvě~tlačítka a~jednu indikační diodu.
-V~senzoru~se také změnilo zapojení měniče napětí, ten nově dokáže pracovat již od~5V, které následně mění na~3,3V.
+V~senzoru~se také změnilo zapojení měniče napětí.
+Nově dokáže pracovat již od~5V, které následně mění na~3,3V.
 Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do vylepšeného krytu.
 
 
@@ -139,7 +141,7 @@ Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabi�
 \subsection{Program}
 Program druhé verze vychází z~minulé, ale přináší s~sebou nové funkce a~vylepšuje stávající.
 Novou funkcionalitou je například automatická aktualizace programu přes WiFi, kterou nadále zdokonaluji.
-Další vylepšení jsem přidal k~displeji, který dokáže zobrazit více údajů a~automaticky mezi nimi přepínat.
+Další vylepšení jsem provedl u displeje, který dokáže zobrazit více údajů a~automaticky mezi nimi přepínat.
 
 \begin{figure}[htbp]
     \centering

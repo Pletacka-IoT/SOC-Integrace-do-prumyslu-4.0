@@ -1,6 +1,6 @@
 \chapter{Webový server}
 Webový server je~nejdůležitější a~nejobsáhlejší část celého systému. 
-Webový server mám nasazený na mikropočítači~Raspberry Pi 4 Modelu B který má 8~GB operační paměti.
+Webový server mám nasazený na mikropočítači~Raspberry Pi 4 Modelu B který, má 8~GB operační paměti.
 Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a~velké komunitě lidí, kteří tento mikropočítač využívají.
 
 Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
@@ -17,7 +17,7 @@ GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-website}{Pletacka-website
 % V~aktuální době plné mobilních telefonů je důležité aby se aplikace správně zobrazovala i~na takto malých zařízeních.
  
 Frontend je vizuální část webové stránky zobrazená uživatelem.
-Pomocí frontendu se na obrazovku vykresluje veškerý text a~jednotlivé prvky stránky.
+Pomocí\newline frontendu se na obrazovku vykresluje veškerý text a~jednotlivé prvky stránky.
 
 \subsection{Bootstrap}
 Bootstrap je knihovna sloužící k~jednoduchému a~rychlému vytvoření responzivních webových stránek.
@@ -28,7 +28,7 @@ Webový server využívá Bootstrap verze čtyři.
 
 \subsection{JavaScript}
 Na frontendu používám JavaScript společně s~technologií AJAX pro aktualizaci částí stránek. AJAX umožňuje překreslovat jen určitou část obsahu stránky bez nutnosti načíst celou stránku znovu.
-Tím se zásadně zrychluje načítání a~interaktivita stránek. Dochází i~k~značné úspoře přenesených dat.
+Tím se zásadně zrychluje načítání a~interaktivita stránek. Dochází i~ke~značné úspoře přenesených dat.
 K~tomuto efektivnímu překreslování slouží knihovna Naja\cite{NAJA}, kterou napsal český vývojář Jiří Pudil.
 Knihovna také nabízí jednoduchou integraci do PHP frameworku Nette, o~kterém budu psát dále.   
 
@@ -44,7 +44,7 @@ Nejdříve zde popíšu~použité technologie a~následně rozeberu jednotlivé 
 
 \subsection{PHP}
 Webovou aplikaci programuji v~PHP ve verzi 7.3. Jako programovací studio jsem zvolil studentskou verzi aplikace PHPStorm, která je velmi mocným nástrojem při~tvorbě webu.
-Testovací verze aplikace mám spuštěnou na svém počítači~kde také celý tento systém vyvíjím. 
+Testovací verze aplikace mám spuštěnou na svém počítači,~kde také celý tento systém vyvíjím. 
 
 Pro snadnější ladění chyb používám Xdebug, díky kterému si můžu~krokovat jednotlivé řádky kódu a~rychleji tak nalézt chybu.
 
@@ -55,7 +55,7 @@ Umožňuje rychlou definici závislostí a~aktualizaci všech modulů pomocí je
 \subsection{Nette}
 Nette je webový framework vyvíjený komunitou. Vznikl v~České republice a~jeho zakladatelem je David Grudl. 
 Nabízí vlastní šablonovací jazyk, na jednoduché a~efektivní vykreslování webových stránek. 
-Nette disponuje obsáhlou a~velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí kteří s~tímto frameworkem pracují a~velmi dobře mu rozumí. 
+Nette disponuje obsáhlou a~velmi dobře zpracovanou dokumentací, ale také velkou komunitou lidí, kteří s~tímto frameworkem pracují a~velmi dobře mu rozumí. 
 
 
 \subsection{REST API}
@@ -64,7 +64,8 @@ Nette disponuje obsáhlou a~velmi dobře zpracovanou dokumentací, ale také vel
 REST API je sada URL identifikátorů sloužících ke komunikaci s~webovou stránkou.
 Webová stránka Pletačka IoT obsahuje základní sadu API.
 Primárně ji využívají senzory k~odesílání naměřených dat a~ke zpětnému posílání odpovědí do senzoru.
-Druhé využití API je k~vytváření databázových výběrů, to je voláno nástrojem na automatizaci procesů v~nastavený čas.
+Druhé využití API je k~vytváření databázových výběrů. 
+To je voláno nástrojem na automatizaci procesů v~nastavený čas.
 
 %SECTION
 \section{Funkcionalita}
@@ -95,7 +96,8 @@ Díky nim je porovnávání a procházení výběrů velmi jednoduché.
 
 \subsection{Kontrola běhu stroje}
 Prvotním a nejdůležitějším požadavkem systému bylo sledování běhu stroje.
-K tomu slouží úvodní stránka aplikace, kde uživatel přehledně vidí ikony všech strojů a může si následně zobrazit další podrobnosti. 
+K tomu slouží úvodní stránka aplikace, kde uživatel přehledně vidí ikony všech strojů.
+Podle barvy ikony dokáže rozeznat, zda stroj běží, nebo je v poruše a následně si může zobrazit další podrobnosti. 
 
 \subsection{Jednoduchý výběr dat}
 Každý senzor nabízí jednoduchý výběr dat.
@@ -103,7 +105,7 @@ Uživatel si zvolí požadovaný rozsah dat a aplikace mu tento výběr přehled
 
 
 \subsection{Porovnávání směn}
-Systém jsem na navrhoval tak, aby pracoval s dvousměnným provozem a správně přiřazoval data k jednotlivým směnám.
+Systém jsem navrhoval tak, aby pracoval s dvousměnným provozem a správně přiřazoval data k jednotlivým směnám.
 
 
 \subsection{Bezpečné zálohy}
@@ -117,7 +119,7 @@ Pro otestování systému jsem připravil jednoduchý generátor dat, který dok
 
 %SECTION
 \section{Webové rozhraní Pletačka IoT}
-Každá stránka je rozdělena na tři~části. Záhlaví, to obsahuje logo a~odkazy na nejpoužívanější stránky.
+Každá stránka je rozdělena na tři~části. První je záhlaví, které obsahuje logo a~odkazy na nejpoužívanější stránky.
 Druhou částí jsou samotné webové stránky které budou popsány v~dalších odstavcích.
 Poslední částí je minimalistické zápatí s~copyright znakem.\newline
 Stránky Pletačky jsem navrhoval tak, aby splňovaly tyto parametry:
@@ -134,7 +136,7 @@ Stránky Pletačky jsem navrhoval tak, aby splňovaly tyto parametry:
 \subsection{Úvodní stránka}
 V~horní části úvodní stránky se vypisují tři~nejpodstatnější údaje.
 Jde o~celkový počet upletených párů za aktuální směnu.
-Dále pak úspěšnost vypočítávanou z~času zastavení stroje a~z~celkové času zapnutí stroje.
+Dále pak úspěšnost vypočítávanou z~času zastavení stroje a~z času zapnutí stroje.
 Posledním údajem je průměrná doba stání jednoho stroje.   
 
 Pod těmito čísly se zobrazuje tabulka s~barevnými obdélníky, kde každý představuje jeden stroj.
@@ -148,7 +150,7 @@ Barva obdélníků udává aktuální stav stroje a~text v~pozadí tuto informac
 \end{figure}
 
 %\subsection{Přehled ze senzoru} 
-Po kliknutí na senzor na úvodní stránce, se zobrazí data o~právě vybraném stroji.
+Po kliknutí na senzor na úvodní stránce se zobrazí data o~právě vybraném stroji.
 Veškerá data jsou rozdělena do dvou sloupců podle pracovních směn.
 To umožňuje zaměstnavateli jednoduché porovnávání pracovních směn.
 V~úvodu každého sloupce je obecný přehled naměřených dat za různá období.
@@ -197,12 +199,14 @@ Střídání směn probíhá pravidelně po týdnech, proto je nastavení velmi 
 \section{Databáze}
 Databáze je rozdělená do dvou skupin tabulek.
 
-První skupina tabulek je nastavovací, jedná se o~hlavní nastavení webu, nastavení směn a~o~tabulku s~uživateli a~jejich oprávněním.
+První skupina tabulek je nastavovací.
+Jedná se o~hlavní nastavení webu, nastavení směn a~o~tabulku s~uživateli a~jejich oprávněním.
 
 Druhá skupina je senzorová.
 Každý senzor zde má pět tabulek na ukládání svých dat.
 První senzorová tabulka ukládá čistá nezpracovaná data posílaná přímo ze senzoru.
-Zbylé čtyři~tabulky jsou databázové výběry různých časových úseků, jde o~výběr hodinový, denní, měsíční a~roční.  
+Zbylé čtyři~tabulky jsou databázové výběry různých časových úseků.
+Jde o~výběr hodinový, denní, měsíční a~roční.  
 Tyto tabulky se vytvářejí automaticky pomocí výběrového API. 
 Struktura tabulek je vyobrazena ve schématu \ref{fig:databaze}.
 
