@@ -1,6 +1,6 @@
 \chapter{Senzory}
 
-Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulech TTGO~T-Display.
+Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
 Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
 Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
 Senzor je napájen z~5 nebo 24 voltů a~má spotřebu 120 mA.
@@ -12,23 +12,43 @@ Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a 
 Procesor obsahuje 4MB flash paměti sloužící k ukládání programu.
 
 Po prozkoumání trhu jsem našel modul TTGO~T-Display, který kombinuje barevný displej s čipem ESP32.
-Tato kombinace mi vyšla jako nejlepší, spojuje totiž bezproblémovou komunikaci s tímto displejem a zároveň jednoduchou výměnu při nefunkčnosti čipu.
+Tato kombinace mi vyšla jako nejlepší. 
+Spojuje bezproblémovou komunikaci čipu s displejem a zároveň jednoduchou výměnu při nefunkčnosti modulu.
 
 
-\section{Vstupy a výstupy}
+\section{Vstupy}
 Napájecí okruh pletacího stroje pracuje s napětím 24 voltů, proto jsem potřeboval, aby i moje elektronika, dokázala takovéto napětí zpracovávat.
 
 Jeden vstup je připojen ke světlu které signalizuje zastavení stroje a druhý k senzory, který zaznamenává dopletenou ponožku.
-Tyto vstupní signály jsou připojeny na optočleny, které vodivě oddělí vstupní napájení a na výstupu máme pouze třívoltový signál, který je zpracovatelný čipem.
+Tyto vstupní signály jsou připojeny na optočleny, které vodivě oddělí vstupní napájení.
+Na výstupu máme poté pouze třívoltový signál, který je zpracovatelný čipem.
 
+Jako uživatelské vstupní periferie jsem využil jednoduchá tlačítka, pomocí kterých si uživatel upravuje nastavení senzoru.
+
+
+\section{Výstupy}
+Jako hlavní zobrazovací článek jem využil barevný TFT displej o velikosti 1,14 palce.
+Na displeji se zobrazuje číslo zařízení, počet upletených ponožek a doba stání stroje.
+Spodní část je vyhrazena na logovací a chybové hlášky.
+
+Druhým výstupním prvkem jsou barevné diody.
+Ty využívám k signalizaci funkčnosti senzoru a k 
+Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funkčnosti celé elektroniky.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth/3 ]{img/ESP32.png}
+    \caption{TTGO~T-Display}
+    \label{fig:TTGO}
+\end{figure}
 
 
 \section{Vlastní PCB}
-
 K vytvoření vlastní desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
-Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě ale zabírají spoustu místa. 
+Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě, ale zabírají spoustu místa. 
  
-Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, díky čemuž bylo zapotřebí vyrobit 3O stejných elektronických desek.
+% Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, díky čemuž bylo zapotřebí vyrobit 3O stejných elektronických desek.
+Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, což znamená vyrobit 3O stejných elektronických desek.
 
 Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba je velmi precizní a dokáží desku i osadit vybranými součástkami.
 
@@ -76,11 +96,17 @@ Signálové kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
 \subsection{Program}
 K~programování využívám aplikaci Visual Studio Code s~rozšířením PlatformIO, která je navržena k~programování mikrokontrolérů. 
 Zdrojový kód mám napsaný v~jazyce C++.
+
 Program se skládá z~několika vláken, které se pravidelně spouštějí a~vykonávají.
 První a~zároveň nejdůležitější vlákno je senzorové.
 Zde se periodicky kontroluje stav periferií a~při~změně se odešle událost na server.
 Další vlákno zajišťuje pravidelné vykreslování dat na displej a~zbylá vlákna se starají o~správný chod senzoru.
-Software také obsahuje ladící mód, ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu. 
+
+Software také obsahuje ladící mód, ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu.
+
+Celý program jsem napsal objektově orientovaným programováním, díky čemuž je velmi jednoduché měnit například počet vstupních periferií.
+Každé nové periferii stačí nastavit správný typ, pin na který je připojena a její název.
+Poté už stačí zavolat například vyčítací metodu, která vrátí stav tlačítka.
 
 
 \begin{figure}[htbp]
@@ -92,8 +118,6 @@ Software také obsahuje ladící mód, ve kterém si administrátor může zobra
 
 
 \newpage
-
-
 
 
 

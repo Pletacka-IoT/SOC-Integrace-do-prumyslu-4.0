@@ -1,10 +1,9 @@
 \chapter{Webový server}
-Webový server je~nejdůležitější a~nejobsáhlejší část celého systému. 
 Webový server mám nasazený na mikropočítači~Raspberry Pi 4 Modelu B který, má 8~GB operační paměti.
 Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a~velké komunitě lidí, kteří tento mikropočítač využívají.
 
 Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
-Webové stránky běží na HTTP serveru Apache2 a~PHP 7.3.
+Webové stránky běží na HTTP serveru Apache2 a~PHP 8.0.
 Jako databázový systém využívám MariaDB.
 Server běží lokálně uvnitř firmy v zabezpečené síti, díky čemuž je systém rychlý a nezávislý na internetovém připojení.
 Celý webový server mám verzovaný také na GitHubu.\newline
@@ -36,14 +35,13 @@ Knihovna také nabízí jednoduchou integraci do PHP frameworku Nette, o~kterém
 
 %SECTION
 \section{Backend}
-Je to nejobsáhlejší část celé této práce. 
 Backend je serverová část webových stránek, neběží tedy u~vás~na počítači~jako frontend, ale na webovém serveru.   
 Celý backend systému Pletačka IoT jsem napsal v~programovacím jazyce PHP a~ve frameworku Nette\cite{NETTE}, který nabízí ucelenou sadu nástrojů k~tvorbě webu.
 Backend se stará o~přijímání dotazů ze senzorů a~následný zápis do databáze, pohání celý webový server a~vytváří databázové výběry.
 Nejdříve zde popíšu~použité technologie a~následně rozeberu jednotlivé stránky aplikace.
 
 \subsection{PHP}
-Webovou aplikaci programuji v~PHP ve verzi 7.3. Jako programovací studio jsem zvolil studentskou verzi aplikace PHPStorm, která je velmi mocným nástrojem při~tvorbě webu.
+Webovou aplikaci programuji v~PHP ve verzi 8.0. Jako programovací studio jsem zvolil studentskou verzi aplikace PHPStorm, která je velmi mocným nástrojem při~tvorbě webu.
 Testovací verze aplikace mám spuštěnou na svém počítači,~kde také celý tento systém vyvíjím. 
 
 Pro snadnější ladění chyb používám Xdebug, díky kterému si můžu~krokovat jednotlivé řádky kódu a~rychleji tak nalézt chybu.
@@ -166,7 +164,7 @@ Pod nimi je přehled v~grafech a~porovnání nejdůležitější údajů.
 \end{figure}
 
 
-\fxnote[author=JPA]{\textcolor{mygreen}{Aktualizovat grafy/obrázky}}
+% \fxnote[author=JPA]{\textcolor{mygreen}{Aktualizovat grafy/obrázky}}
 
 
 \subsection{Správa senzorů}
