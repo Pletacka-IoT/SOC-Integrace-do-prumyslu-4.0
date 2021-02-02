@@ -19,20 +19,19 @@ Spojuje bezproblémovou komunikaci čipu s displejem a zároveň jednoduchou vý
 \section{Vstupy}
 Napájecí okruh pletacího stroje pracuje s napětím 24 voltů, proto jsem potřeboval, aby i moje elektronika, dokázala takovéto napětí zpracovávat.
 
-Jeden vstup je připojen ke světlu které signalizuje zastavení stroje a druhý k senzory, který zaznamenává dopletenou ponožku.
+Jeden vstup je připojen ke světlu, které signalizuje zastavení stroje a druhý k senzoru, který zaznamenává dopletenou ponožku.
 Tyto vstupní signály jsou připojeny na optočleny, které vodivě oddělí vstupní napájení.
-Na výstupu máme poté pouze třívoltový signál, který je zpracovatelný čipem.
+Na výstupu máme poté pouze tří voltový signál, který je zpracovatelný čipem.
 
 Jako uživatelské vstupní periferie jsem využil jednoduchá tlačítka, pomocí kterých si uživatel upravuje nastavení senzoru.
 
 
 \section{Výstupy}
-Jako hlavní zobrazovací článek jem využil barevný TFT displej o velikosti 1,14 palce.
+Jako hlavní zobrazovací článek jsem využil barevný TFT displej o velikosti 1,14 palce.
 Na displeji se zobrazuje číslo zařízení, počet upletených ponožek a doba stání stroje.
 Spodní část je vyhrazena na logovací a chybové hlášky.
 
 Druhým výstupním prvkem jsou barevné diody.
-Ty využívám k signalizaci funkčnosti senzoru a k 
 Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funkčnosti celé elektroniky.
 
 \begin{figure}[htbp]
@@ -44,11 +43,10 @@ Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funk�
 
 
 \section{Vlastní PCB}
-K vytvoření vlastní desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
+K vytvoření vlastní základové desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
 Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě, ale zabírají spoustu místa. 
  
-% Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, díky čemuž bylo zapotřebí vyrobit 3O stejných elektronických desek.
-Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit celou firmu, což znamená vyrobit 3O stejných elektronických desek.
+Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 30 stejných elektronických desek.
 
 Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba je velmi precizní a dokáží desku i osadit vybranými součástkami.
 
@@ -68,10 +66,6 @@ Při~navrhování senzoru jsem si stanovil tyto body:
     \item čtyři~uživatelská tlačítka
 \end{itemize}
 
-% \subsection{Elektronika}
-% % Modul TTGO~T-Display jsem zvolil kvůli jeho jednoduché práci s displejem. 
-% Modul TTGO~T-Display jsem zvolil z toho důvodu, že má přímo v sobě integrovaný mikročip ESP32.
-% Ten je dostatečně výkonný a disponuje konektivitu Bluetooth a WiFi. 
 
 \subsection{Řídící deska}
 Návrh desky jsem tvořil v~aplikaci EAGLE od společnosti Autodesk. 
@@ -121,7 +115,6 @@ Poté už stačí zavolat například vyčítací metodu, která vrátí stav tl
 
 
 
-% 2. verze - speciální senzorika
 \section{2. verze - speciální senzorika}
 
 Po měsíci testování jsem zhodnotil využití jednotlivých součástek a~následně jsem vytvořil nový seznam požadavků, přizpůsobený pro lepší chod senzoru.
@@ -169,7 +162,7 @@ Další vylepšení jsem provedl u displeje, který dokáže zobrazit více úda
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth/3]{img/V2-deska-esp-screen.png}
+    \includegraphics[width=\textwidth/2]{img/V2-deska-esp-screen.png}
     \caption{Senzor - 2. verze}
     \label{fig:SenzorV2}
 \end{figure}

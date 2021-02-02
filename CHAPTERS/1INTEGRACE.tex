@@ -9,21 +9,24 @@ Moderní IoT řídící systémy se snaží proniknou co nejvíce do hloubky ř�
 Při~návrhu mého systému jsem se snažil řídit těmito zásadami a~navrhnout tak co nejmodernější a~provozně efektivní systém.
 Základem bylo zhodnocení stávající situace a~navržení možného řešení.
 
-Jednotlivé problémy
+Jednotlivé problémy neautomatizované výroby:
 \begin{itemize}
     \item dlouhá doba stání nečinných strojů při poruše i nedostatku materiálu
+    \item neznalost doby nečinnosti stroje
     \item ruční počítání vyprodukovaného zboží
     \item absence historického přehledu produkce
 \end{itemize}
 
 %SECTION
 \section{Řešení}
-Mým řešením je tedy návrh moderního systému, který by celý tento provoz monitoroval a~zobrazoval zaměstnavateli.
-Dále se také snažím o~zhodnocení jednotlivých směn a~jejich porovnání.
+Mým řešením je tedy návrh moderního systému, který by celý tento výrobní provoz monitoroval a~zobrazoval jak operátorovi u stroje, tak zaměstnavateli.
+Systém umožňuje on line zhodnocení jednotlivých směn a~jejich vzájemné porovnání.
 Systém neustále vyvíjím a~rozšiřuji podle potřeb firmy.
 
-Funkce systému
+Současné funkce systému Pletačka IoT
 \begin{itemize}
+    \item monitoring chodu každého pletacího stroje
+    \item on line hlášení závady na stroji
     \item monitoring provozu firmy
     \item porovnání pracovních směn
     \item počítání upletených ponožek
@@ -36,8 +39,10 @@ Funkce systému
 Tento systém je aktuálně nasazen ve firmě ROTEX Vysočina s.r.o\cite{ROTEX}, která se věnuje výrobě ponožek. 
 Firma pracuje ve dvousměnném provozu a~týdně vyprodukuje v~průměru 12000 párů ponožek. 
 
-Díky mému systému by se ve firmě dala optimalizovat produkce a~výkon strojů a~tím zefektivnit budoucí výrobu. 
-
+% Díky mému systému by se ve firmě dala optimalizovat produkce a~výkon strojů a~tím zefektivnit budoucí výrobu. 
+Díky mému systému Pletačka IoT se ve firmě optimalizovala produkce a výkon strojů a tím zefektivnila výroba. 
+Toto se podařilo především díky minimalizování času nečinnosti pletacích strojů z důvodu on line hlášení poruch a úsporou času operátora výroby při dřívějším ručním počítáním upletených ponožek. 
+Jako bonus navíc systém vyhodnocuje produktivitu každého zaměstnance a jednotlivé směny.
 
 
 %SECTION
@@ -52,12 +57,12 @@ Díky mému systému by se ve firmě dala optimalizovat produkce a~výkon stroj�
     \label{fig:Pletarna}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth]{img/V2-uchyceni.png}
-    \caption{Senzor na stroji}
-    \label{fig:SenzorNaStroji}
-\end{figure}
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=\textwidth]{img/V2-uchyceni.png}
+%     \caption{Senzor na stroji}
+%     \label{fig:SenzorNaStroji}
+% \end{figure}
 
 
 \newpage
