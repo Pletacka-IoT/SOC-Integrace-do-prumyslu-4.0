@@ -43,7 +43,7 @@ Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funk�
 
 
 \section{Vlastní PCB}
-K vytvoření vlastní základové desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
+K vytvoření vlastní řídící desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
 Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě, ale zabírají spoustu místa. 
  
 Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 30 stejných elektronických desek.
@@ -52,7 +52,7 @@ Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba
 
 
 
-\section{1. verze - univerzální sensorika}
+\section{verze 1 - univerzální sensorika}
 
 První verzi jsem pojal jako testovací. Bylo tedy třeba navrhnout univerzální desku a~otestovat celý systém.\newline
 
@@ -68,7 +68,7 @@ Při~navrhování senzoru jsem si stanovil tyto body:
 
 
 \subsection{Řídící deska}
-Návrh desky jsem tvořil v~aplikaci EAGLE od společnosti Autodesk. 
+Návrh desky jsem vytvořil v~aplikaci EAGLE od společnosti Autodesk. 
 Deska má rozměry 75 na 60 mm a~v~každém rohu má upevňovací otvory.
 Kabely se do desky připojují pomocí 5 mm svorkovnice.
 Na vstupu napájení je měnič napětí, který pracuje v~rozsahu od 10 do 25 voltů a~na výstupu dává 5V. 
@@ -81,9 +81,9 @@ Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zas
 Senzor je také schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
 \subsection{Uchycení}
-Krut řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
+Kryt řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
 Na přední straně je průhled z~plexiskla na barevný displej a~okolo něj jsou rozmístěná uživatelská tlačítka.
-Na boční straně krytu jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek stroje.
+Na boční straně krytu jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek pletacího stroje.
 Signálové kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
 
 
@@ -115,7 +115,7 @@ Poté už stačí zavolat například vyčítací metodu, která vrátí stav tl
 
 
 
-\section{2. verze - speciální senzorika}
+\section{verze 2 - speciální senzorika}
 
 Po měsíci testování jsem zhodnotil využití jednotlivých součástek a~následně jsem vytvořil nový seznam požadavků, přizpůsobený pro lepší chod senzoru.
 Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
@@ -131,14 +131,15 @@ Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
 
 \subsection{Řídící deska}
 Návrh druhé desky jsem se rozhodl udělat v~open source aplikaci KiCad.
-Z uživatelského hlediska se sní pracuje o něco rychleji díky jednoduchým klávesovým zkratkám. 
-Dalším důvodem pro zvolení této aplikace bylo rozšíření KiKit, která razantně zjednodušuje export výrobních podkladů.
-Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat `make' a celý proces se vykoná automatizovaně bez nutnosti editace dat.
+Z uživatelského hlediska se s ní pracuje o něco rychleji díky jednoduchým klávesovým zkratkám. 
+Dalším důvodem pro zvolení této aplikace bylo rozšíření KiKit, které razantně zjednodušuje export výrobních podkladů.
+Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat příkaz `make' a celý proces se vykoná automatizovaně bez nutnosti editace dat.
 
 Rozšíření KiKit jsem také začal používat k automatizovanému generování dokumentace k plošným spojům.
 Rozvržení webové stránky si uživatel nastaví v konfiguračním souboru a následně při každé změně se stránka přegeneruje a aktualizuje.
 
-V~novém návrhu jsem se~především zaměřoval na~rozměr desky, ten aktuálně činí 32$\times$76 mm, což je o~46 procent menší plocha než u~první verze.
+V~novém návrhu jsem se~především zaměřoval na~rozměr desky.
+Ten aktuálně činí 32$\times$76 mm, což je o~46 procent menší plocha než u~první verze.
 
 Deska si~zachovala stejný procesor ESP32 s~displejem, ale přišla~o~dvě~tlačítka a~jednu indikační diodu.
 V~senzoru~se také změnilo zapojení měniče napětí.
@@ -150,7 +151,7 @@ Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do v
 \subsection{Uchycení}
 Druhá verze využívá stejného principu uchycení, jako ta~předchozí. 
 Mění se~zde však spojení krabičky se~senzorovou deskou. 
-V~nové verzi jsem desku navrhl tak, aby se~dala jednoduše zasunout~do kolejnic které jsou předtištěné v~krabičce a~následně zafixovat šroubkem ze~zadní strany.
+V~nové verzi jsem desku navrhl tak, aby se~dala jednoduše zasunout~do kolejnic, které jsou předtištěné v~krabičce a~následně zafixovat šroubkem ze~zadní strany.
 To~umožňuje jednoduchou montáž~a~rychlé připojení.
 Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí 3D tištěných svěrek.
 
