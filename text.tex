@@ -67,7 +67,7 @@ Systém jsem navrhoval na míru pro rodinnou firmu na pletení ponožek a v sou
 Pro uživatele systém nabízí moderní webové stránky, kde si může naměřená data přehledně zobrazit a~analyzovat.
 
 Systém se skládá ze tří částí. Senzorová část, která je připojená k~pletacímu stroji a~odesílá data.
-Dále pak server, který veškerá data zpracovává a~zobrazuje je uživateli.
+Dále pak server, který veškerá data zpracovává a~zobrazuje uživateli.
 Poslední částí je podpůrný server, který se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
 
 \subsection*{Klíčová slova}
@@ -79,13 +79,20 @@ IoT, ESP32, web, PHP, Nette, databáze, open-source, průmysl 4.0, automatizace,
 \vspace{20mm}
 
 \section*{Annotation}
-The aim of my work was to design a comprehensive automatic system that monitors the operation of knitting machines and adapt it as best as possible to the needs of the manufacturing company.
+% The aim of my work was to design a comprehensive automatic system that monitors the operation of knitting machines and adapt it as best as possible to the needs of the manufacturing company.
+The goal of my work was to design a comprehensive automatic system that monitors the operation of knitting machines according to the needs of a manufacturing company.
 
-I designed a system tailored for a family sock knitting business and is currently able to record and then send measured data from machines to a server in real time. 
-For users, the system offers modern websites where they can clearly display and analyze the measured data.
+% I designed a system tailored for a family sock knitting business and is currently able to record and then send measured data from machines to a server in real time. 
+I designed a production monitoring system for a family sock knitting business that can record measured data and submit them from machines to a server via the wireless network in real-time.
+% For users, the system offers modern websites where they can clearly display and analyze the measured data.
+The system offers a modern web-based user interface where the user can clearly display and analyze the measured data in a form of a real-time dashboard, statistic tables and graphs.
 
-The system consists of three parts. The sensor part, which is connected to the knitting machine and sends the data. 
-Furthermore, the server, which processes all the data and displays it to the user. The last part is a support server, which takes care of updating and checking the correct operation of the sensors.  
+% The system consists of three parts. The sensor part, which is connected to the knitting machine and sends the data. 
+The system consists of three subsystems - sensors, a main server, and a support server.
+% Furthermore, the server, which processes all the data and displays it to the user. The last part is a support server, which takes care of updating and checking the correct operation of the sensors.  
+The sensors are connected to the machines and send the data to the main server via WiFi. 
+The main server processes all the data and displays it to the user. 
+The support server takes care of updating and checking the correct operation of the sensors. 
 
 \subsection*{Keywords}
 IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization, modernization
