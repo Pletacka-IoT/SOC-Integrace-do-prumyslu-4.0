@@ -15,7 +15,7 @@ Potenciální konkurenci tohoto systému jsem tedy rozdělil na dva celky.
 \subsection{PLC}
 PLC neboli programovatelný logický automat je průmyslový počítač k~řízení automatizovaných procesů.
 Automaty zpracovávají data v~reálném čase a~s~co nejkratší odezvou.
-PLC jsou velmi modulární a~dají se skládat různě dohromady, podle potřeby uživatele.
+PLC jsou modulární a~dají se skládat různě dohromady, podle potřeby uživatele.
 
 
 % \fxnote[author=JPA]{Industruino bych nahradil bych Controllinem: https://www.controllino.com/product/controllino-maxi/}
@@ -32,7 +32,7 @@ Zařízení nabízí několik vstupních a~výstupních pinů, pomocí kterých 
 
 \subsection{Hardwario}
 Hardwario\cite{HARDWARIO} je česká firma, která nabízí průmyslové IoT stavebnice.
-Cílem této firmy je nabídnou průmyslové IoT řešení, které si sami sestavíte podle svých představ.
+Cílem této firmy je nabídnout průmyslové IoT řešení, které si sami sestavíte podle svých představ.
 Firma se zaměřuje na nízkoenergetické moduly s~vydrží několika let.
 % Nevýhodou tohoto produktu je jeho vysoká pořizovací cena. 
 
@@ -52,6 +52,24 @@ Desky Arduino se programují v~jazyce Wiring, vytvořeném přímo pro programov
 
 První tří zmíněné platformy jsou hojně využívány v~průmyslu a~řídí většinu automatizovaných procesů. 
 Jejich nasazení je složité a~celé systémy jsou velmi drahé.\newline
+
+\newpage
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\B{Hardware}		& 1 	 & 2 	  & 3 	   & 4 		& 5 	 & 6 	  \\ \hline
+		PLC                 & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
+		Controllino         & \cmark & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+		Hardwario           & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
+		Arduino             & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
+		\B{Moje řešení} 	& \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
+	\end{tabular}
+	\caption{Tabulka srovnání hardwarové konkurence.}
+	\label{tab:COMPARATION}
+\end{table}
+	
 Požadavky na hardwarovou část
 \begin{enumerate}
     \item Připraveno na montáž na zařízení
@@ -59,25 +77,8 @@ Požadavky na hardwarovou část
     \item Open source
     \item Barevný displej
     \item Bezdrátová aktualizace senzorů
-		\item Moderní konektor USB-C
+	\item Moderní konektor USB-C
   \end{enumerate}
-
-
-	\begin{table}[]
-		\centering
-		\begin{tabular}{|l|l|l|l|l|l|l|}
-			\hline
-			\B{Hardware}		& 1 	 & 2 	  & 3 	   & 4 		& 5 	 & 6 	  \\ \hline
-			PLC                 & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark \\ \hline
-			Controllino         & \cmark & \cmark & \cmark & \xmark & \xmark & \xmark \\ \hline
-			Hardwario           & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
-			Arduino             & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark \\ \hline
-			\B{Moje řešení} 	& \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\ \hline
-		\end{tabular}
-		\caption{Tabulka srovnání hardwarové konkurence.}
-		\label{tab:COMPARATION}
-	\end{table}
-	
 
 \newpage
 

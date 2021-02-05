@@ -28,7 +28,7 @@ Jako uživatelské vstupní periferie jsem využil jednoduchá tlačítka, pomoc
 
 \section{Výstupy}
 Jako hlavní zobrazovací článek jsem využil barevný TFT displej o velikosti 1,14 palce.
-Na displeji se zobrazuje číslo zařízení, počet upletených ponožek a doba stání stroje.
+Na displeji se zobrazuje ID zařízení, počet upletených ponožek a doba stání stroje.
 Spodní část je vyhrazena na logovací a chybové hlášky.
 
 Druhým výstupním prvkem jsou barevné diody.
@@ -54,7 +54,7 @@ Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba
 
 \section{verze 1 - univerzální senzorika}
 
-První verzi jsem pojal jako testovací. Bylo tedy třeba navrhnout univerzální desku a~otestovat celý systém.\newline
+První verzi jsem pojal jako testovací. Bylo třeba navrhnout univerzální desku a~otestovat celý systém.\newline
 
 Při~navrhování senzoru jsem si stanovil tyto body:
 \begin{itemize}
@@ -77,8 +77,8 @@ Na vstupu napájení je měnič napětí, který pracuje v~rozsahu od 10 do 25 v
 Tento čip také zajišťuje WiFi konektivitu s~okolím a~odesílá naměřená data na server.
 Pro univerzální detekování vstupů z~periferií se využívají optočleny, které předávají signál do mikroprocesoru.
 K~uživatelskému ovládání senzoru jsou zde čtyři~programovatelná tlačítka a~tři~indikační diody.
-Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zastavení stroje a~počtu upletených párů.
-Senzor je také schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
+Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zastavení stroje a~počtu upletených párů ponožek.
+Senzor je schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
 \subsection{Kryt a uchyceni senzoru}
 % Kryt řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
