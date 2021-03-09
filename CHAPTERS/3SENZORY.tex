@@ -16,6 +16,14 @@ Tato kombinace mi vyšla jako nejlepší.
 Spojuje bezproblémovou komunikaci čipu s~displejem a~zároveň jednoduchou výměnu při~nefunkčnosti modulu.
 
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth/3 ]{img/ESP32.png}
+    \caption{TTGO~T-Display}
+    \label{fig:TTGO}
+\end{figure}
+
+
 \section{Vstupy}
 Napájecí okruh pletacího stroje pracuje s~napětím 24~V, proto jsem potřebo\-val, aby i~moje elektronika, dokázala takovéto napětí zpracovávat.
 
@@ -34,27 +42,22 @@ Spodní část je vyhrazena na logovací a~chybové hlášky.
 Druhým výstupním prvkem jsou barevné diody.
 Ty slouží pro signalizaci odesílání dat a~k~jednoduchému zjištění funkčnosti celé elektroniky.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\textwidth/3 ]{img/ESP32.png}
-    \caption{TTGO~T-Display}
-    \label{fig:TTGO}
-\end{figure}
 
 
 \section{Vlastní PCB}
 K~vytvoření vlastní řídící desky mě vedlo několik faktorů. První z~nich byla velikost celé elektroniky. 
-Nevýhodou elektroniky postavené z~existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k~sobě, ale zabírají spoustu místa. 
+Nevýhodou elektroniky postavené z~existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k~sobě, ale~zabírají spoustu místa. 
  
 Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 30 stejných elektronických desek.
 
 Desky jsem si tedy nechával vyrábět v~čínské firmě JLCPCB. Jejich výroba je velmi precizní a~dokáží desku také~osadit vybranými součástkami.
 
 
+\newpage
 
 \section{Verze 1 - univerzální senzorika}
 
-První verzi jsem pojal jako testovací. Bylo třeba navrhnout univerzální desku a~otestovat celý systém.\newline
+První verzi jsem pojal jako testovací. Bylo třeba navrhnout univerzální desku a~otestovat celý systém.
 
 Při~navrhování senzoru jsem si stanovil tyto body:
 \begin{itemize}
@@ -78,7 +81,7 @@ Tento čip také zajišťuje WiFi konektivitu s~okolím a~odesílá naměřená 
 Pro univerzální detekování vstupů z~periferií se využívají optočleny, které předávají signál do mikroprocesoru.
 K~uživatelskému ovládání senzoru jsou zde čtyři~programovatelná tlačítka a~tři~indikační diody.
 Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zastavení stroje a~počtu upletených párů ponožek.
-Senzor je schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
+Senzor je schopen zaznamenávat data ze~čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
 \subsection{Kryt a~uchycení senzoru}
 % Kryt řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
@@ -96,7 +99,7 @@ Zdrojový kód mám napsaný v~jazyce C++.
 Program se skládá z~několika vláken, které se pravidelně spouštějí a~vykonávají.
 První a~zároveň nejdůležitější vlákno je senzorové.
 Zde se periodicky kontroluje stav periferií a~při~změně se odešle událost na server.
-Další vlákno zajišťuje pravidelné vykreslování dat na displej a~zbylá vlákna se starají o~správný chod senzoru.
+Další vlákno zajišťuje pravidelné vykreslování dat na displej a~zbylá vlákna se~starají o~správný chod senzoru.
 
 Software také obsahuje ladící mód, ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu.
 
@@ -115,7 +118,6 @@ Poté už stačí zavolat například vyčítací metodu, která vrátí stav tl
 
 
 \newpage
-
 
 
 \section{Verze 2 - speciální senzorika}
