@@ -3,23 +3,23 @@
 Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
 Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
 Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-Senzor je napájen z~5 nebo 24 voltů a~má spotřebu 120 mA.
+Senzor je napájen z~5 nebo 24~v~a~má spotřebu 120 mA.
 Návrh senzorů i~jejich software mám verzovaný nástrojem Git ve veřejném repozitáři~na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\cite{PL_BOARD}
 
 \section{Procesor}
-Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a disponuje konektivitou WiFi.
-Procesor obsahuje 4MB flash paměti sloužící k ukládání programu.
+Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a~disponuje konektivitou WiFi.
+Procesor obsahuje 4MB flash paměti sloužící k~uk\-lá\-dá\-ní programu.
 
-Po prozkoumání trhu jsem našel modul TTGO~T-Display, který kombinuje barevný displej s čipem ESP32.
+Po prozkoumání trhu jsem našel modul TTGO~T-Display, který kombinuje barevný displej s~čipem ESP32.
 Tato kombinace mi vyšla jako nejlepší. 
-Spojuje bezproblémovou komunikaci čipu s displejem a zároveň jednoduchou výměnu při nefunkčnosti modulu.
+Spojuje bezproblémovou komunikaci čipu s~displejem a~zároveň jednoduchou výměnu při~nefunkčnosti modulu.
 
 
 \section{Vstupy}
-Napájecí okruh pletacího stroje pracuje s napětím 24 voltů, proto jsem potřeboval, aby i moje elektronika, dokázala takovéto napětí zpracovávat.
+Napájecí okruh pletacího stroje pracuje s~napětím 24~V, proto jsem potřebo\-val, aby i~moje elektronika, dokázala takovéto napětí zpracovávat.
 
-Jeden vstup je připojen ke světlu, které signalizuje zastavení stroje a druhý k senzoru, který zaznamenává dopletenou ponožku.
+Jeden vstup je připojen ke světlu, které signalizuje zastavení stroje a~druhý k~senzoru, který zaznamenává dopletenou ponožku.
 Tyto vstupní signály jsou připojeny na optočleny, které vodivě oddělí vstupní napájení.
 Na výstupu máme poté pouze tří voltový signál, který je zpracovatelný čipem.
 
@@ -27,12 +27,12 @@ Jako uživatelské vstupní periferie jsem využil jednoduchá tlačítka, pomoc
 
 
 \section{Výstupy}
-Jako hlavní zobrazovací článek jsem využil barevný TFT displej o velikosti 1,14 palce.
-Na displeji se zobrazuje ID zařízení, počet upletených ponožek a doba stání stroje.
-Spodní část je vyhrazena na logovací a chybové hlášky.
+Jako hlavní zobrazovací článek jsem využil barevný TFT displej o~velikosti 1,14 palce.
+Na displeji se zobrazuje ID zařízení, počet upletených ponožek a~doba stání stroje.
+Spodní část je vyhrazena na logovací a~chybové hlášky.
 
 Druhým výstupním prvkem jsou barevné diody.
-Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funkčnosti celé elektroniky.
+Ty slouží pro signalizaci odesílání dat a~k~jednoduchému zjištění funkčnosti celé elektroniky.
 
 \begin{figure}[htbp]
     \centering
@@ -43,16 +43,16 @@ Ty slouží pro signalizaci odesílání dat a k jednoduchému zjištění funk�
 
 
 \section{Vlastní PCB}
-K vytvoření vlastní řídící desky mě vedlo několik faktorů. První z nich byla velikost celé elektroniky. 
-Nevýhodou elektroniky postavené z existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k sobě, ale zabírají spoustu místa. 
+K~vytvoření vlastní řídící desky mě vedlo několik faktorů. První z~nich byla velikost celé elektroniky. 
+Nevýhodou elektroniky postavené z~existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k~sobě, ale zabírají spoustu místa. 
  
 Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 30 stejných elektronických desek.
 
-Desky jsem si tedy nechával vyrábět v čínské firmě JLCPCB. Jejich výroba je velmi precizní a dokáží desku i osadit vybranými součástkami.
+Desky jsem si tedy nechával vyrábět v~čínské firmě JLCPCB. Jejich výroba je velmi precizní a~dokáží desku také~osadit vybranými součástkami.
 
 
 
-\section{verze 1 - univerzální senzorika}
+\section{Verze 1 - univerzální senzorika}
 
 První verzi jsem pojal jako testovací. Bylo třeba navrhnout univerzální desku a~otestovat celý systém.\newline
 
@@ -69,9 +69,9 @@ Při~navrhování senzoru jsem si stanovil tyto body:
 
 \subsection{Řídící deska}
 Návrh desky jsem vytvořil v~aplikaci EAGLE od společnosti Autodesk. 
-Deska má rozměry 75 na 60 mm a~v~každém rohu má upevňovací otvory.
+Deska má rozměry 75$\times$60 mm a~v~každém rohu má upevňovací otvory.
 Kabely se do desky připojují pomocí 5 mm svorkovnice.
-Na vstupu napájení je měnič napětí, který pracuje v~rozsahu od 10 do 25 voltů a~na výstupu dává 5V. 
+Na vstupu napájení je měnič napětí, který pracuje v~rozsahu od 10 do 25~V a~na výstupu dává 5V. 
 
 Řídící procesor celé desky je modul ESP32 TTGO T-Display.
 Tento čip také zajišťuje WiFi konektivitu s~okolím a~odesílá naměřená data na server.
@@ -80,10 +80,10 @@ K~uživatelskému ovládání senzoru jsou zde čtyři~programovatelná tlačít
 Aktuální naměřená data se zobrazují na displeji a~informují obsluhu o~zastavení stroje a~počtu upletených párů ponožek.
 Senzor je schopen zaznamenávat data ze čtyř vstupů a~teplotu z~teplotního senzoru. Viz obrázek \ref{fig:SenzorV1}.
 
-\subsection{Kryt a uchyceni senzoru}
+\subsection{Kryt a~uchycení senzoru}
 % Kryt řídící desky je vytisknutý na 3D tiskárně z~materiálu PETG.
-Kryt řídící desky jsem navrhl v aplikaci Fusion 360 a vyexportoval jsem ho do formátu STL.
-Tento model jsem následně vytisknul na 3D tiskárně Průša z materiálu PETG.
+Kryt řídící desky jsem navrhl v~aplikaci Fusion 360 a~vyexportoval jsem ho do formátu STL.
+Tento model jsem následně vytisknul na 3D tiskárně Průša~z~materiálu PETG.
 Na přední straně je průhled z~plexiskla na barevný displej a~okolo něj jsou rozmístěná uživatelská tlačítka.
 Na boční straně krytu jsou připravené dvě drážky na protažení stahovacích zip pásků pro uchycení na sloupek pletacího stroje.
 Signálové kabely jsou poté svedeny po konstrukci stroje až k~periferiím.
@@ -101,7 +101,7 @@ Další vlákno zajišťuje pravidelné vykreslování dat na displej a~zbylá v
 Software také obsahuje ladící mód, ve kterém si administrátor může zobrazit stav senzoru v~mobilní aplikaci a~jednodušeji tak hledat potenciální chybu.
 
 Celý program jsem napsal objektově orientovaným programováním, díky čemuž je velmi jednoduché měnit například počet vstupních periferií.
-Každé nové periferii stačí nastavit správný typ, pin na který je připojena a její název.
+Každé nové periferii stačí nastavit správný typ, pin na který je připojena a~její název.
 Poté už stačí zavolat například vyčítací metodu, která vrátí stav tlačítka.
 \newline
 \newline
@@ -118,7 +118,7 @@ Poté už stačí zavolat například vyčítací metodu, která vrátí stav tl
 
 
 
-\section{verze 2 - speciální senzorika}
+\section{Verze 2 - speciální senzorika}
 
 Po měsíci testování jsem zhodnotil využití jednotlivých součástek a~následně jsem vytvořil nový seznam požadavků, přizpůsobený pro lepší chod senzoru.
 Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
@@ -135,17 +135,19 @@ Zařízení je díky tomu mnohem menší, levnější a~softwarově rychlejší.
 
 \subsection{Řídící deska}
 Návrh druhé desky jsem se rozhodl udělat v~open source aplikaci KiCad.
-Z uživatelského hlediska se s ní pracuje o něco rychleji díky jednoduchým klávesovým zkratkám. 
-Dalším důvodem pro zvolení této aplikace bylo rozšíření KiKit, které razantně zjednodušuje export výrobních podkladů.
-Zatímco v dříve používané aplikaci Eagle jsem při každé změně musel projít zdlouhavým procesem exportu, nyní v linuxovém terminálu stačí zavolat příkaz `make' a celý proces se vykoná automatizovaně bez nutnosti editace dat.
+Z~uživatelského hlediska se s~ní pracuje o~něco rychleji díky jednoduchým klávesovým zkratkám. 
+Dalším důvodem pro zvolení této aplikace bylo roz\-ší\-ře\-ní KiKit, které razantně zjednodušuje export výrobních podkladů.
+Zatímco v~dříve používané aplikaci Eagle jsem při~každé změně musel projít zdlouhavým procesem exportu, nyní v~linuxovém terminálu stačí zavolat příkaz `make' a~celý proces se vykoná automatizovaně bez nutnosti editace dat.
 
-Rozšíření KiKit jsem také začal používat k automatizovanému generování dokumentace k plošným spojům.
-Rozvržení webové stránky si uživatel nastaví v konfiguračním souboru a následně při každé změně se stránka přegeneruje a aktualizuje.
+Rozšíření KiKit jsem také začal používat k~automatizovanému generování dokumentace k~plošným spojům.
+Rozvržení webové stránky si uživatel nastaví v~konfiguračním souboru a~následně při~každé změně se stránka pře\-ge\-ne\-ru\-je a~aktualizuje.
 
 V~novém návrhu jsem se~především zaměřoval na~rozměr desky.
-Ten aktuálně činí 32$\times$76 mm, což je o~46 procent menší plocha než u~první verze.
+Ten aktuálně činí 32$\times$76 mm, což je o~46 \% menší plocha než u~první verze.
 
-Deska si~zachovala stejný procesor ESP32 s~displejem, ale přišla~o~dvě~tlačítka a~jednu indikační diodu.
+Deska si~zachovala stejný procesor ESP32 s~displejem, ale přišla~o~dvě~tla\-čí\-tka a~jednu indikační diodu.
+Ty jsem ani v předchozí verzi nepoužíval, proto jsem se je rozhodl odstranit.
+
 V~senzoru~se také změnilo zapojení měniče napětí.
 Nově dokáže pracovat již od~5V, které následně mění na~3,3V.
 Na~bočních stranách desky vznikla také nová "křidélka" pro zasunutí~do vylepšeného krytu.
@@ -157,13 +159,13 @@ Druhá verze využívá stejného principu uchycení, jako ta~předchozí.
 Mění se~zde však spojení krabičky se~senzorovou deskou. 
 V~nové verzi jsem desku navrhl tak, aby se~dala jednoduše zasunout~do kolejnic, které jsou předtištěné v~krabičce a~následně zafixovat šroubkem ze~zadní strany.
 To~umožňuje jednoduchou montáž~a~rychlé připojení.
-Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí 3D tištěných svěrek.
+Tento návrh už~má~také vyřešené zafixování kabelů ke~konstrukci krabičky pomocí 3D tištěné svorky.
 
 
 \subsection{Program}
 Program druhé verze vychází z~minulé, ale přináší s~sebou nové funkce a~vylepšuje stávající.
 Novou funkcionalitou je například automatická aktualizace programu přes WiFi, kterou nadále zdokonaluji.
-Další vylepšení jsem provedl u displeje, který dokáže zobrazit více údajů a~automaticky mezi nimi přepínat.
+Další vylepšení jsem provedl u~displeje, který dokáže zobrazit více údajů a~automaticky mezi nimi přepínat.
 
 \begin{figure}[htbp]
     \centering
