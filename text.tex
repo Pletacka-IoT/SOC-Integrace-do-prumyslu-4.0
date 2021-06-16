@@ -22,6 +22,9 @@
 \newcommand{\cmark}{\textcolor{green}{\ding{51}}}%
 \newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
 
+% necislovat
+\pagenumbering{gobble}
+
 
 \lstset { %
     language=C++,
@@ -60,7 +63,7 @@
 \makecopyrightstatement{V~Brně} % místo
 
 % poděkování
-\makethanks{Děkuji svému školiteli Mgr. Jaroslavu Páralovi obětavou pomoc, podnětné připomínky a~hlavně nekonečnou trpělivost, kterou mi během práce poskytoval.}
+\makethanks{Děkuji svému školiteli Mgr. Jaroslavu Páralovi za obětavou pomoc, podnětné připomínky a~hlavně nekonečnou trpělivost, kterou mi během práce poskytoval.}
 
 \pagestyle{empty}
 
@@ -70,9 +73,16 @@ Cílem mé práce bylo navrhnout ucelený automatický systém monitorující ch
 Systém jsem navrhoval na míru pro rodinnou firmu na pletení ponožek a~v sou\-čas\-nos\-ti je schopen v~reálném čase zaznamenávat a~následně odesílat naměřená data ze strojů na server. 
 Pro uživatele systém nabízí moderní webové stránky, kde si může naměřená data přehledně zobrazit a~analyzovat.
 
-Systém se skládá ze tří částí. Senzorová část, která je připojená k~pletacímu stroji a~odesílá data.
-Dále pak server, který veškerá data zpracovává a~zobrazuje uživateli.
-Poslední částí je podpůrný server, který se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
+% Systém se skládá ze tří částí. 
+% Senzorová část, která je připojená k~pletacímu stroji a~odesílá data.
+% Dále pak server, který veškerá data zpracovává a~zobrazuje uživateli.
+% Poslední částí je podpůrný server, který se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
+
+Systém se skládá ze senzorové části, serveru a podpůrného serveru.
+Senzorová část je připojená k~pletacímu stroji a~odesílá naměřená data.
+Server zajišťuje veškeré zpracování dat a jejich zobrazení uživateli.
+Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
+
 
 \subsection*{Klíčová slova}
 IoT, ESP32, web, PHP, Nette, databáze, open-source, průmysl 4.0, automatizace, modernizace
@@ -106,6 +116,16 @@ IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization
 
 \tableofcontents % vysází obsah
 
+% \newpage
+
+\pagestyle{plain}
+\listoffigures
+\addcontentsline{}{section}{Seznam obrázků}
+
+\pagestyle{plain}
+\listoftables
+\addcontentsline{}{section}{Seznam tabulek}
+
 %%% Začátek práce
 \setcounter{figure}{0}
 \setcounter{table}{0}
@@ -116,6 +136,12 @@ IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization
 % Úvod procházení
 
 % \input{CHAPTERS/example.tex}
+
+% cislovat
+\pagenumbering{arabic}
+
+
+\setcounter{page}{1}
 
 \input{CHAPTERS/0UVOD.tex}
 
@@ -149,25 +175,6 @@ IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization
 
 \input{CHAPTERS/10ZAVER.tex}
 
-\newpage
-
-
-
-\appendix
-\addcontentsline{toc}{chapter}{Přílohy}
-
-
-\input{CHAPTERS/A0PRILOHY.tex}
-
-
-
-% \input{CHAPTERS/A1SENZORY.tex}
-
-
-% \input{CHAPTERS/A2SERVER.tex}
-
-
-% \input{CHAPTERS/A3PODPURNY_SERVER.tex}
 
 
 
@@ -175,11 +182,25 @@ IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization
 
 \addcontentsline{toc}{chapter}{Literatura}
 
-\listoffigures
-\addcontentsline{toc}{section}{Seznam obrázků}
 
-\listoftables
-\addcontentsline{toc}{section}{Seznam tabulek}
+
+
+% \printbibliography[title=Literatura]
+
+% \addcontentsline{toc}{chapter}{Literatura}
+
+% \listoffigures
+% \addcontentsline{toc}{section}{Seznam obrázků}
+
+% \listoftables
+% \addcontentsline{toc}{section}{Seznam tabulek}
+
+
+\appendix
+
+
+
+\input{CHAPTERS/A0PRILOHY.tex}
 
 \end{document}
 

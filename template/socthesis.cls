@@ -22,7 +22,7 @@
 
 % posun textu kvůli kroužkové vazbě
 %\addtolength{\textwidth}{mm}
-\addtolength{\hoffset}{4mm}
+% \addtolength{\hoffset}{4mm}
 
 \setlength{\intextsep}{5mm} % nastavení mezery okolo obrázků
 \marginparsep=15pt
@@ -109,7 +109,8 @@
     \enlargethispage{40mm} % zvětší oblast tisku pro tuto stránku
 	\begin{center}
 	    {\large \B{STŘEDOŠKOLSKÁ ODBORNÁ ČINNOST}} \\
-
+	    \vspace{5mm}
+		\normalsize \B{Obor: \@field} \\
 		\vspace{40mm}
 
 		{\Large \B{\expandafter\MakeUppercase\expandafter{\@titlecz}}} \\

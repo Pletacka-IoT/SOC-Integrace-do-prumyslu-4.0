@@ -3,13 +3,13 @@
 Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
 Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
 Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-Senzor je napájen z~5 nebo 24~v~a~má spotřebu 120 mA.
+Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 Návrh senzorů i~jejich software mám verzovaný nástrojem Git ve veřejném repozitáři~na GitHubu.\newline
 GitHub: \href{https://github.com/Pletacka-IoT/Pletacka-board}{Pletacka-board}\cite{PL_BOARD}
 
 \section{Procesor}
 Jako řídící procesor jsem zvolil čip ESP32, protože je velice výkonný a~disponuje konektivitou WiFi.
-Procesor obsahuje 4MB flash paměti sloužící k~uk\-lá\-dá\-ní programu.
+Procesor obsahuje 4~MB flash paměti sloužící k~uk\-lá\-dá\-ní programu.
 
 Po prozkoumání trhu jsem našel modul TTGO~T-Display, který kombinuje barevný displej s~čipem ESP32.
 Tato kombinace mi vyšla jako nejlepší. 
@@ -48,7 +48,7 @@ Ty slouží pro signalizaci odesílání dat a~k~jednoduchému zjištění funk�
 K~vytvoření vlastní řídící desky mě vedlo několik faktorů. První z~nich byla velikost celé elektroniky. 
 Nevýhodou elektroniky postavené z~existujících modulů je právě jejich velikost, moduly se dají jednoduše skládat k~sobě, ale~zabírají spoustu místa. 
  
-Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 30 stejných elektronických desek.
+Dalším důvodem je replikovatelnost. Těmito deskami plánuji osadit všechny pletací stroje ve firmě, což znamená vyrobit 25 stejných elektronických desek.
 
 Desky jsem si tedy nechával vyrábět v~čínské firmě JLCPCB. Jejich výroba je velmi precizní a~dokáží desku také~osadit vybranými součástkami.
 
@@ -172,7 +172,7 @@ Další vylepšení jsem provedl u~displeje, který dokáže zobrazit více úda
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.4\textwidth]{img/V2-deska-esp-screen.png}
-    \caption{Senzor - 2. verze}
+    \caption{Senzor - 2. verze} 
     \label{fig:SenzorV2}
 \end{figure}
 
