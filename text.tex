@@ -22,8 +22,6 @@
 \newcommand{\cmark}{\textcolor{green}{\ding{51}}}%
 \newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
 
-% necislovat
-\pagenumbering{gobble}
 
 
 \lstset { %
@@ -37,17 +35,6 @@
 \addbibresource{text.bib} % soubor s~bibliografií
 \nocite{*}
 
-\titlecz{Integrace do průmyslu 4.0} % český název práce
-\titleen{Integration into industry 4.0} % anglický název práce
-\author{Jakub Andrýsek} % jméno a~příjmení autora
-\field{10} % obor (pouze číslo, zbytek vysází šablona - číslo oboru viz http://www.soc.cz/obory-soc/)
-\school{Gymnázium Brno, Vídeňská, příspěvková organizace} % celý název školy
-\mentor{Mgr. Jaroslav Páral} % jméno a~příjmení školitele
-\mentorstatement{Mgr. Jaroslava Párala} % jméno a~příjmení ve druhém pádě 
-
-% Změňte, pokud se liší
-%\region{Jihomoravský} % kraj
-\placefooter{Brno 2021} % místo a~rok
 
 % hinty k~používání balíčků hyperref, url, hyperlink a~hypertarget
 % \usepackage{hyperref} % balíček pro hypertextové odkazy
@@ -58,25 +45,14 @@
 
 \begin{document} % konec preambule dokumentu
 
-\maketitle % vysází titulky
 
-\makecopyrightstatement{V~Brně} % místo
+% #########################################################################################
+\chapter{Abstrakt}
 
-% poděkování
-\makethanks{Děkuji svému školiteli Mgr. Jaroslavu Páralovi za obětavou pomoc, podnětné připomínky a~hlavně nekonečnou trpělivost, kterou mi během práce poskytoval.}
-
-\pagestyle{empty}
-
-\section*{Anotace}
 Cílem mé práce bylo navrhnout ucelený automatický systém monitorující chod pletacích strojů a~přizpůsobit ho co možná nejlépe potřebám výrobní firmy.
 
 Systém jsem navrhoval na míru pro rodinnou firmu na pletení ponožek a~v sou\-čas\-nos\-ti je schopen v~reálném čase zaznamenávat a~následně odesílat naměřená data ze strojů na server. 
 Pro uživatele systém nabízí moderní webové stránky, kde si může naměřená data přehledně zobrazit a~analyzovat.
-
-% Systém se skládá ze tří částí. 
-% Senzorová část, která je připojená k~pletacímu stroji a~odesílá data.
-% Dále pak server, který veškerá data zpracovává a~zobrazuje uživateli.
-% Poslední částí je podpůrný server, který se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
 
 Systém se skládá ze senzorové části, serveru a podpůrného serveru.
 Senzorová část je připojená k~pletacímu stroji a~odesílá naměřená data.
@@ -84,98 +60,191 @@ Server zajišťuje veškeré zpracování dat a jejich zobrazení uživateli.
 Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
 
 
-\subsection*{Klíčová slova}
-IoT, ESP32, web, PHP, Nette, databáze, open-source, průmysl 4.0, automatizace, modernizace
+% #########################################################################################
+\chapter{Synopse}
 
 
-\newpage % pokud se anotace vleze na jednu stránku (což by měla), tento rádek zakomentuj
 
-\vspace{20mm}
+% #########################################################################################
+\section{Úvod}
+Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro firmu na výrobu ponožek.
+Celý systém je nasazen v rodinné firmě Rotex XXXXX, která pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
 
-\section*{Annotation}
-% The aim of my work was to design a~comprehensive automatic system that monitors the operation of knitting machines and adapt it as best as possible to the needs of the manufacturing company.
-The goal of my work was to design a~comprehensive automatic system that monitors the operation of knitting machines according to the needs of a~manufacturing company.
+Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
+Samotná práce operátora spočívá v kontrole upletených vzorků, otáčením dopletených ponožek a opravách porouchaných strojů.
+Poslední z bodů je pro firmu nejkritičtější, zastavení stroje z důvodu poruchy může nastat po několika hodinách ale i v řádech minut.
 
-% I~des\setlength{\parindent}{0pt}igned a~system tailored for a~family sock knitting business and is currently able to record and then send measured data from machines to a~server in real time. 
-I~designed a~production monitoring system for a~family sock knitting business that can record measured data and submit them from machines to a~server via the wireless network in real-time.
-% For users, the system offers modern websites where they can clearly display and analyze the measured data.
-The system offers a~modern web-based user interface where the user can clearly display and analyze the measured data in a~form of a~real-time dashboard, statistic tables and graphs.
+Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
 
-% The system consists of three parts. The sensor part, which is connected to the knitting machine and sends the data. 
-The system consists of three subsystems - sensors, a~main server, and a~support server.
-% Furthermore, the server, which processes all the data and displays it to the user. The last part is a~support server, which takes care of updating and checking the correct operation of the sensors.  
-The sensors are connected to the machines and send the data to the main server via WiFi. 
-The main server processes all the data and displays it to the user. 
-The support server takes care of updating and checking the correct operation of the sensors. 
 
-\subsection*{Keywords}
-IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization, modernization
+
+% #########################################################################################
+\section{Senzory}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Integrace do průmyslu 4.0}
+Pojem Průmysl 4.0 se do České republiky dostal okolo roku 2013 a~od té doby se stále více rozšiřuje v~průmyslových firmách.
+Jedna z~klíčových částí je IoT (Internet of Things), neboli internet věcí, který nám zajišťuje vzdálenou kontrolu a~řízení strojů pomocí elektroniky, senzorů a~různých softwarů.
+Další vlastností těchto systémů je zaznamenávání a~následné ukládání dat do datových úložišť.
+Moderní IoT řídící systémy se snaží proniknout co nejvíce do~hloubky a~zpřesnit tak naměřená data, důležitá pro optimalizaci produkce.   
+
+%SECTION
+\subsection{Práce operátorů}
+Obě dvě pracovní směny se skládají ze tří operátorů. Jeden má na starosti pět až osm pletacích strojů.
+Z~každého pletacího stroje vypadne každé čtyři minuty jedna upletené ponožka, kterou operátor musí zkontrolovat a~otočit naruby pro další zpracování.
+Dalším úkolem operátorů je doplňování materiálu a~oprava strojů při poruše.
+
+
+% #########################################################################################
+\section{Senzory}
+
+Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
+Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
+Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
+Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
+
+\section{Procesor}
+
+
+
+% #########################################################################################
+
+\section{Webový server}
+Webový server je nasazený na mikropočítači~Raspberry Pi 4 Modelu B.
+Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a~velké komunitě lidí, kteří tento mikropočítač využívají.
+
+Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
+Webové stránky běží na HTTP serveru Apache2 a~PHP 8.0.
+Jako databázový systém využívám MariaDB.
+Server běží lokálně uvnitř firmy v~zabezpečené síti, díky čemuž je systém rychlý a~nezávislý na internetovém připojení.
+
+
+%SECTION
+\section{Funkcionalita}
+% Přehled veškerých funkcí mého systému.
+Níže je popis všech funkcionalit systému.
+
+
+\subsection{Podrobné statistiky}
+Díky tomuto systému má uživatel kompletní přehled o~každém zastavení stroje a~upletené ponožce.
+
+
+\subsection{Aktuální přehledy}
+Na úvodní stránce se vždy zobrazují aktuální přehledy o~průběhu výroby (viz~obrázek \ref{fig:webUvod}).
+
+
+\subsection{Responzivní design}
+Stránka využívá moderní CSS styly, díky kterým se stránka správně zobrazuje na jakémkoliv zařízení. 
+
+
+\subsection{Chytrý výpočetní algoritmus}
+Veškerá naměřená data jsou analyzována mým výpočetním algoritmem.
+Algoritmus přijímá uložená data z~databáze, ze kterých postupným procházením vypočítává pracovní statistiky, které následně ukládá do užších výběrů.
+
+
+\subsection{Jednoduché grafy}
+Většina nasbíraných dat se dá přehledně zobrazit v~grafech. 
+Díky nim je~porovnávání a~procházení výběrů velmi jednoduché (viz obrázek \ref{fig:webSenzory}).
+
+
+\subsection{Kontrola běhu stroje}
+Prvotním a~nejdůležitějším požadavkem systému bylo sledování běhu stroje.
+K~tomu slouží úvodní stránka aplikace, kde uživatel přehledně vidí ikony všech strojů.
+Podle barvy ikony dokáže rozeznat, zda stroj běží, nebo~je v~poruše a~následně si může zobrazit další podrobnosti. 
+
+\subsection{Jednoduchý výběr dat}
+Každý senzor nabízí jednoduchý výběr dat.
+Uživatel si zvolí požadovaný rozsah dat a~aplikace mu tento výběr přehledně zobrazí v~tabulce.
+
+
+\subsection{Porovnávání směn}
+Systém jsem navrhoval tak, aby pracoval s~dvousměnným provozem a~správně přiřazoval data k~jednotlivým směnám.
+
+
+\subsection{Bezpečné zálohy}
+Systém se každý den automaticky zálohuje a~ukládá data na záložní disk, ze kterého se dají případně rychle obnovit.
+
+
+\subsection{Jednoduchý generátor zkušebních dat}
+Pro otestování systému jsem připravil jednoduchý generátor dat, který dokáže simulovat reálné senzory.
+
+
+% #########################################################################################
+
+\section{Princip fungování Pletačka IoT}
+V~předchozích kapitolách byly popsány části systému Pletačka IoT.
+V~této kapitole bude celý systém popsán jako celek.
+
+
+\subsection{Sběr dat}
+První, a~tou nejdůležitější částí, je získávání dat pomocí senzorů.
+Jakmile senzor zaznamená jakoukoliv změnu, okamžitě tuto zprávu odesílá na server.
+Odesílání probíhá skrze senzorové API, kde se nejdříve senzor ověří a~následně se stav zapíše do databáze k~příslušnému senzoru.
+Po zapsání do databáze se vrátí do senzoru zpráva o~provedení zápisu. 
+
+
+\subsection{}{Vyhodnocování dat}
+Dalším krokem je zpracovávání surových dat z~databáze.
+K~tomuto účelu běží na serveru výběrové API, které je automaticky spouštěné v~nastavený čas.
+Jde o~generování širších výběrů dat, hodinové, denní, měsíční a~roční výběry.
+Tyto výběry se následně ukládají do databáze k~danému senzoru.
+Generování těchto dat probíhá převážně v~noci, kdy je server nejméně vytížen.
+
+
+\subsection{Zobrazování dat}
+Posledním krokem je zobrazení dat uživateli.
+Je to jediná část, se kterou se běžný uživatel dostane do kontaktu.
+Proto je nutné, aby zobrazení bylo co nejrychlejší a~pro uživatele co nejpříjemnější.
+% K~rychlému zobrazování se využívají před generované výběry, ke kterým se rychle dopočítají nově nasbíraná data.
+K~rychlému zobrazování se využívají před generované výběry, ke kterým se dopočítají dosud nezpracovaná data a~celý výsledek se zobrazí uživateli.
+
+
+% #########################################################################################
+\section{Závěr}
+
+Cílem této práce bylo navrhnout ucelený systém, který dokáže:
+
+\begin{itemize}
+    \item automaticky počítat upletené ponožky
+    \item on-line hlásit poruchu na stroji a~zjišťovat celkovou poruchovost strojů
+    \item porovnávat výkonnost jednotlivých pracovních směn
+    \item monitorovat průběh výroby
+    \item nahradí část monotónní práce operátora
+    \item zrychlí a~zefektivní výrobu
+    \item sníží chybovost
+\end{itemize}
+
+Všechny tyto vytyčené cíle se mi podařilo splnit. Systém nadále běží ve~firmě ROTEX Vysočina s.r.o~\cite{ROTEX} a~pomáhá v~běžném provozu.
+Můj systém se stal nedílnou součástí výrobního procesu a analyzuje a~zefektivňuje průběh výroby.
+
+Systém je k 1. únoru 2021 nasazen na deseti pletacích strojích a po dobu provozu zaznamenal již přes padesát tisíc upletených ponožek bez závady na~senzorech.
+
+Velkým přínosem pro firmu je porovnávání pracovních směn, díky kterým zaměstnavatel ihned vidí rozdíly mezi produktivitou práce v~daném čase.
+
+Díky SOČ jsem se naučil navrhovat plošné spoje, rozšířil jsem si obzory v~elektronice a~při vývoji jsem si vyzkoušel práci s~měřícími přístroji. 
+Také jsem se naučil programovat v~jazyce PHP a~vytvářet komplexní webové systémy.
+
+V~budoucnu bych chtěl tento systém rozšířit na všechny pletací stroje a~pokrýt tak celou výrobu.
+Taktéž pokračuji na vylepšování webové aplikace a~plánuji ji rozšířit o~další funkce.
+Jde například o~export dat do tabulek.
+
+Tuto práci můžete najít na adrese: \url{https://github.com/JakubAndrysek/SOC-Integrace-do-prumyslu-4.0/blob/master/text.pdf}.
+
+Všechny zdrojové kódy a~DPS k~projektu jsou k~dispozici na \url{https://github.com/Pletacka-IoT} pod MIT licencí.
 
 \newpage
-\pagestyle{plain}
-
-\tableofcontents % vysází obsah
-
-% \newpage
-
-\pagestyle{plain}
-\listoffigures
-\addcontentsline{}{section}{Seznam obrázků}
-
-\pagestyle{plain}
-\listoftables
-\addcontentsline{}{section}{Seznam tabulek}
-
-%%% Začátek práce
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\newpage
-
-% zde můžeš s~pomocí příkazu \input{cesta k~souboru} vložit soubory; doporučuji každou větší kapitolu dát do samostatného souboru pro větší přehlednost
-
-% Úvod procházení
-
-% \input{CHAPTERS/example.tex}
-
-% cislovat
-\pagenumbering{arabic}
-
-
-\setcounter{page}{1}
-
-\input{CHAPTERS/0UVOD.tex}
-
-
-\input{CHAPTERS/1INTEGRACE.tex}
-
-
-\input{CHAPTERS/2KONKURENCE.tex}
-
-
-\input{CHAPTERS/3SENZORY.tex}
-
-
-\input{CHAPTERS/4WEB_SERVER.tex}
-
- 
-\input{CHAPTERS/5PODPURNY_SERVER.tex}
-
-
-\input{CHAPTERS/6CELY_SYSTEM.tex}
-
-
-\input{CHAPTERS/7VYVOJ.tex}
-
-
-\input{CHAPTERS/8TESTOVANI.tex}
-
-
-\input{CHAPTERS/9ZPETNA_VAZBA.tex}
-
-
-\input{CHAPTERS/10ZAVER.tex}
-
-
 
 
 \printbibliography[title=Literatura]
@@ -183,24 +252,10 @@ IoT, ESP32, web, PHP, Nette, database, open-source, industry 4.0, automatization
 \addcontentsline{toc}{chapter}{Literatura}
 
 
-
-
-% \printbibliography[title=Literatura]
-
-% \addcontentsline{toc}{chapter}{Literatura}
-
-% \listoffigures
-% \addcontentsline{toc}{section}{Seznam obrázků}
-
-% \listoftables
-% \addcontentsline{toc}{section}{Seznam tabulek}
-
-
 \appendix
 
 
 
-\input{CHAPTERS/A0PRILOHY.tex}
 
 \end{document}
 
