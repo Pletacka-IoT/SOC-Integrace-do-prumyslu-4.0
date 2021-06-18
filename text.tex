@@ -63,152 +63,138 @@ Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzor�
 % #########################################################################################
 \chapter{Synopse}
 
-
-
-% #########################################################################################
 \section{Úvod}
 Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro firmu na výrobu ponožek.
-Celý systém je nasazen v rodinné firmě Rotex XXXXX, která pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
+Celý systém je nasazen v rodinné firmě ROTEX Vysočina \cite{ROTEX}, která pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
 
 Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
-Samotná práce operátora spočívá v kontrole upletených vzorků, otáčením dopletených ponožek a opravách porouchaných strojů.
+Samotná práce operátora spočívá v kontrole upletených vzorků, otáčení dopletených ponožek a opravách porouchaných strojů.
 Poslední z bodů je pro firmu nejkritičtější, zastavení stroje z důvodu poruchy může nastat po několika hodinách ale i v řádech minut.
 
 Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{img/V2-uchyceni.png}
+    \caption{Senzor na stroji}
+    \label{fig:SenzorNaStroji}
+\end{figure}
 
 
 % #########################################################################################
 \section{Senzory}
 
+Na každém pletacím stroji je namontován jeden bezdrátový senzor, který odesílá data na server.
+Pletací stroje jsou obvyklá průmyslová zařízení k jednomu účelu, čili pletení ponožek.
+S příchodem modernizace průmyslových výroben se začíná více brát ohled na reálnou produkci a její automatizovaný monitoring.
+Senzory Pletačka IoT jsem navrhoval tak, aby se daly jednoduše připojit na stávající pletací stroje a napojit je tak do centrálního řídícího systému.
+Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud tedy není můj systém aktivní, nemá to žádný vliv na chod stroje.
 
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Integrace do průmyslu 4.0}
-Pojem Průmysl 4.0 se do České republiky dostal okolo roku 2013 a~od té doby se stále více rozšiřuje v~průmyslových firmách.
-Jedna z~klíčových částí je IoT (Internet of Things), neboli internet věcí, který nám zajišťuje vzdálenou kontrolu a~řízení strojů pomocí elektroniky, senzorů a~různých softwarů.
-Další vlastností těchto systémů je zaznamenávání a~následné ukládání dat do datových úložišť.
-Moderní IoT řídící systémy se snaží proniknout co nejvíce do~hloubky a~zpřesnit tak naměřená data, důležitá pro optimalizaci produkce.   
-
-%SECTION
-\subsection{Práce operátorů}
-Obě dvě pracovní směny se skládají ze tří operátorů. Jeden má na starosti pět až osm pletacích strojů.
-Z~každého pletacího stroje vypadne každé čtyři minuty jedna upletené ponožka, kterou operátor musí zkontrolovat a~otočit naruby pro další zpracování.
-Dalším úkolem operátorů je doplňování materiálu a~oprava strojů při poruše.
-
-
-% #########################################################################################
-\section{Senzory}
-
-Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
-Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
+Senzory jsou postavené na mikrokontroléru ESP32, který je pro tyto účely dostatečně výkonný, nabízí bezdrátovou konektivitu WiFi a v mé konfiguraci obsahuje také barevný LCD displej.
 Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
 Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 
-\section{Procesor}
+OBR
 
+Na každém senzoru jsou dva optočleny napojené na indikační žárovky pletacího stroje.
+Z jedné se snímá zastavení stroje pro výpočet poruchového času a druhé senzor získává počet upletených ponožek.
+Optočlen jsem zvolil z důvodu vysokého vstupního napětí a bezpečnému oddělení od průmyslového napětí.
+Dále senzor obsahuje dvě uživatelská tlačítka sloužící pro nastavení ID každého senzoru.
+Pro rychlé grafické znázornění jsou na desce také dvě indikační diody.
+
+Hlavní vizuální roli má LCD displej, na kterém se operátorům zobrazují základní údaje o stroji.
+Ve vrchní části jsou vypsány údaje o bezdrátovém připojení a číslo senzoru.
+Uprostřed zde operátor velkým písmem vidí počet upletených ponožek a v případně zastavení stroje čas odstávky.
+Tyto údaje se na každém stroji výrazně vykreslují a XXXXXXXXXXXX.
+Poslední novinku, kterou jsem na senzory doprogramoval je zobrazování průměrné rychlosti pletení ponožek za hodinu.
+S takovýmto údajem se každodenně setkáváme například v autě a operátor z něj dokáže rychle dopočítat zbývající dobu pletení zakázky. 
+
+% Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
+% Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
+% Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
+% Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 
 
 % #########################################################################################
-
 \section{Webový server}
-Webový server je nasazený na mikropočítači~Raspberry Pi 4 Modelu B.
-Toto zařízení jsem zvolil hlavně kvůli nízké spotřebě elektrické energie a~velké komunitě lidí, kteří tento mikropočítač využívají.
+
+Nedílnou součástí tohoto systému je také serverová část, která se stará o přijímání naměřených dat, jejich zpracování a následné zobrazení uživateli.
+Samotný server běží na mikropočítači Raspberry Pi~4 Modelu~B, který je umístěn ve vnitřní síti firmy.
 
 Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
-Webové stránky běží na HTTP serveru Apache2 a~PHP 8.0.
+Webové stránky běží na HTTP serveru Apache2 a~PHP~8.0.
 Jako databázový systém využívám MariaDB.
 Server běží lokálně uvnitř firmy v~zabezpečené síti, díky čemuž je systém rychlý a~nezávislý na internetovém připojení.
 
+Na webový server se dá jednoduše připojit otevřením lokálního firemního odkazu PLETACKA.
+Poté se uživatelovi zobrazí úvodní přehledová stránka s barevnými bublinami, které představují jednotlivé pletací stroje.
+Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjístit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
+Kromě barvy se u bublin mění také text, ten vykresluje počet upletených ponožek aktuální směnu a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
 
-%SECTION
-\section{Funkcionalita}
-% Přehled veškerých funkcí mého systému.
-Níže je popis všech funkcionalit systému.
-
-
-\subsection{Podrobné statistiky}
-Díky tomuto systému má uživatel kompletní přehled o~každém zastavení stroje a~upletené ponožce.
-
-
-\subsection{Aktuální přehledy}
-Na úvodní stránce se vždy zobrazují aktuální přehledy o~průběhu výroby (viz~obrázek \ref{fig:webUvod}).
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{img/Uvod.png}
+    \caption{Domovská stránka}
+    \label{fig:webUvod}
+\end{figure}
 
 
-\subsection{Responzivní design}
-Stránka využívá moderní CSS styly, díky kterým se stránka správně zobrazuje na jakémkoliv zařízení. 
+Další webovou stránkou jsou XXXXsenzorové přehledy generované pro každý pletací stroj.
+Zde si uživatel zobrazuje data v různých časových přehledech.
+Pro snadně porovnání dat mezi dvěma směnami směnami se tyto údaje zobrazují vedle sebe.
+Pod číselnými přehledy jsou pak předgenerované dlouhodobé grafy viz OBRAZEK.
 
+Každý senzor využívá pět databázových tabulek. První slouží k ukládání surových dat, do zbylých tabulek se pak ukládají automaticky generované přehledy sloužící k rychlému vykreslení grafů a výpočtu dlouhodobých údajů.
+Senzor zaznamená dopletenou ponožku a skrze REST API posílá naměřený údaj na webový server, ten ji zkontroluje a uloží do databáze ke konkrétnímu senzoru.
+Každý databázový záznam obsahuje číslo stroje, unikátní ID události, naměřený stav a čas události.
 
-\subsection{Chytrý výpočetní algoritmus}
-Veškerá naměřená data jsou analyzována mým výpočetním algoritmem.
-Algoritmus přijímá uložená data z~databáze, ze kterých postupným procházením vypočítává pracovní statistiky, které následně ukládá do užších výběrů.
-
-
-\subsection{Jednoduché grafy}
-Většina nasbíraných dat se dá přehledně zobrazit v~grafech. 
-Díky nim je~porovnávání a~procházení výběrů velmi jednoduché (viz obrázek \ref{fig:webSenzory}).
-
-
-\subsection{Kontrola běhu stroje}
-Prvotním a~nejdůležitějším požadavkem systému bylo sledování běhu stroje.
-K~tomu slouží úvodní stránka aplikace, kde uživatel přehledně vidí ikony všech strojů.
-Podle barvy ikony dokáže rozeznat, zda stroj běží, nebo~je v~poruše a~následně si může zobrazit další podrobnosti. 
-
-\subsection{Jednoduchý výběr dat}
-Každý senzor nabízí jednoduchý výběr dat.
-Uživatel si zvolí požadovaný rozsah dat a~aplikace mu tento výběr přehledně zobrazí v~tabulce.
-
-
-\subsection{Porovnávání směn}
-Systém jsem navrhoval tak, aby pracoval s~dvousměnným provozem a~správně přiřazoval data k~jednotlivým směnám.
-
-
-\subsection{Bezpečné zálohy}
-Systém se každý den automaticky zálohuje a~ukládá data na záložní disk, ze kterého se dají případně rychle obnovit.
-
-
-\subsection{Jednoduchý generátor zkušebních dat}
-Pro otestování systému jsem připravil jednoduchý generátor dat, který dokáže simulovat reálné senzory.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{img/prehled.png}
+    \caption{Přehled ze senzoru}
+    \label{fig:webSenzory}
+\end{figure}
 
 
 % #########################################################################################
+\section{Podpůrný server}
+Podpůrný server vznikl jako rozšíření pro senzory.
+Server je naprogramovaný v~Pythonu a~běží na Raspberry Pi společně s~webovým serverem.\newline
 
+Hlavním úkolem tohoto serveru je detekce zapnutých senzorů.
+Na serveru běží takzvaný Watchdog.
+Jde o~periodickou smyčku, která každé čtyři~vteřiny čeká na zprávu ze senzoru.
+Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva nedojde do deseti vteřin, je senzor prohlášen za vypnutý a~v~databázi se označí jako neaktivní.
+
+
+
+% #########################################################################################
 \section{Princip fungování Pletačka IoT}
 V~předchozích kapitolách byly popsány části systému Pletačka IoT.
 V~této kapitole bude celý systém popsán jako celek.
 
-
-\subsection{Sběr dat}
 První, a~tou nejdůležitější částí, je získávání dat pomocí senzorů.
 Jakmile senzor zaznamená jakoukoliv změnu, okamžitě tuto zprávu odesílá na server.
 Odesílání probíhá skrze senzorové API, kde se nejdříve senzor ověří a~následně se stav zapíše do databáze k~příslušnému senzoru.
 Po zapsání do databáze se vrátí do senzoru zpráva o~provedení zápisu. 
 
-
-\subsection{}{Vyhodnocování dat}
 Dalším krokem je zpracovávání surových dat z~databáze.
 K~tomuto účelu běží na serveru výběrové API, které je automaticky spouštěné v~nastavený čas.
 Jde o~generování širších výběrů dat, hodinové, denní, měsíční a~roční výběry.
 Tyto výběry se následně ukládají do databáze k~danému senzoru.
 Generování těchto dat probíhá převážně v~noci, kdy je server nejméně vytížen.
 
-
-\subsection{Zobrazování dat}
 Posledním krokem je zobrazení dat uživateli.
 Je to jediná část, se kterou se běžný uživatel dostane do kontaktu.
 Proto je nutné, aby zobrazení bylo co nejrychlejší a~pro uživatele co nejpříjemnější.
-% K~rychlému zobrazování se využívají před generované výběry, ke kterým se rychle dopočítají nově nasbíraná data.
 K~rychlému zobrazování se využívají před generované výběry, ke kterým se dopočítají dosud nezpracovaná data a~celý výsledek se zobrazí uživateli.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{img/Princip.png}
+    \caption{Zpracování dat}
+    \label{fig:princip}
+\end{figure}
 
 
 % #########################################################################################
