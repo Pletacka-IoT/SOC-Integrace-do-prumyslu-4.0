@@ -69,7 +69,6 @@ Celý systém je nasazen v rodinné firmě ROTEX Vysočina \cite{ROTEX}, která 
 
 Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
 Samotná práce operátora spočívá v kontrole upletených vzorků, otáčení dopletených ponožek a opravách porouchaných strojů.
-Poslední z bodů je pro firmu nejkritičtější, zastavení stroje z důvodu poruchy může nastat po několika hodinách ale i v řádech minut.
 
 Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
 
@@ -88,48 +87,48 @@ Na každém pletacím stroji je namontován jeden bezdrátový senzor, který od
 Pletací stroje jsou obvyklá průmyslová zařízení k jednomu účelu, čili pletení ponožek.
 S příchodem modernizace průmyslových výroben se začíná více brát ohled na reálnou produkci a její automatizovaný monitoring.
 Senzory Pletačka IoT jsem navrhoval tak, aby se daly jednoduše připojit na stávající pletací stroje a napojit je tak do centrálního řídícího systému.
-Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud tedy není můj systém aktivní, nemá to žádný vliv na chod stroje.
+Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud tedy není můj systém aktivní, nemá to žádný vliv na chod firmy.
 
-Senzory jsou postavené na mikrokontroléru ESP32, který je pro tyto účely dostatečně výkonný, nabízí bezdrátovou konektivitu WiFi a v mé konfiguraci obsahuje také barevný LCD displej.
-Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
+Senzory jsou postavené na mikrokontroléru ESP32, který nabízí dostatečný výkon a má bezdrátovou konektivitu WiFi.
+Každý z~těchto senzorů má svoje jedinečné číslo pod kterým posílá naměřená data na server.
 Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 
-OBR
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{img/oba.png}
+    \caption{Senzor na stroji}
+    \label{fig:SenzorNaStroji}
+\end{figure}
 
-Na každém senzoru jsou dva optočleny napojené na indikační žárovky pletacího stroje.
-Z jedné se snímá zastavení stroje pro výpočet poruchového času a druhé senzor získává počet upletených ponožek.
-Optočlen jsem zvolil z důvodu vysokého vstupního napětí a bezpečnému oddělení od průmyslového napětí.
-Dále senzor obsahuje dvě uživatelská tlačítka sloužící pro nastavení ID každého senzoru.
-Pro rychlé grafické znázornění jsou na desce také dvě indikační diody.
+Na každém senzoru jsou dva optočleny napojené na indikační diody pletacího stroje.
+Z jedné diody se snímá zastavení stroje pro výpočet poruchového času a z druhé senzor získává počet upletených ponožek.
+Na těchto dvou údajích je postavený celý měřící a výpočetní systém.
+Dále senzor obsahuje dvě uživatelská tlačítka sloužící pro nastavení jedinečného ID senzoru.
+Pro rychlé grafické znázornění jsou na desce také dvě barevné diody.
 
-Hlavní vizuální roli má LCD displej, na kterém se operátorům zobrazují základní údaje o stroji.
+Hlavní vizuální roli zajišťuje LCD displej, na kterém se operátorům zobrazují základní údaje o stroji.
 Ve vrchní části jsou vypsány údaje o bezdrátovém připojení a číslo senzoru.
-Uprostřed zde operátor velkým písmem vidí počet upletených ponožek a v případně zastavení stroje čas odstávky.
-Tyto údaje se na každém stroji výrazně vykreslují a XXXXXXXXXXXX.
+Uprostřed se operátorovi velkým písmem zobrazuje počet upletených ponožek a v případně zastavení stroje čas odstávky.
+Tyto údaje se na každém stroji výrazně vykreslují a upozorňují tak obsluhu k brzké opravě.
 Poslední novinku, kterou jsem na senzory doprogramoval je zobrazování průměrné rychlosti pletení ponožek za hodinu.
-S takovýmto údajem se každodenně setkáváme například v autě a operátor z něj dokáže rychle dopočítat zbývající dobu pletení zakázky. 
-
-% Senzory k~projektu Pletačka IoT jsou postavené na mikročipu ESP32 a~modulu TTGO~T-Display.
-% Celý tento systém je navržen tak, že na každém pletacím stroji je jeden senzor.
-% Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-% Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
+S takovýmto typem rychlosti se každodenně setkáváme například v autě a operátor z ní dokáže rychle dopočítat čas dopletení zakázky. 
 
 
 % #########################################################################################
 \section{Webový server}
 
 Nedílnou součástí tohoto systému je také serverová část, která se stará o přijímání naměřených dat, jejich zpracování a následné zobrazení uživateli.
-Samotný server běží na mikropočítači Raspberry Pi~4 Modelu~B, který je umístěn ve vnitřní síti firmy.
+Samotný server běží na mikropočítači Raspberry Pi~4 Modelu~B.
 
 Na zařízení běží operační systém Raspberry Pi OS s~grafickým rozhraním.
 Webové stránky běží na HTTP serveru Apache2 a~PHP~8.0.
 Jako databázový systém využívám MariaDB.
 Server běží lokálně uvnitř firmy v~zabezpečené síti, díky čemuž je systém rychlý a~nezávislý na internetovém připojení.
 
-Na webový server se dá jednoduše připojit otevřením lokálního firemního odkazu PLETACKA.
-Poté se uživatelovi zobrazí úvodní přehledová stránka s barevnými bublinami, které představují jednotlivé pletací stroje.
+Na webový server se dá jednoduše připojit otevřením lokálního firemního odkazu \href{http://pletacka.local}{pletacka.local}.
+Poté se uživateli zobrazí úvodní přehledová stránka s barevnými bublinami, které představují jednotlivé pletací stroje.
 Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjístit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
-Kromě barvy se u bublin mění také text, ten vykresluje počet upletených ponožek aktuální směnu a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
+Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených ponožek aktuální směnu a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
 
 \begin{figure}[htbp]
     \centering
@@ -138,13 +137,13 @@ Kromě barvy se u bublin mění také text, ten vykresluje počet upletených po
     \label{fig:webUvod}
 \end{figure}
 
+Další webovou stránkou jsou Přehledy ze senzorů generované pro každý pletací stroj.
+Zde se uživateli zobrazují data v různých časových přehledech.
+Pro snadné porovnání dat mezi dvěma směnami směnami se tyto údaje zobrazují vedle sebe.
+Pod číselnými přehledy jsou pak předgenerované dlouhodobé grafy viz \ref{fig:webSenzory}
 
-Další webovou stránkou jsou XXXXsenzorové přehledy generované pro každý pletací stroj.
-Zde si uživatel zobrazuje data v různých časových přehledech.
-Pro snadně porovnání dat mezi dvěma směnami směnami se tyto údaje zobrazují vedle sebe.
-Pod číselnými přehledy jsou pak předgenerované dlouhodobé grafy viz OBRAZEK.
-
-Každý senzor využívá pět databázových tabulek. První slouží k ukládání surových dat, do zbylých tabulek se pak ukládají automaticky generované přehledy sloužící k rychlému vykreslení grafů a výpočtu dlouhodobých údajů.
+Každý senzor využívá pět databázových tabulek. První slouží k ukládání surových dat, do zbylých tabulek se pak ukládají automaticky generované přehledy.
+Ty slouží k rychlému vykreslení grafů a výpočtu dlouhodobých údajů.
 Senzor zaznamená dopletenou ponožku a skrze REST API posílá naměřený údaj na webový server, ten ji zkontroluje a uloží do databáze ke konkrétnímu senzoru.
 Každý databázový záznam obsahuje číslo stroje, unikátní ID události, naměřený stav a čas události.
 
@@ -198,6 +197,18 @@ K~rychlému zobrazování se využívají před generované výběry, ke kterým
 
 
 % #########################################################################################
+\section{Výsledky testování}
+Celý systém jsem vyvíjel od února 2020. První testy malé testy probíhaly již od května 2020, ale k většímu nasazení došlo až v září a listopadu 2020.
+Od té doby je systém ve firmě nasazen a průběžně probíhá kontrola měření a funkčnosti.
+
+Doplním...
+
+
+
+
+
+
+% #########################################################################################
 \section{Závěr}
 
 Cílem této práce bylo navrhnout ucelený systém, který dokáže:
@@ -215,7 +226,7 @@ Cílem této práce bylo navrhnout ucelený systém, který dokáže:
 Všechny tyto vytyčené cíle se mi podařilo splnit. Systém nadále běží ve~firmě ROTEX Vysočina s.r.o~\cite{ROTEX} a~pomáhá v~běžném provozu.
 Můj systém se stal nedílnou součástí výrobního procesu a analyzuje a~zefektivňuje průběh výroby.
 
-Systém je k 1. únoru 2021 nasazen na deseti pletacích strojích a po dobu provozu zaznamenal již přes padesát tisíc upletených ponožek bez závady na~senzorech.
+Systém je k 20. červnu 2021 nasazen na deseti pletacích strojích a po dobu provozu zaznamenal již přes sto padesát tisíc upletených ponožek bez závady na~senzorech.
 
 Velkým přínosem pro firmu je porovnávání pracovních směn, díky kterým zaměstnavatel ihned vidí rozdíly mezi produktivitou práce v~daném čase.
 
