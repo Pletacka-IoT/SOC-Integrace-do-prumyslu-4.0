@@ -1,5 +1,8 @@
-\documentclass{template/socthesis}
+% \documentclass{template/socthesis}
+\documentclass[12pt, a4paper]{article}
 
+\usepackage[utf8]{inputenc} 
+\usepackage[czech,shorthands=off]{babel} 
 \usepackage{subcaption} 
 \usepackage{amsmath} 
 \usepackage{enumitem} 
@@ -16,13 +19,15 @@
 \usepackage{pifont}
 \usepackage{pdfpages}
 \usepackage{parskip}
+\usepackage[margin=25mm]{geometry}
+\usepackage[backend=bibtex]{biblatex}
 \usepackage[author=,status=draft]{fixme} % vkládání poznámek  
 % dva módy (status): draft (poznámky se zobrazují v~PDF) / final (poznámky se nezobrazují v~PDF)
 
+
+
 \newcommand{\cmark}{\textcolor{green}{\ding{51}}}%
 \newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
-
-
 
 \lstset { %
     language=C++,
@@ -33,7 +38,7 @@
 \setlist[itemize]{parsep=1pt}
 
 \addbibresource{text.bib} % soubor s~bibliografií
-\nocite{*}
+% \nocite{*}
 
 
 % hinty k~používání balíčků hyperref, url, hyperlink a~hypertarget
@@ -42,49 +47,53 @@
 % \href{http://www.odkaz.cz}{Text který bude jako odkaz}
 % \hyperlink{label}{proklikávací_text} - odkaz na text 
 % \hypertarget{label}{cíl_odkazu} - cíl odkazu 
+\title{Integrace do průmyslu 4.0}
+\author{Jakub Andrýsek}
+\date{}
 
 \begin{document} % konec preambule dokumentu
 
+\maketitle
 
 % #########################################################################################
-\chapter{Abstrakt}
-
-Cílem mé práce bylo navrhnout ucelený automatický systém monitorující chod pletacích strojů a~přizpůsobit ho co možná nejlépe potřebám výrobní firmy.
-
-Systém jsem navrhoval na míru pro rodinnou firmu na pletení ponožek a~v sou\-čas\-nos\-ti je schopen v~reálném čase zaznamenávat a~následně odesílat naměřená data ze strojů na server. 
-Pro uživatele systém nabízí moderní webové stránky, kde si může naměřená data přehledně zobrazit a~analyzovat.
+\section*{Abstrakt}
+Tato práce představuje systém pro automatický monitoring průmyslové výroby a jeho nasazení do praxe.
 
 Systém se skládá ze senzorové části, serveru a podpůrného serveru.
-Senzorová část je připojená k~pletacímu stroji a~odesílá naměřená data.
-Server zajišťuje veškeré zpracování dat a jejich zobrazení uživateli.
+Senzorová část je postavená na vlastní senzorové desce s mikrokontrolérem s barevným displejem. Senzor je připojen k~pletacímu stroji a~odesílá naměřená data.
+Server přijímá  data ze senzorů, zajišťuje jejich zpracování a následné zobrazení uživateli.
 Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
+
+Systém byl navrhován jako univerzální platforma pro monitoring výrobních strojů s primárním zaměřením na pletací stroje. 
+Samotné nasazení tohoto systému proběhlo ve firmě ROTEX Vysočina zaměřující se na pletení ponožek. 
+Ve firmě jsem nasadil senzory na 10 pletacích strojů, které zde běží již 6 měsíců. Za tuto doby systém zaznamenal přes přes sto padesát tisíc upletených ponožek.
+Tento systém ve firmě Rotex monitoruje počet upletených ponožek, dobu stání jednotlivých strojů, ale také porovnává jednotlivé pracovní směny.
 
 
 % #########################################################################################
-\chapter{Synopse}
+\section*{Synopse}
 
-\section{Úvod}
-Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro rodinnou firmu ROTEX Vysočina \cite{ROTEX}.
-Ta pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
+\subsection*{Úvod}
+Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro výrobní stroje a jeho nasazením ve firmě ROTEX Vysočina~\cite{ROTEX}. Tato firma se věnuje výrobě ponožek. Pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
 
 Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
 Samotná práce operátora spočívá v kontrole upletených vzorků, otáčení dopletených ponožek a opravách porouchaných strojů.
 
-Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
+Systém je interně pojmenován Pletačka IoT. Stará se o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
 
 Dříve firma neměla žádná data o době pletení, denní  produkci, nebo čase zapnutí strojů.
-To vše  můj systém řeší  a nabízí jednoduché, uživatelský přívětivé rozhraní, kde si uživatel všechny tyto údaje přehledně zobrazí v grafech a v tabulkách.
+To vše  můj systém řeší  a nabízí jednoduché, uživatelsky přívětivé rozhraní, kde si uživatel všechny tyto údaje přehledně zobrazí v grafech a v tabulkách.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{img/V2-uchyceni.png}
+    \includegraphics[width=0.7\textwidth]{img/V2-uchyceni.png}
     \caption{Senzor na stroji}
     \label{fig:SenzorNaStroji}
 \end{figure}
 
 
 % #########################################################################################
-\section{Senzory}
+\subsection*{Senzory}
 
 Pletací stroje na ponožky jsou stará zařízení bez podpory připojení na internet. 
 Pro měření jsem tedy musel vyvinout vlastní  senzory, které získávají data z elektrických součástek na pletacích  strojích a skrze WiFi připojení je posílají  na server.
@@ -95,11 +104,11 @@ Senzory jsou postavené na mikrokontroléru ESP32, který nabízí dostatečný 
 Každý z~těchto senzorů má svoje jedinečné číslo pod kterým posílá naměřená data na server.
 Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{img/oba.png}
-    \caption{Senzor na stroji}
-    \label{fig:SenzorNaStroji}
+    \includegraphics[width=0.7\textwidth]{img/oba.png}
+    \caption{Dvě verze senzorů}
+    \label{fig:dveVerze}
 \end{figure}
 
 Na každém senzoru jsou dva optočleny napojené na indikační diody pletacího stroje.
@@ -117,7 +126,7 @@ S takovýmto typem rychlosti se každodenně setkáváme například v autě a o
 
 
 % #########################################################################################
-\section{Webový server}
+\subsection*{Webový server}
 
 Nedílnou součástí tohoto systému je také serverová část, která se stará o přijímání naměřených dat, jejich zpracování a následné zobrazení uživateli.
 Samotný server běží na mikropočítači Raspberry Pi~4 Modelu~B.
@@ -132,9 +141,9 @@ Poté se uživateli zobrazí úvodní přehledová stránka s barevnými bublina
 Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjístit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
 Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených ponožek a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{img/Uvod.png}
+    \includegraphics[width=0.9\textwidth]{img/Uvod.png}
     \caption{Domovská stránka}
     \label{fig:webUvod}
 \end{figure}
@@ -149,16 +158,16 @@ Ty slouží k rychlému vykreslení grafů a výpočtu dlouhodobých údajů.
 Senzor zaznamená dopletenou ponožku a skrze REST API posílá naměřený údaj na webový server, ten ji zkontroluje a uloží do databáze ke konkrétnímu senzoru.
 Každý databázový záznam obsahuje číslo stroje, unikátní ID události, naměřený stav a čas události.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{img/prehled.png}
+    \includegraphics[width=0.7\textwidth]{img/prehled.png}
     \caption{Přehled ze senzoru}
     \label{fig:webSenzory}
 \end{figure}
 
 
 % #########################################################################################
-\section{Podpůrný server}
+\subsection*{Podpůrný server}
 Podpůrný server vznikl jako rozšíření pro senzory.
 Server je naprogramovaný v~Pythonu a~běží na Raspberry Pi společně s~webovým serverem.\newline
 
@@ -170,7 +179,7 @@ Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva ned
 
 
 % #########################################################################################
-\section{Princip fungování Pletačka IoT}
+\subsection*{Princip fungování Pletačka IoT}
 V~předchozích kapitolách byly popsány části systému Pletačka IoT.
 V~této kapitole bude celý systém popsán jako celek.
 
@@ -190,16 +199,16 @@ Je to jediná část, se kterou se běžný uživatel dostane do kontaktu.
 Proto je nutné, aby zobrazení bylo co nejrychlejší a~pro uživatele co nejpříjemnější.
 K~rychlému zobrazování se využívají před generované výběry, ke kterým se dopočítají dosud nezpracovaná data a~celý výsledek se zobrazí uživateli.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{img/Princip.png}
+    \includegraphics[width=0.9\textwidth]{img/Princip.png}
     \caption{Zpracování dat}
     \label{fig:princip}
 \end{figure}
 
 
 % #########################################################################################
-\section{Výsledky testování}
+\subsection*{Výsledky testování}
 Celý systém jsem vyvíjel od února 2020. První testy malé testy probíhaly již od května 2020, ale k většímu nasazení došlo až v září a listopadu 2020.
 Od té doby je systém ve firmě nasazen a průběžně probíhá kontrola měření a funkčnosti.
 
@@ -211,7 +220,7 @@ Doplním...
 
 
 % #########################################################################################
-\section{Závěr}
+\subsection*{Závěr}
 
 Cílem této práce bylo navrhnout ucelený systém, který dokáže:
 
@@ -244,7 +253,7 @@ Všechny zdrojové kódy a~DPS k~projektu jsou k~dispozici na \url{https://githu
 \newpage
 
 
-\printbibliography[title=Literatura]
+% \printbibliography[title=Literatura]
 
 \addcontentsline{toc}{chapter}{Literatura}
 
@@ -252,7 +261,7 @@ Všechny zdrojové kódy a~DPS k~projektu jsou k~dispozici na \url{https://githu
 \appendix
 
 
-
+\includepdf[pages=-]{IMPORT/thesis-report.pdf}
 
 \end{document}
 
