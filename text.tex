@@ -65,21 +65,23 @@ Server přijímá  data ze senzorů, zajišťuje jejich zpracování a následn�
 Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzorů.
 
 Systém byl navrhován jako univerzální platforma pro monitoring výrobních strojů s primárním zaměřením na pletací stroje. 
-Samotné nasazení tohoto systému proběhlo ve firmě ROTEX Vysočina zaměřující se na pletení ponožek. 
-Ve firmě jsem nasadil senzory na 10 pletacích strojů, které zde běží již 6 měsíců. Za tuto doby systém zaznamenal přes přes sto padesát tisíc upletených ponožek.
-Tento systém ve firmě Rotex monitoruje počet upletených ponožek, dobu stání jednotlivých strojů, ale také porovnává jednotlivé pracovní směny.
+Samotné nasazení tohoto systému proběhlo ve firmě ROTEX Vysočina s.r.o. zaměřující se na pletení ponožek. 
+Ve firmě jsem nasadil senzory na 10 pletacích strojů, které zde běží již 6 měsíců. 
+Za tuto dobu systém zaznamenal přes sto padesát tisíc upletených ponožek.
+Tento systém ve firmě ROTEX monitoruje počet upletených ponožek, dobu stání jednotlivých strojů, ale také porovnává jednotlivé pracovní směny.
 
 
 % #########################################################################################
 \section*{Synopse}
 
 \subsection*{Úvod}
-Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro výrobní stroje a jeho nasazením ve firmě ROTEX Vysočina~\cite{ROTEX}. Tato firma se věnuje výrobě ponožek. Pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
+Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro výrobní stroje a jeho nasazením ve firmě ROTEX Vysočina s.r.o.~\cite{ROTEX}. Tato firma se věnuje výrobě ponožek. Pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
 
-Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
+Ve firmě je 25 pletacích strojů na ponožky, o které se v každé směně starají tři operátoři.
 Samotná práce operátora spočívá v kontrole upletených vzorků, otáčení dopletených ponožek a opravách porouchaných strojů.
 
-Systém je interně pojmenován Pletačka IoT. Stará se o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
+Systém je interně pojmenován Pletačka IoT. 
+Jeho úkolem je monitoring počtu upletených ponožek, zaznamenávání doby zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také podání přehledu zaměstnavateli o aktuální produkci.
 
 Dříve firma neměla žádná data o době pletení, denní  produkci, nebo čase zapnutí strojů.
 To vše  můj systém řeší  a nabízí jednoduché, uživatelsky přívětivé rozhraní, kde si uživatel všechny tyto údaje přehledně zobrazí v grafech a v tabulkách.
@@ -95,13 +97,13 @@ To vše  můj systém řeší  a nabízí jednoduché, uživatelsky přívětiv�
 % #########################################################################################
 \subsection*{Senzory}
 
-Pletací stroje na ponožky jsou stará zařízení bez podpory připojení na internet. 
+Pletací stroje na ponožky jsou starší zařízení bez podpory připojení k internetu. 
 Pro měření jsem tedy musel vyvinout vlastní  senzory, které získávají data z elektrických součástek na pletacích  strojích a skrze WiFi připojení je posílají  na server.
 Senzory Pletačka IoT jsem navrhoval tak, aby se daly jednoduše připojit na stávající pletací stroje a napojit je tak do centrálního řídícího systému.
 Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud není můj systém aktivní, nemá to žádný vliv na zbylý chod firmy.
 
 Senzory jsou postavené na mikrokontroléru ESP32, který nabízí dostatečný výkon a má bezdrátovou konektivitu WiFi.
-Každý z~těchto senzorů má svoje jedinečné číslo pod kterým posílá naměřená data na server.
+Každý z~těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
 Senzor je napájen z~5 nebo 24~V~a~má spotřebu 120 mA.
 
 \begin{figure}[t]
@@ -138,7 +140,7 @@ Server běží lokálně uvnitř firmy v~zabezpečené síti, díky čemuž je s
 
 Na webový server se dá jednoduše připojit otevřením lokálního firemního odkazu \href{http://pletacka.local}{pletacka.local}.
 Poté se uživateli zobrazí úvodní přehledová stránka s barevnými bublinami, které představují jednotlivé pletací stroje.
-Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjístit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
+Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjistit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
 Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených ponožek a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
 
 \begin{figure}[t]
@@ -150,7 +152,7 @@ Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených 
 
 Další webovou stránkou jsou Přehledy ze senzorů generované pro každý pletací stroj.
 Zde se uživateli zobrazují data v různých časových přehledech.
-Pro snadné porovnání dat mezi dvěma směnami směnami se tyto údaje zobrazují vedle sebe.
+Pro snadné porovnání dat mezi dvěma směnami se tyto údaje zobrazují vedle sebe.
 Pod číselnými přehledy jsou pak předgenerované dlouhodobé grafy viz \ref{fig:webSenzory}
 
 Každý senzor využívá pět databázových tabulek. První slouží k ukládání surových dat, do zbylých tabulek se pak ukládají automaticky generované přehledy.
@@ -183,7 +185,7 @@ Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva ned
 V~předchozích kapitolách byly popsány části systému Pletačka IoT.
 V~této kapitole bude celý systém popsán jako celek.
 
-První, a~tou nejdůležitější částí, je získávání dat pomocí senzorů.
+První, a zároveň nejdůležitější částí, je získávání dat pomocí senzorů.
 Jakmile senzor zaznamená jakoukoliv změnu, okamžitě tuto zprávu odesílá na server.
 Odesílání probíhá skrze senzorové API, kde se nejdříve senzor ověří a~následně se stav zapíše do databáze k~příslušnému senzoru.
 Po zapsání do databáze se vrátí do senzoru zpráva o~provedení zápisu. 
@@ -209,7 +211,7 @@ K~rychlému zobrazování se využívají před generované výběry, ke kterým
 
 % #########################################################################################
 \subsection*{Výsledky testování}
-Celý systém jsem vyvíjel od února 2020. První testy malé testy probíhaly již od května 2020, ale k většímu nasazení došlo až v září a listopadu 2020.
+Celý systém jsem vyvíjel od února 2020. První malé testy probíhaly již od května 2020, ale k většímu nasazení došlo až v září a listopadu 2020.
 Od té doby je systém ve firmě nasazen a průběžně probíhá kontrola měření a funkčnosti.
 
 Doplním...
@@ -229,9 +231,9 @@ Cílem této práce bylo navrhnout ucelený systém, který dokáže:
     \item on-line hlásit poruchu na stroji a~zjišťovat celkovou poruchovost strojů
     \item porovnávat výkonnost jednotlivých pracovních směn
     \item monitorovat průběh výroby
-    \item nahradí část monotónní práce operátora
-    \item zrychlí a~zefektivní výrobu
-    \item sníží chybovost
+    \item nahradit část monotónní práce operátora
+    \item zrychlit a~zefektivnit výrobu
+    \item snížit chybovost
 \end{itemize}
 
 Všechny tyto vytyčené cíle se mi podařilo splnit. Systém nadále běží ve~firmě ROTEX Vysočina s.r.o~\cite{ROTEX} a~pomáhá v~běžném provozu.
@@ -253,7 +255,7 @@ Všechny zdrojové kódy a~DPS k~projektu jsou k~dispozici na \url{https://githu
 \newpage
 
 
-% \printbibliography[title=Literatura]
+\printbibliography[title=Literatura]
 
 \addcontentsline{toc}{chapter}{Literatura}
 
