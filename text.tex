@@ -64,13 +64,16 @@ Podpůrný server se stará o~aktualizaci a~o~kontrolu správného chodu senzor�
 \chapter{Synopse}
 
 \section{Úvod}
-Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro firmu na výrobu ponožek.
-Celý systém je nasazen v rodinné firmě ROTEX Vysočina \cite{ROTEX}, která pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
+Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro rodinnou firmu ROTEX Vysočina \cite{ROTEX}.
+Ta pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
 
 Ve firmě je 25 pletacích strojů na ponožky o které se v každé směně starají tři operátoři.
 Samotná práce operátora spočívá v kontrole upletených vzorků, otáčení dopletených ponožek a opravách porouchaných strojů.
 
 Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitoring počtu upletených ponožek, dobu zastavení jednotlivých strojů, porovnávání jednotlivých směn, ale také dává zaměstnavateli přehled o aktuální produkci.
+
+Dříve firma neměla žádná data o době pletení, denní  produkci, nebo čase zapnutí strojů.
+To vše  můj systém řeší  a nabízí jednoduché, uživatelský přívětivé rozhraní, kde si uživatel všechny tyto údaje přehledně zobrazí v grafech a v tabulkách.
 
 \begin{figure}[htbp]
     \centering
@@ -83,11 +86,10 @@ Můj systém, který jsem interně pojmenoval Pletačka IoT, se stará o monitor
 % #########################################################################################
 \section{Senzory}
 
-Na každém pletacím stroji je namontován jeden bezdrátový senzor, který odesílá data na server.
-Pletací stroje jsou obvyklá průmyslová zařízení k jednomu účelu, čili pletení ponožek.
-S příchodem modernizace průmyslových výroben se začíná více brát ohled na reálnou produkci a její automatizovaný monitoring.
+Pletací stroje na ponožky jsou stará zařízení bez podpory připojení na internet. 
+Pro měření jsem tedy musel vyvinout vlastní  senzory, které získávají data z elektrických součástek na pletacích  strojích a skrze WiFi připojení je posílají  na server.
 Senzory Pletačka IoT jsem navrhoval tak, aby se daly jednoduše připojit na stávající pletací stroje a napojit je tak do centrálního řídícího systému.
-Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud tedy není můj systém aktivní, nemá to žádný vliv na chod firmy.
+Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, pokud není můj systém aktivní, nemá to žádný vliv na zbylý chod firmy.
 
 Senzory jsou postavené na mikrokontroléru ESP32, který nabízí dostatečný výkon a má bezdrátovou konektivitu WiFi.
 Každý z~těchto senzorů má svoje jedinečné číslo pod kterým posílá naměřená data na server.
@@ -128,7 +130,7 @@ Server běží lokálně uvnitř firmy v~zabezpečené síti, díky čemuž je s
 Na webový server se dá jednoduše připojit otevřením lokálního firemního odkazu \href{http://pletacka.local}{pletacka.local}.
 Poté se uživateli zobrazí úvodní přehledová stránka s barevnými bublinami, které představují jednotlivé pletací stroje.
 Jejich barva pak udává v jakém stavu se stroj aktuálně nachází. Uživatel tak dokáže velmi rychle zjístit aktuální funkčnost pletacích strojů bez nutnosti návštěvy pletárny.
-Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených ponožek aktuální směnu a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
+Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených ponožek a v případě zastavení stroje a zčervenání se text změní na dobu zastavení stroje.
 
 \begin{figure}[htbp]
     \centering
@@ -179,7 +181,7 @@ Po zapsání do databáze se vrátí do senzoru zpráva o~provedení zápisu.
 
 Dalším krokem je zpracovávání surových dat z~databáze.
 K~tomuto účelu běží na serveru výběrové API, které je automaticky spouštěné v~nastavený čas.
-Jde o~generování širších výběrů dat, hodinové, denní, měsíční a~roční výběry.
+Slouží ke~generování širších výběrů dat, hodinové, denní, měsíční a~roční výběry.
 Tyto výběry se následně ukládají do databáze k~danému senzoru.
 Generování těchto dat probíhá převážně v~noci, kdy je server nejméně vytížen.
 
@@ -236,8 +238,6 @@ Také jsem se naučil programovat v~jazyce PHP a~vytvářet komplexní webové s
 V~budoucnu bych chtěl tento systém rozšířit na všechny pletací stroje a~pokrýt tak celou výrobu.
 Taktéž pokračuji na vylepšování webové aplikace a~plánuji ji rozšířit o~další funkce.
 Jde například o~export dat do tabulek.
-
-Tuto práci můžete najít na adrese: \url{https://github.com/JakubAndrysek/SOC-Integrace-do-prumyslu-4.0/blob/master/text.pdf}.
 
 Všechny zdrojové kódy a~DPS k~projektu jsou k~dispozici na \url{https://github.com/Pletacka-IoT} pod MIT licencí.
 
