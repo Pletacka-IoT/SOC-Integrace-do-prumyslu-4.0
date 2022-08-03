@@ -1,22 +1,25 @@
 {
 	"cSpell.words": [
+		"ablonovac",
 		"Blynk",
 		"Dos",
 		"Dosáhnul",
-		"Nette",
-		"ablonovac",
 		"hnul",
 		"leny",
+		"microcontroller",
 		"mikrokontrol",
 		"mikrokontrolérů",
+		"Nette",
 		"opto",
 		"optočleny",
+		"optocouples",
 		"plexi",
 		"r",
 		"replikovatelnost",
+		"ROTEX",
+		"šablonovací",
 		"verzovan",
-		"verzované",
-		"šablonovací"
+		"verzované"
 	],
 	"cSpell.enableFiletypes": [
 		"!c",
@@ -26,5 +29,12 @@
 		"latex",
 		"text"
 	],
-	"cSpell.language": "en,cs"
+	"cSpell.language": "en,cs",
+	"grammarly.selectors": [
+		{
+			"language": "latex",
+			"scheme": "file",
+			"pattern": "text.tex"
+		}
+	]
 }

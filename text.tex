@@ -83,20 +83,21 @@ To vše  můj systém řeší  a nabízí jednoduché, uživatelsky přívětiv�
 
 EN
 
-This project with name Integration into Industry 4.0 deals with the design of a monitoring system for production machines and its deployment in ROTEX Vysočina s.r.o.
+This project with the name Integration into Industry 4.0 deals with the design of a monitoring system for production machines and its deployment in ROTEX Vysočina s.r.o.
 This company is engaged in the production of socks.
 It operates in two-dimensional production and produces monthly over a hundred and twenty-five thousand pairs of socks.
 
-In the company there are 25 sock knitting machines on socks, which are operated by three operators.
-The whole work of the operator consists of checking finished socks, moving the socks, and fixing the machines.
+In the company, there are 25 sock knitting machines, which are operated by three operators.
+The whole work of the operator consists of checking finished socks and fixing the machines.
 
-Internally the system is called iSocks IoT.
+The system is internally called iSocks IoT.
 The goal of the system is to monitor the number of finished socks, the time it takes to stop each machine, and compare the different phases, but also to provide a summary to the employees about the current production.
 % The system is designed to be easy to use, and to be easy to understand.
 
-In the past the company had no data about the time of sewing, the daily production, or the time of starting the machines.
+In the past, the company had no data about the time of knitting machines, the daily production, or the time of starting the machines.
 My system solves this problem and provides an easy, user-friendly interface, where the user can easily see all these data in graphs and tables.
 
+\newpage
 
 \begin{figure}[t]
     \centering
@@ -127,8 +128,8 @@ Cílem této práce bylo navrhnout ucelený systém, který dokáže:
 
 EN
 
-This project aims to design a system for automatic monitoring of production machines and its deployment into practice.
-The system was designed as a universal platform for monitoring production machines, with the primary focus on sewing machines.
+This project aims to design a system for automatic monitoring of production machines and their deployment into practice.
+The system was designed as a universal platform for monitoring production machines, with the primary focus on sock knitting machines.
 
 The goal of this project was to design a system that:
 
@@ -161,13 +162,13 @@ Tento systém ve firmě ROTEX monitoruje počet upletených ponožek, dobu stán
 
 EN
 
-The system consists of a sensor part, a server and a supporting server.
-The sensor part is built on a sensor board with a microcontroller with a color display.
-The sensor is connected to the sock knitting machine and sends measured data.
-The server receives data from the sensors, processes them and displays them to the user.
+The system consists of a sensor part, a server, and a supporting server.
+The sensor part is built on a circuit board with a microcontroller.
+The sensor is connected to the sock knitting machine and sends measured data to the server.
+The server receives data from the sensors, processes them, and displays them to the user.
 The supporting server is responsible for updating and checking the correct operation of the sensors.
 
-System was designed as a universal platform for monitoring production machines with a primary focus on sock knitting machines.
+The system was designed as a universal platform for monitoring production machines with a primary focus on sock knitting machines.
 The actual deployment of this system took place in the company ROTEX Vysočina s.r.o. focused on the production of socks.
 I deployed my system on ten sock knitting machines, which were operating for 18 months.
 During this time the system recorded over one million finished socks.
@@ -190,12 +191,12 @@ Senzor je napájen z 5 nebo 24 V a má spotřebu 120 mA.
 EN
 
 Socks machines are older machines without support for internet connection.
-For measuring I had to develop my own sensors, which get data from electrical components on sock knitting machines and send them to the server via WiFi connection.
-Sensors iSocks IoT were designed to be easily connected to existing sock knitting machine and to connect them to the central control system.
-Another requirement of the sensor was to prevent damage to the machine if it was not active, and has no effect on the remaining operation of the company.
+For measuring, I had to develop my sensors, which get data from electrical components on sock knitting machines and send them to the server via WiFi connection.
+Sensors iSocks IoT were designed to be easily connected to existing sock knitting machines and to connect them to the central control system.
+Another requirement of the sensor was to prevent damage to the machine if it was not active, it does not affect the remaining operation of the company.
 
-Sensors are built on an ESP32 microcontroller, which provides enough power and has WiFi connectivity.
-Each of those sensors has its own unique number, under which it sends the measured data to the server.
+Sensors are built on an ESP32 microcontroller, which provides enough power and WiFi connectivity.
+Each of those sensors has its unique number, under which it sends the measured data to the server.
 The sensor is powered from 5 or 24 V and has a consumption of 120 mA.
 
 \begin{figure}[t]
@@ -225,21 +226,21 @@ Tu jsem navrhoval v programu Fusion 360 a následně jsem ji vytiskl na 3D tisk�
 
 EN
 
-On each sensor there are two optocouples connected to indicator LEDs on the sock knitting machine.
-One of those diodes is used to measure the time it takes to stop the machine for a breakdown and the second diodes is used to get the number of finished socks.
+There are two optocouplers on each sensor connected to indicator LEDs on the sock knitting machine.
+One of those LED is used to measure the time it takes to stop the machine for a breakdown and the second diode is used to determine the number of finished socks.
 On those two diodes is built the whole measuring and counting system.
 Additionally, the sensor has two user buttons used to set a unique ID of the sensor.
-For fast graphical representation on the board there are two colored LEDs.
+For fast graphical representation on the board, there are two colored LEDs.
 
-The main role of the LCD display is to display basic information about the machine to the operators.
+The main role of the LCD is to display basic information about the machine to the operators.
 On the top of the display is displayed the connection status and the number of finished socks.
-With a big font the operator can see the number of finished socks and the time it takes to stop the machine for a breakdown.
-These information are displayed on each machine and help to quickly fix the machine.
+The operator can see the number of finished socks and the time of repairing the machine.
+This information is displayed on each machine and helps to quickly fix the machine.
 The last new feature that I added to the sensor is the display of the average speed of knitting per hour.
 This average speed is displayed on each machine and is used to calculate the time it takes to finish a knitting order.
 
 The sensor is mounted to the compact 3D printed box.
-It was designed in Fusion 360 and printed on FDM 3D printer.
+It was designed in Fusion 360 and printed on the FDM 3D printer.
 
 % #########################################################################################
 \subsection*{Web server}
@@ -261,12 +262,12 @@ Kromě barvy se v bublině zobrazuje také text, ten ukazuje počet upletených 
 
 EN
 
-The second part of this system is the web server part, which receives the measured data, processes it and then displays it to the user.
+The second part of this system is the web server part, which receives the measured data, processes it, and then displays it to the user.
 The web server runs on a Raspberry Pi 4 Model B.
 
 The server is running on a Raspberry Pi OS with a graphical interface.
 The web pages are running on Apache2 and PHP 8.0.
-As a database system I use MariaDB.
+As a system database, I use MariaDB.
 
 The server is running locally inside the company network, which makes it fast and independent from the internet connection.
 
@@ -274,7 +275,7 @@ To connect to the web server you can open a local company link \newline\href{htt
 Then you will see the welcome page with colored bubbles that represent the knitting machines.
 The color of the bubble shows the current state of the machine.
 You can quickly determine the current state of the knitting machines without having to visit the knitting factory.
-Besides the color of the bubble there is also a text that shows the number of finished socks and the time it takes to stop the machine for a breakdown.
+Besides the color of the bubble, there is also a text that shows the number of finished socks and the time it takes to stop the machine for a breakdown.
 
 
 \begin{figure}[t]
@@ -298,15 +299,15 @@ Každý databázový záznam obsahuje číslo stroje, unikátní ID události, n
 
 EN
 
-Next web pages are the summaries of the sensors generated for each knitting machine.
+The next web pages are the summaries of the sensors generated for each knitting machine.
 Here the user can see the data in different time summaries.
-For easy comparison between two changes these data are displayed beside each other.
+For easy comparison between two changes, these data are displayed beside each other.
 At the end of the summaries are generated long-term graphs viz \ref{fig:webSenzory}
 
 Each sensor uses five database tables. The first one is used to store raw data, the other ones are automatically generated summaries.
-These summaries are used to quickly draw graphs and to calculate long-term data.
+These summaries are used to quickly draw graphs and calculate long-term data.
 The sensor records the finished sock and sends the data to the web server, which checks it and saves it to the database for the specific sensor.
-Each database entry contains the number of the machine, a unique ID of the event, the measured state and the time of the event.
+Each database entry contains the number of the machine, a unique ID of the event, the measured state, and the time of the event.
 
 % \includepdf[pages=-, scale=0.6, pagecommand={}]{DATASHEET/Pletacka_board_v2.pdf}
 \begin{figure}[htbp]
@@ -341,14 +342,14 @@ Touto zprávou se senzor nahlásí, že je zapnutý. Pokud takováto zpráva ned
 
 EN
 
-Support server was created as an extension for sensors.
+The support server was created as an extension for sensors.
 The server is programmed in Python and runs on Raspberry Pi together with the web server.\newline
 
-The main task of this server is detection of turned on sensors.
-On the server there is a Watchdog.
+The main task of this server is the detection of turned-on sensors.
+On the server, there is a Watchdog.
 This is a periodic loop that waits for a message from the sensor.
 This message is used to signal that the sensor is turned on.
-If such a message does not arrive in ten minutes, the sensor is marked as turned off and in the database it is marked as inactive.
+If such a message does not arrive in ten minutes, the sensor is marked as turned off and in the database, it is marked as inactive.
 
 
 % #########################################################################################
@@ -378,39 +379,39 @@ K rychlému zobrazování se využívají před generované výběry, ke kterým
 EN
 
 In previous chapters were described parts of the iSocks IoT system.
-In this chapter the whole system is described.
+In this chapter, the whole system will be described as a single unit.
 
 The first and most important part of the system is data acquisition.
 Once the sensor detects any change, it immediately sends the message to the server.
 The message is sent through the sensor API, where the sensor is first verified and then the state is written to the database for the specific sensor.
 After writing to the database the message is returned from the sensor.
 
-The next step is processing of raw data from the database.
-This is done on the server by the acquisition API, which is automatically started in the specified time.
-These selections are used to generate longer selections, hourly, daily, monthly and yearly.
+The next step is the processing of raw data from the database.
+This is done on the server by the acquisition API, which is automatically started at the specified time.
+These selections are used to generate longer selections, hourly, daily, monthly, and yearly.
 These selections are then stored in the database for the specific sensor.
-Generation of these data is done mostly at night, when the server is least busy.
+Generation of these data is done mostly at night when the server is least busy.
 
 The last step is displaying data to the user.
 This is the only part that the user receives in contact with the system.
 So it is necessary that the display is as quick as possible and that the user is as pleasant as possible.
-For a quick display the selections that have been generated are used, together with the data that has not yet been processed and the result is displayed to the user.
+For a quick display, the selections that have been generated are used, together with the data that has not yet been processed and the result is displayed to the user.
 
 EN2
 
 In previous chapters were described parts of the iSocks IoT system.
-In this chapter the whole system is described.
+In this chapter, the whole system will be described as a single unit.
 
 The first and most important part of the system is the acquisition of data using sensors.
 Once the sensor detects any change, it immediately sends the message to the server.
 The transmission of this message is performed by the sensor API, where first the sensor is checked and then the state is written to the database for the specific sensor.
 After writing to the database the server returns a message about the writing.
 
-The second step is processing of raw data from the database.
-This is performed on the server API, which is automatically started in the specified time.
-This is used to generate longer time summaries, hour, day, month and year.
+The second step is the processing of raw data from the database.
+This is performed on the server API, which is automatically started at the specified time.
+This is used to generate longer time summaries, hours, days, months, and years.
 These summaries are then saved to the database for the specific sensor.
-The generation of these data is performed mostly at night, when the server is least busy.
+The generation of these data is performed mostly at night when the server is least busy.
 
 The last step is displaying data to the user.
 This is the only part of the system that the user receives to contact.
@@ -472,7 +473,7 @@ Všechny zdrojové kódy a DPS k projektu jsou k dispozici na \url{https://githu
 EN
 
 The goals of this project were achieved. From old, but functional machines, the system became modern online machines.
-The system improved the production time, reduced the time spent by the operator, introduced detailed overview of the product, including comparison of production changes.
+The system improved the production time, reduced the time spent by the operator, and introduced a detailed overview of the product, including a comparison of production changes.
 The system reduced the manufacturing costs of the machine, by minimizing the costs of the machine during production.
 
 
@@ -480,15 +481,15 @@ All these goals were achieved.
 The system is currently used in ROTEX Vysočina s.r.o. and helps in the normal operation.
 My system is a part of the production process and analyzes and improves the production.
 
-??? Systém je k 20. červnu 2021 nasazen na deseti pletacích strojích a po dobu provozu zaznamenal již přes sto padesát tisíc upletených ponožek bez závady na senzorech.
+As of 20 June 2021, the system is deployed on ten knitting machines and has already recorded over one hundred and fifty thousand knitted socks without a sensor malfunction.
 
-Big advantage of this system is that it is able to compare the work shifts of the employees and thus to see the differences between the work shifts.
+The big advantage of this system is that it can compare the work shifts of the employees and thus see the differences between the work shifts.
 
-Thanks to this job I learned to design circuit boards, to work with electronic components and to try out different programming methods.
+Thanks to this job I learned to design circuit boards, work with electronic components, and try out different programming methods.
 I also learned how to program in PHP and create complex web systems.
 
-In the future I would like to extend this system to all machines and to cover the entire production.
-I would also like to continue to improve the web application and plan to extend it with more functions, such as export data to tables.
+In the future, I would like to extend this system to all machines and cover the entire production.
+I would also like to continue to improve the web application and plan to extend it with more functions, such as exporting data to tables.
 
 All the source code and DPS of the project are available on \url{https://github.com/Pletacka-IoT} under MIT license.
 
