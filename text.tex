@@ -65,6 +65,9 @@ I designed a production monitoring system that can record measured data and subm
 
 % #########################################################################################
 \section*{Introduction}
+
+CZ
+
 Práce s názvem Integrace do průmyslu 4.0 se zabývá návrhem monitorovacího systému pro výrobní stroje a jeho nasazením ve firmě ROTEX Vysočina s.r.o.
 Tato firma se věnuje výrobě ponožek.
 Pracuje ve dvousměnném provozu a produkuje měsíčně přes dvanáct tisíc párů ponožek.
@@ -105,6 +108,7 @@ My system solves this problem and provides an easy, user-friendly interface, whe
 
 % #########################################################################################
 \section*{Aims}
+CZ
 
 Tato práce představuje ucelený systém pro automatický monitoring průmyslové výroby a jeho nasazení do praxe.
 Systém byl navrhován jako univerzální platforma pro monitoring výrobních strojů, s primárním zaměřením na pletací stroje.
@@ -141,6 +145,7 @@ The goal of this project was to design a system that:
 
 % #########################################################################################
 \section*{Materials and methods}
+CZ
 
 Systém se skládá ze senzorové části, serveru a podpůrného serveru.
 Senzorová část je postavená na vlastní senzorové desce s mikrokontrolérem s barevným displejem.
@@ -171,6 +176,7 @@ This system in the company ROTEX monitors the number of finished socks, the time
 
 % #########################################################################################
 \subsection*{Sensors}
+CZ
 
 Pletací stroje na ponožky jsou starší zařízení bez podpory připojení k internetu.
 Pro měření jsem tedy musel vyvinout vlastní  senzory, které získávají data z elektrických součástek na pletacích  strojích a skrze WiFi připojení je posílají  na server.
@@ -198,6 +204,8 @@ The sensor is powered from 5 or 24 V and has a consumption of 120 mA.
     \caption{Two versions of sensors}
     \label{fig:dveVerze}
 \end{figure}
+
+CZ
 
 Na každém senzoru jsou dva optočleny napojené na indikační diody pletacího stroje.
 Z jedné diody se snímá zastavení stroje pro výpočet poruchového času a z druhé senzor získává počet upletených ponožek.
@@ -236,6 +244,8 @@ It was designed in Fusion 360 and printed on FDM 3D printer.
 % #########################################################################################
 \subsection*{Web server}
 
+CZ
+
 Nedílnou součástí tohoto systému je také serverová část, která se stará o přijímání naměřených dat, jejich zpracování a následné zobrazení uživateli.
 Samotný server běží na mikropočítači Raspberry Pi 4 Modelu B.
 
@@ -273,6 +283,8 @@ Besides the color of the bubble there is also a text that shows the number of fi
     \caption{Home page}
     \label{fig:webUvod}
 \end{figure}
+
+CZ
 
 Další webovou stránkou jsou Přehledy ze senzorů generované pro každý pletací stroj.
 Zde se uživateli zobrazují data v různých časových přehledech.
@@ -316,6 +328,9 @@ Each database entry contains the number of the machine, a unique ID of the event
 
 % #########################################################################################
 \subsection*{Support server}
+
+CZ
+
 Podpůrný server vznikl jako rozšíření pro senzory.
 Server je naprogramovaný v Pythonu a běží na Raspberry Pi společně s webovým serverem.\newline
 
@@ -338,6 +353,9 @@ If such a message does not arrive in ten minutes, the sensor is marked as turned
 
 % #########################################################################################
 \subsection*{Princip fungování iSocks IoT}
+
+CZ
+
 V předchozích kapitolách byly popsány části systému iSocks IoT.
 V této kapitole bude celý systém popsán jako celek.
 
@@ -411,6 +429,9 @@ For fast display of the result of the calculations, the generated summaries are 
 
 % #########################################################################################
 \subsection*{Testing}
+
+CZ
+
 Celý systém jsem vyvíjel od února 2020.
 První malé testy probíhaly již od května 2020, ale k většímu nasazení došlo až v září a listopadu 2020.
 Od té doby je systém ve firmě nasazen a průběžně probíhá kontrola měření a funkčnosti.
@@ -425,6 +446,7 @@ From then on the system is tested and maintained in the company.
 \newpage
 \section*{Results and discussion}
 
+CZ
 
 Cíle této práce byly splněny. Ze starých, ale výrobně funkčních stojů, se díky mému systému staly moderní online stroje.
 Systém zefektivnil výrobu, šetří čas operátora, nahrazuje rutinní úkony vykonávané doposud operátorem a přináší detailní přehled o výrobě včetně vzájemného porovnání výrobních směn.
