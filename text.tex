@@ -91,7 +91,7 @@ In the company, there are 25 sock knitting machines, which are operated by three
 The whole work of the operator consists of checking finished socks and fixing the machines.
 
 The system is internally called iSocks IoT.
-The goal of the system is to monitor the number of finished socks, the time it takes to stop each machine, and compare the different phases, but also to provide a summary to the employees about the current production.
+The goal of the system is to monitor the number of finished socks, measure time when the machine is in error state, and compare the different phases, but also to provide a summary to the employees about the current production.
 % The system is designed to be easy to use, and to be easy to understand.
 
 In the past, the company had no data about the time of knitting machines, the daily production, or the time of starting the machines.
@@ -157,7 +157,7 @@ Podpůrný server se stará o aktualizaci a o kontrolu správného chodu senzor�
 Systém byl navrhován jako univerzální platforma pro monitoring výrobních strojů s primárním zaměřením na pletací stroje.
 Samotné nasazení tohoto systému proběhlo ve firmě ROTEX Vysočina s.r.o. zaměřující se na pletení ponožek.
 Ve firmě jsem nasadil senzory na 10 pletacích strojů, které zde běží již 18 měsíců.
-Za tuto dobu systém zaznamenal přes jeden milion upletených ponožek.
+Za tuto dobu systém zaznamenal přes XXX upletených ponožek.
 Tento systém ve firmě ROTEX monitoruje počet upletených ponožek, dobu stání jednotlivých strojů, ale také porovnává jednotlivé pracovní směny.
 
 EN
@@ -171,7 +171,7 @@ The supporting server is responsible for updating and checking the correct opera
 The system was designed as a universal platform for monitoring production machines with a primary focus on sock knitting machines.
 The actual deployment of this system took place in the company ROTEX Vysočina s.r.o. focused on the production of socks.
 I deployed my system on ten sock knitting machines, which were operating for 18 months.
-During this time the system recorded over one million finished socks.
+During this time the system recorded over XXX finished socks.
 This system in the company ROTEX monitors the number of finished socks, the time it takes to stop each machine, and compares the different phases, but also provides a summary to the employees about the current production.
 
 
@@ -186,23 +186,23 @@ Dalším požadavkem senzoru bylo, aby neohrožoval chod samotného stroje, poku
 
 Senzory jsou postavené na mikrokontroléru ESP32, který nabízí dostatečný výkon a má bezdrátovou konektivitu WiFi.
 Každý z těchto senzorů má svoje jedinečné číslo, pod kterým posílá naměřená data na server.
-Senzor je napájen z 5 nebo 24 V a má spotřebu 120 mA.
+Senzor je napájen z 5 nebo 24 V a má spotřebu 120 mA (on 5 V).
 
 EN
 
-Socks machines are older machines without support for internet connection.
+The socks machines are old machines without support for internet connection and remote monitoring.
 For measuring, I had to develop my sensors, which get data from electrical components on sock knitting machines and send them to the server via WiFi connection.
 Sensors iSocks IoT were designed to be easily connected to existing sock knitting machines and to connect them to the central control system.
 Another requirement of the sensor was to prevent damage to the machine if it was not active, it does not affect the remaining operation of the company.
 
-Sensors are built on an ESP32 microcontroller, which provides enough power and WiFi connectivity.
+Sensors are built on an ESP32 microcontroller, which provides enough performance and WiFi connectivity.
 Each of those sensors has its unique number, under which it sends the measured data to the server.
-The sensor is powered from 5 or 24 V and has a consumption of 120 mA.
+The sensor is powered from 5 or 24 V and has a consumption of 120 mA (on 5 V).
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.7\textwidth]{img/oba.png}
-    \caption{Two versions of sensors}
+    \caption{Sensors: first version on the left, second version on the right}
     \label{fig:dveVerze}
 \end{figure}
 
@@ -226,16 +226,16 @@ Tu jsem navrhoval v programu Fusion 360 a následně jsem ji vytiskl na 3D tisk�
 
 EN
 
-There are two optocouplers on each sensor connected to indicator LEDs on the sock knitting machine.
+There are two optocouplers on each sensor connected to state indicator LEDs on the sock knitting machine.
 One of those LED is used to measure the time it takes to stop the machine for a breakdown and the second diode is used to determine the number of finished socks.
-On those two diodes is built the whole measuring and counting system.
+On those two LEDs is built the whole measuring and counting system.
 Additionally, the sensor has two user buttons used to set a unique ID of the sensor.
-For fast graphical representation on the board, there are two colored LEDs.
+There are two colored LEDs for direct state indication on the board.
 
-The main role of the LCD is to display basic information about the machine to the operators.
+The main information can operator saw on the integrated LCD.
 On the top of the display is displayed the connection status and the number of finished socks.
 The operator can see the number of finished socks and the time of repairing the machine.
-This information is displayed on each machine and helps to quickly fix the machine.
+This information is displayed on each machine and helps to fix the machine quickly.
 The last new feature that I added to the sensor is the display of the average speed of knitting per hour.
 This average speed is displayed on each machine and is used to calculate the time it takes to finish a knitting order.
 
@@ -301,7 +301,7 @@ EN
 
 The next web pages are the summaries of the sensors generated for each knitting machine.
 Here the user can see the data in different time summaries.
-For easy comparison between two changes, these data are displayed beside each other.
+For easy comparison between two work shifts, these data are displayed beside each other.
 At the end of the summaries are generated long-term graphs viz \ref{fig:webSenzory}
 
 Each sensor uses five database tables. The first one is used to store raw data, the other ones are automatically generated summaries.
@@ -418,6 +418,26 @@ This is the only part of the system that the user receives to contact.
 So it is necessary to make the display as fast as possible and to make it as pleasant for the user.
 For fast display of the result of the calculations, the generated summaries are used, which are generated before the calculations and which are used to display the result to the user.
 
+EN3 JPA
+
+In previous chapters were described parts of the iSocks IoT system.
+In this chapter, the whole system will be described as a single unit.
+
+The first and most important part of the system is the acquisition of data using sensors.
+Once the sensor detects any change, it immediately sends the message to the server.
+The transmission of this message is performed by the sensor API, where first the sensor is checked and then the state is written to the database for the specific sensor.
+After writing to the database the server returns a confirmation message.
+
+The second step is the processing of raw data from the database.
+This is performed on the server API, which is automatically started at the specified time.
+This is used to generate longer time summaries, hours, days, months, and years.
+These summaries are then saved to the database for the specific sensor.
+The generation of these data is performed mostly at night when the server is least busy.
+
+The last step is displaying data to the user.
+This is the only part of the system that normal user is going to see and control.
+So it is necessary to make the display as fast as possible and to make it as pleasant for the user.
+For fast display of the result of the calculations, the generated summaries are used, which are generated before the calculations and which are used to display the result to the user.
 
 
 \begin{figure}[t]
@@ -490,6 +510,7 @@ I also learned how to program in PHP and create complex web systems.
 
 In the future, I would like to extend this system to all machines and cover the entire production.
 I would also like to continue to improve the web application and plan to extend it with more functions, such as exporting data to tables.
+Aktuální projekt...
 
 All the source code and DPS of the project are available on \url{https://github.com/Pletacka-IoT} under MIT license.
 
