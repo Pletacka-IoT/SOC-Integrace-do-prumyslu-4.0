@@ -1,6 +1,6 @@
 # Integration into Industry 4.0 [EN]
 
-![](/img/Pletacka-IoT.png)
+![](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/raw/master/img/Pletacka-IoT.png)
 
 📖 [High school project](https://www.soc.cz/english/) - thesis (2020 - 2021)
 
@@ -35,7 +35,7 @@ Systém byl navrhován jako univerzální platforma pro monitoring výrobních s
 - [📊 Webpage for my project Pletacka-IoT](https://github.com/Pletacka-IoT/Pletacka-website)
 
 # This repository
-- [🇨🇿 High school project - thesis](text.pdf)
+- [🇨🇿 High school project - thesis](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/master/text.pdf)
 - [🇬🇧 English version - thesis (For Luxembourg conference)](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/luxembourg/text.pdf)
 - [📖 České hlavičky - thesis](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/ceske-hlavicky/text.pdf)
 - [🖥 Poster for conference](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/poster/luxembourg/Luxembourg_poster_en.pdf)
