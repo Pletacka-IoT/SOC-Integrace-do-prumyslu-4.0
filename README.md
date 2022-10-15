@@ -43,3 +43,4 @@ Systém byl navrhován jako univerzální platforma pro monitoring výrobních s
 # Poster
 
 ![](https://raw.githubusercontent.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/poster/luxembourg/Luxembourg_poster_en.png)
+
