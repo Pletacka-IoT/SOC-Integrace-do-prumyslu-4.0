@@ -39,3 +39,7 @@ Systém byl navrhován jako univerzální platforma pro monitoring výrobních s
 - [🇬🇧 English version - thesis (For Luxembourg conference)](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/luxembourg/text.pdf)
 - [📖 České hlavičky - thesis](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/ceske-hlavicky/text.pdf)
 - [🖥 Poster for conference](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/blob/poster/luxembourg/Luxembourg_poster_en.pdf)
+
+# Poster
+
+![](https://raw.githubusercontent.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/poster/luxembourg/Luxembourg_poster_en.png)
