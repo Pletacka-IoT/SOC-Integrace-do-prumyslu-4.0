@@ -1,5 +1,9 @@
 # Integration into Industry 4.0 [EN]
 
+<p align="center">
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPletacka-IoT%2FSOC-Integrace-do-prumyslu-4.0&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true"/></a>
+</p>
+
 ![](https://github.com/Pletacka-IoT/SOC-Integrace-do-prumyslu-4.0/raw/master/img/Pletacka-IoT.png)
 
 📖 [High school project](https://www.soc.cz/english/) - thesis (2020 - 2021)
